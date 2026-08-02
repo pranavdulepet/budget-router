@@ -5,67 +5,54 @@ and per-call routing inside coding agents.*
 
 *Pranav Dulepet*
 
-Model routing is usually reduced to one sentence: send easy requests to a
-cheap model and hard requests to a strong one.
+Model routing is a super interesting topic that has gotten especially popular
+over the past couple of weeks, with Ramp, Cursor, and OpenRouter all sharing
+how they embed it in their products.
 
-That sentence is useful until you try to build the router.
+They are not all solving the same routing problem.
 
-A request is not simply easy or hard. It may be easy for one model and hard
-for another. A cheap model is not useful merely because it is cheap. A
-classifier score is not automatically a probability. A model with the best
-predicted score may lack the required context window or tools. Inside an
-agent, one route changes the state seen by every route that follows.
+| System | How it works | What I took from it |
+|---|---|---|
+| [Cursor](https://cursor.com/blog/router) | A classifier looks at the request, context, task complexity, domain, and model behavior before choosing a model. It was trained on more than 600,000 live requests and evaluated online across millions, including cache misses. | Evaluate the whole product outcome. Model quality, conversation state, user satisfaction, and cache costs all count. |
+| [OpenRouter Auto Beta](https://openrouter.ai/docs/guides/routing/routers/auto-router) | A lightweight classifier assigns the prompt one of about 30 task types, ranks models by trailing seven-day spend share for that type, then applies the cost setting. [Provider routing](https://openrouter.ai/blog/insights/evaluate-llm-provider-performance/) separately handles latency, throughput, availability, quantization, and fallbacks. | A router can combine a cheap task classifier with a live, task-specific ranking. That ranking is a usage signal, not a direct label of correctness. |
+| [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing) | The caller supplies acceptable model and service-tier options. Ramp estimates failure and latency online, combines them with the request deadline and relative cost, then reorders the options. | Task fitness and runtime reliability should not be hidden inside the same score. |
 
-I built an open-source router to understand those problems directly. I began
-with one-shot selection across 13 models and 11,658 prompts. I then moved the
-decision inside a coding agent, where the router selected a model before each
-inference.
+Cursor is closest to the routing problem I wanted to study: predict which
+model should handle a request before any model runs. OpenRouter shows why that
+decision should be separate from provider failover. Ramp shows how much useful
+routing remains after the model pool has already been approved.
 
-The useful result came from the agent.
+I wanted to explore this in more detail by building my own.
 
-On 50 held-out SWE-bench tasks from repository families excluded from fitting,
-the routed agent and a fixed Qwen3.6 35B agent each resolved 22 tasks. The
-router cost $20.61. Fixed Qwen cost $26.02.
+## The simplest definition
 
-Across all 60 held-out tasks, the router resolved 26 and fixed Qwen resolved
-24, at $24.54 and $30.98. The router sent 12.70% of its calls to GPT-OSS 20B.
-Its paired quality interval still included both losses and gains, so the claim
-is narrow: the router reduced cost at the observed pass rate. It did not prove
-that routing is inherently more accurate.
-
-Getting to that result changed my definition of a router:
-
-> A classifier estimates which models fit a request. A router turns those
-> estimates into a constrained, calibrated, and measurable decision.
-
-## The router is allocating work
-
-Let \(x\) be the information visible when a decision is made and
-\(m\in\mathcal M\) a candidate model. The quantity I want is
+The simplest definition of a router is a system that allocates work. Let \(x\)
+be the information available when a decision is made and \(m\) be a candidate
+model. We want:
 
 \[
 p_m(x)=P(\text{acceptable outcome}\mid x,m).
 \]
 
-This is not one difficulty score. It is a surface over requests and models.
 For the same request, different models can have different probabilities. For
-the same model, different requests can have different probabilities.
+the same model, different requests can have different probabilities. In this
+formalization, routing only has value when:
 
-Routing only has value when four conditions hold:
-
-1. The models occupy meaningfully different quality-cost points.
+1. The models have meaningfully different quality-cost points.
 2. They disagree on some of the requests they solve.
-3. Cheaper models are sufficient often enough to matter.
-4. Something visible before inference predicts that sufficiency.
+3. Cheaper models are not atrociously bad.
+4. There is something the router can latch onto before inference that can help
+   it predict quality.
 
-The first three can be measured with a hindsight oracle. Evaluate every model
-on every request, then choose the cheapest successful model after seeing the
-outcome. The oracle cannot be deployed, but it measures the opportunity in the
-pool.
+We can measure the first three by evaluating every model on every request, and
+then choosing the cheapest model that succeeds. This gives us our upper bar: a
+hindsight oracle.
 
-On the public 13-model prompt matrix I used, the oracle scored 87.70% at
-$8.96. Fixed GPT-5 scored 73.52% at $56.52. There was substantial room for a
-router.
+Using LLMRouterBench's frozen cost field, the oracle scored 87.70% at $8.96.
+Fixed GPT-5 scored 73.52% at $56.52.
+
+That result tells us there is something worth routing. It does not tell us
+whether a learned router can find it.
 
 The gap between the oracle and a learned router measures a different problem:
 model recall. If only one candidate solves a request, can the router identify
@@ -399,37 +386,6 @@ explains why model switching cannot be evaluated only from list prices. Cache
 misses, longer prompts, retries, and changed stopping behavior belong in the
 policy comparison.
 
-## What public routers get right
-
-The most useful production descriptions do not reveal every classifier
-weight. They do reveal how the decision is divided.
-
-| System | Public design | The useful idea |
-|---|---|---|
-| [Cursor](https://cursor.com/blog/router) | Request and context features, task and model behavior, cache-aware evaluation, large online tests | Measure the product outcome, including cache effects |
-| [OpenRouter](https://openrouter.ai/docs/guides/routing/routers/auto-router) | Task classification, model ranking, allowlists, cost-quality control, fallbacks, session stickiness | Keep model choice separate from provider choice |
-| [Not Diamond](https://docs.notdiamond.ai/docs/routing-between-custom-models) | Routers trained from application outcomes across custom models or agents | Treat representative evaluation data as the interface |
-| [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing) | Online estimates of failure, latency, deadline risk, and relative cost | Learn runtime reliability separately from task fitness |
-| [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) | Domain, complexity, tool, privacy, and safety signals in a serving stack | Keep policy signals inspectable |
-
-Cursor reports online measurements and exposes user-facing modes such as
-Intelligence, Balance, and Cost. That is a quality-cost curve expressed as a
-product control. Its cache-aware evaluation is especially important for
-multi-call conversations.
-
-OpenRouter's Auto route classifies the task and ranks models. Provider routing
-then chooses an endpoint for the selected model. This boundary prevents a
-temporary provider outage from changing the semantic definition of the task.
-
-Ramp solves a narrower operational problem. Given an acceptable list of
-models and service tiers, it updates failure and deadline estimates online and
-reorders the choices. That is not a semantic quality classifier. It is a
-runtime policy over already-approved options.
-
-The designs converge on the same structure: representative feedback, a
-tunable objective, hard filters, fallbacks, online measurement, and a separate
-provider layer.
-
 ## The open-source router
 
 I packaged the reusable part as an MIT-licensed, provider-neutral Python
@@ -537,7 +493,9 @@ and [LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/).
 
 Production and agent routing:
 [Cursor](https://cursor.com/blog/router);
-[OpenRouter](https://openrouter.ai/docs/guides/routing/routers/auto-router);
+[OpenRouter Auto Router](https://openrouter.ai/docs/guides/routing/routers/auto-router);
+[OpenRouter provider evaluation](https://openrouter.ai/blog/insights/evaluate-llm-provider-performance/);
+[OpenRouter prompt caching](https://openrouter.ai/blog/tutorials/prompt-caching-sticky-routing/);
 [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing);
 [Not Diamond](https://docs.notdiamond.ai/docs/routing-between-custom-models);
 [vLLM Semantic Router](https://github.com/vllm-project/semantic-router);
