@@ -7,7 +7,7 @@ or evidentiary role.
 | Document | Purpose |
 |---|---|
 | [README](../README.md) | Install, train, evaluate, and integrate the router |
-| [Article](technical_blog.md) | Explain the design path, evaluation, results, and boundaries |
+| [Article](technical_blog.md) | Explain model-routing methods, the design path, evaluation, results, and boundaries |
 | [Production guide](open_source_router.md) | Prepare data and operate a frozen router |
 | Experiment reports | Preserve the design and result of one completed study |
 | [Active protocol](active_router_protocol.md) | Record what was frozen, changed, and stopped |
