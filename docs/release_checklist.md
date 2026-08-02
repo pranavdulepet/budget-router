@@ -26,12 +26,13 @@
   `https://github.com/pranavdulepet/budget-router`.
 - Repository, documentation, issue, release, citation, contribution, and
   private vulnerability-reporting metadata.
+- Hosted CI passed from the public repository: fresh-clone tests, quickstart,
+  package build, archive privacy check, protocol lock, and clean wheel import.
 
 ## Required before publication
 
-1. Run the hosted CI workflow from the first fresh public clone.
-2. Review the article under Pranav Dulepet’s byline.
-3. Tag `v0.1.0` and attach the wheel, source distribution, sanitized result
+1. Review the article under Pranav Dulepet’s byline.
+2. Tag `v0.1.0` and attach the wheel, source distribution, sanitized result
    artifacts, and article. PyPI publication is optional.
 
 ## Research boundaries
