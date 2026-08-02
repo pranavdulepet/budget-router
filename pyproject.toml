@@ -93,7 +93,6 @@ include = [
 ]
 exclude = [
   "/.agents",
-  "/.codex",
   "/.hf-cache",
   "/.venv",
   "/dist",
