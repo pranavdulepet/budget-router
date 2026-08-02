@@ -98,10 +98,9 @@ model pool, prompt, tool protocol, or harness is not portable to another.
 
 The repository retains the two-tier guarded router used in the SWE-bench
 study. That policy is research evidence, not the generic public interface.
-Its first version routed all 1,129 live calls to the stronger model despite
-passing offline checks. The follow-up calibrated against visible live
-prefixes, added explicit guards, and used the cheaper model on 12.70% of
-calls. Activation must be tested dynamically.
+The final policy calibrated against visible development-run prefixes, added
+explicit guards, and used the cheaper model on 12.70% of held-out calls. Its
+development showed that activation must be tested dynamically.
 
 ## Run the proxy
 
@@ -139,4 +138,4 @@ Before routing live requests:
 
 The package is provider-neutral. Its evidence is workload-specific. The
 [article](technical_blog.md) reports both the successful held-out cost result
-and the distribution-shift failures that constrain its use.
+and the distribution-shift boundary that constrains its use.

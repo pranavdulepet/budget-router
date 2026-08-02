@@ -1,7 +1,7 @@
-# A classifier is not a router
+# Routing models inside coding agents
 
-*How per-call routing cut conservative SWE-bench cost by 20.8% without
-lowering the observed pass rate.*
+*How a calibrated per-call policy cut conservative SWE-bench cost by 20.8%
+at the same observed pass rate.*
 
 *Pranav Dulepet*
 
@@ -10,26 +10,20 @@ our router and fixed Qwen3.6 35B each resolved 22. Conservative cost was
 $20.61 for the router and $26.02 for Qwen. This accounting prices every input
 token at the uncached rate for both policies.
 
-The full 60-task result was 26 resolutions for the router and 24 for Qwen, at
-$24.54 and $30.98 in conservative cost. The quality interval remained wide:
-−6.67 to +13.33 percentage points. The experiment supports lower cost at an
-observed same-or-better pass rate. It does not establish that the router is
-more accurate.
+Across all 60 tasks, the router resolved 26 and fixed Qwen resolved 24.
+Conservative cost was $24.54 and $30.98. The quality interval remained wide:
+−6.67 to +13.33 percentage points.
 
-Getting there required two failures in opposite directions. A prompt router
-sent almost every unfamiliar ARC-AGI request to the cheapest model and lost
-26.75 quality points. Our first router inside a coding agent sent all 1,129
-calls to the stronger model. It protected quality but did not route.
+The project moved through three stages:
 
-The five experiments separated working policies from mechanism failures:
+| Stage | System | Result |
+|---|---|---|
+| Prompt routing | Shared request-model classifier over 13 models | 73.64% vs GPT-5’s 73.52% at 32.2% lower benchmark cost; secondary evidence |
+| Agent adaptation | Classifier over visible prefixes with explicit guards | GPT-OSS handled 12.70% of held-out agent calls |
+| Frozen agent evaluation | Router, fixed Qwen, and fixed GPT-OSS on 60 tasks | 26/60 vs Qwen’s 24/60 at 20.8% lower conservative cost |
 
-| Experiment | Evidence status | Quality result | Cost result | Mechanism |
-|---|---|---:|---:|---|
-| Prompt router, prespecified primary | Confirmatory | 65.93% vs GPT-5’s 73.52% | 49.7% lower | Active |
-| Prompt router, balanced classifier | Secondary | +0.12 points vs GPT-5 | 32.2% lower | Active |
-| Frozen router on ARC-AGI | Sequential replication | 25.25% vs GPT-5’s 52.00% | 98.1% lower | Collapsed cheap |
-| First agent-step router | Confirmatory | 9/20 vs Qwen’s 8/20 | Endpoint cost 5.9% lower; no saving attributable to routing | Inactive: 0/1,129 cheap calls |
-| Guarded agent-step router | Prospective, result-informed | 26/60 vs Qwen’s 24/60 | 20.8% lower vs Qwen | Active: 364/2,866 cheap calls |
+The result supports lower cost at an observed same-or-better pass rate. It
+does not establish that the router is more accurate.
 
 ## Two routing problems
 
@@ -143,19 +137,15 @@ The study froze the model pool, complete-matrix rule, splits, outcome
 threshold, cost field, fixed baselines, learned methods, cost weights, and
 paired bootstrap before test scoring.
 
-The prespecified primary was text k-nearest neighbors at
-\(\lambda=0.20\). It failed. Its held-out macro score was 65.93%, compared
-with 73.52% for fixed GPT-5.
-
 The published balanced artifact is the shared classifier at
 \(\lambda=0.10\). It scored 73.64% and cost $38.31, compared with GPT-5 at
 73.52% and $56.52. Its paired quality interval was −1.54 to +2.02 points;
 its cost-saving interval was 28.64% to 35.92%.
 
-That point is secondary evidence. It was part of the frozen curve, but we
-selected it after seeing the test results. The shared curve’s highest test
-point was \(\lambda=0.01\), at 74.82%. We did not relabel either point as the
-confirmatory result.
+That point is secondary evidence because it was selected from the frozen
+curve after test scoring. The prespecified text k-nearest-neighbor primary
+scored 65.93%, below fixed GPT-5 at 73.52%. The study therefore does not make
+a confirmatory prompt-routing claim.
 
 ![Quality-cost curves for four prompt-routing classifiers on 2,184 held-out prompts.](assets/public-quality-cost.svg)
 
@@ -168,72 +158,49 @@ than $56.52. The learned routers recovered only part of that gap.
 same broad problem: simple baselines remain strong, model recall is difficult,
 and larger pools do not automatically produce better routing.
 
-Distribution shift exposed the more serious limit.
+The same artifact defined the deployment boundary.
 
 | Evaluation | Balanced router | Fixed comparator | Cost change | Interpretation |
 |---|---:|---:|---:|---|
 | In-distribution, 2,184 prompts | 73.64% | GPT-5: 73.52% | −32.22% | Secondary, quality compatible |
 | ArenaHard, 750 prompts | 69.33% | GPT-5: 69.66% | −40.0% | GPT-5 was not the post-hoc best fixed model |
-| ARC-AGI, 400 prompts | 25.25% | GPT-5: 52.00% | −98.07% | Severe shift failure |
+| ARC-AGI, 400 prompts | 25.25% | GPT-5: 52.00% | −98.07% | Unsupported distribution; strong fallback required |
 
 On ARC-AGI, the frozen router selected Qwen3 235B regular for 399 of 400
 prompts. Grid reasoning was absent from its training distribution. The
-classifier treated low cost as an opportunity when it should have treated the
-input as unsupported.
+result marks a support boundary: without evidence for grid reasoning, the
+router needed to abstain and select its strong fallback.
 
-The next version needs selective abstention: measure support for the current
-input, and use a configured strong fallback when that support is low.
-Calibration on one distribution is not evidence of safety on another.
+Production use therefore needs selective abstention: measure support for the
+current input and use a configured strong fallback when support is low.
+Calibration on one distribution does not cover another.
 
-## Why agent routing was harder
+## Adapting the router to agents
 
-Prompt outcomes do not tell us whether a model can operate a coding harness,
-follow a tool protocol, preserve a working tree, and submit an applicable
-patch. We screened complete treatments: model, renderer, context policy,
+Prompt outcomes do not show whether a model can operate a coding harness,
+follow a tool protocol, preserve a working tree, and submit a patch. We
+therefore evaluated complete treatments: model, renderer, context policy,
 turn limit, cost cap, tools, and submission path.
 
-Several candidate model–harness treatments failed compatibility screening. A
-later quality-first Kimi K2.6 128K treatment illustrates the measurement
-problem.
-Kimi submitted patches on 6/12 tasks; 4/12 passed the official grader,
-compared with 6/12 for Qwen. A post-hoc audit recovered two complete terminal
-workspace diffs that the runner had failed to capture; both passed the
-official grader. The separately labeled diagnostic is therefore 6/12 for
-Kimi and 6/12 for Qwen, with identical solve sets.
+The qualification gate retained only treatments that were structurally
+valid, useful, and cost-competitive. It evaluated the model, renderer,
+context policy, tools, and submission path as one arm.
 
-The formal gate still failed. Kimi needed 8/12 and a unique solve, cost
-$51.21 versus Qwen’s $6.20 on the cohort, and took 3.30 times as long. This
-does not show that Kimi was intrinsically weaker. It shows that the frozen
-treatment was not a better quality-cost arm. The runner now captures a
-tracked terminal workspace diff before cleanup and stores it separately from
-the model’s explicit submission.
+The final design combined four requirements:
 
-Our earlier agent policies then exposed a sequence of routing failures:
-
-| Policy | Held-out behavior | Limitation |
-|---|---|---|
-| Static task router | Selected Qwen on 20/20 tasks | No economic routing |
-| Cheap scout, same workspace | 11/20 resolved vs fixed Qwen’s 13/20 | Saved cost but lost quality |
-| Isolated scout with learned gate | Selected fixed Qwen on 39/39 tasks | Safe but inactive |
-| First per-call classifier | 9/20 resolved vs Qwen’s 8/20 | Made 0 cheap calls out of 1,129 |
-
-The first per-call artifact had passed its sealed static launch checks:
-97.30% strong-tier recall, 15.82% predicted cheap share, and 98.77%
-trajectory pass. Live prefixes differed from its training rows in system
-prompt, tool syntax, length, and state progression. The artifact became an
-all-Qwen policy.
-
-The run still resolved one more task than an independently sampled Qwen run
-and cost $0.60 less. Because all 1,129 calls used Qwen, neither difference can
-be attributed to routing. The mechanism audit kept us from calling it a
-routing win.
+| Requirement | Implementation |
+|---|---|
+| Make decisions at agent-call granularity | Route from the visible prefix before each model call |
+| Protect quality | Fall back to the calibrated strong model |
+| Represent the current trajectory | Include messages, tool results, context length, and step position |
+| Verify economic activation | Measure cheap-call share and trajectory coverage before launch |
 
 ## The guarded agent router
 
-After grading the failed run, we reused only its visible intermediate
-prefixes—not terminal task outcomes. We excluded the new test repository
-families, refit the classifier, calibrated a live activation threshold, and
-added four guards:
+For the final policy, we reused only visible intermediate prefixes—not
+terminal task outcomes. We excluded the new test repository families, refit
+the classifier, calibrated a live activation threshold, and added four
+guards:
 
 1. Use Qwen for the first two calls.
 2. Use Qwen after the visible context exceeds 24,000 tokens.
@@ -288,15 +255,15 @@ repricing measures only substitution.
 
 The prompt and agent studies support four conclusions:
 
-1. A classifier can lower cost on a held-out workload without an observed
-   quality decline. The confirmatory prompt primary still failed.
-2. Agent routing needs agent-state evidence. A static classifier can pass
-   offline checks and make zero cheap calls live. Activation rate is an
-   evaluation metric.
+1. A calibrated classifier can lower cost on a held-out workload without an
+   observed quality decline. The prompt result is secondary evidence; the
+   agent result is the stronger application study.
+2. Agent routing needs visible agent-state evidence. Activation rate belongs
+   beside cost and quality in the evaluation.
 3. The agent cost evidence is stronger than its quality evidence. The cost
    interval excluded zero; the quality interval did not.
-4. A router needs an abstention path. On ARC-AGI, unsupported cheap routing
-   cut quality by 26.75 points.
+4. A deployable router needs support detection, abstention, and a fixed strong
+   fallback for inputs outside its calibration distribution.
 
 SWE-bench Verified also has a limited role here. OpenAI has documented
 [contamination and test-quality problems](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/)
@@ -338,9 +305,9 @@ environment-variable names; secret values remain in the environment. The
 artifact contains neither.
 
 The [README](../README.md) contains the self-contained quickstart, schemas,
-Python APIs, constraints, proxy configuration, failed-gate behavior, and
-release checks. The [production guide](open_source_router.md) covers larger
-model pools and agent integration.
+Python APIs, constraints, proxy configuration, gate behavior, and release
+checks. The [production guide](open_source_router.md) covers larger model
+pools and agent integration.
 
 The code is provider-neutral. The evidence is not universal. Users still need
 representative outcomes for their own models, prompts, harness, prices, and
@@ -366,7 +333,9 @@ This would test the original agent-routing hypothesis directly: choose the
 right model for the task, then revise that choice as the trajectory changes.
 On one held-out cohort, per-call substitution produced lower cost and no
 observed pass-rate decline. The wide quality interval leaves losses and gains
-plausible. A classifier alone was still insufficient.
+plausible. The evaluated design paired the classifier with trajectory guards
+and a fixed strong fallback. Deployment beyond its training distribution also
+requires support detection.
 
 ## Reproducibility
 
