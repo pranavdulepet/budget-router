@@ -13,8 +13,8 @@
 - Frozen protocols through Amendment 013 and sanitized result artifacts for
   the prompt, static task, cascade, isolated scout, agent-step v1, guarded
   agent-step v2, three-tier compatibility, and Kimi qualification studies.
-- Article, four deterministic SVG figures, Medium-ready PNG exports,
-  aggregate figure data, README, and production guide.
+- Article, five deterministic SVG visuals, Medium-ready PNG exports, rendered
+  PDF, aggregate figure data, README, and production guide.
 - CI jobs for the 202-test fresh-clone suite, documented quickstart, package
   build, archive privacy check, and clean wheel import.
 - Local full suite: 212 tests passed.

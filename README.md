@@ -326,7 +326,8 @@ row, not across the two studies.
 The balanced prompt point is secondary evidence; the prespecified prompt
 primary did not establish parity with GPT-5. In the agent study, the paired
 cost interval excluded zero saving while the quality interval included losses
-and gains. Read the [article](docs/technical_blog.md) for the complete design
+and gains. Read the [article](docs/technical_blog.md) or its
+[rendered PDF](output/pdf/model-router-deep-dive.pdf) for the complete design
 path, evidence labels, and deployment boundaries.
 
 Key records:

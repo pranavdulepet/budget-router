@@ -1,46 +1,251 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="610" viewBox="0 0 1120 610" role="img" aria-labelledby="title desc">
-  <title id="title">Guarded agent router decisions</title>
-  <desc id="desc">A bar chart partitions 2,866 agent calls by the classifier or guard reason that selected Qwen or GPT-OSS.</desc>
-  <rect width="1120" height="610" fill="#ffffff"/>
-  <style>
-    text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
-    .label { font-size: 18px; font-weight: 600; }
-    .small { font-size: 15px; fill: #5f6b7a; }
-    .tick { font-size: 14px; fill: #5f6b7a; }
-    .number { font-size: 24px; font-weight: 700; }
-  </style>
-<text x="40" y="44" class="small">Every visible prefix produced one auditable reason.</text>
-  <text x="40" y="100" class="label">Classifier selected Qwen</text>
-  <rect x="390" y="82" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="82" width="640.0" height="28" rx="6" fill="#2563eb"/>
-  <text x="1045" y="102" class="label">1,794</text>
-  <text x="40" y="168" class="label">Initial-call guard forced Qwen</text>
-  <rect x="390" y="150" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="150" width="42.8" height="28" rx="6" fill="#5f6b7a"/>
-  <text x="1045" y="170" class="label">120</text>
-  <text x="40" y="236" class="label">Context guard forced Qwen</text>
-  <rect x="390" y="218" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="218" width="138.8" height="28" rx="6" fill="#5f6b7a"/>
-  <text x="1045" y="238" class="label">389</text>
-  <text x="40" y="304" class="label">Dwell guard forced Qwen</text>
-  <rect x="390" y="286" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="286" width="25.7" height="28" rx="6" fill="#5f6b7a"/>
-  <text x="1045" y="306" class="label">72</text>
-  <text x="40" y="372" class="label">Cheap-burst guard forced Qwen</text>
-  <rect x="390" y="354" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="354" width="45.3" height="28" rx="6" fill="#5f6b7a"/>
-  <text x="1045" y="374" class="label">127</text>
-  <text x="40" y="440" class="label">Classifier selected GPT-OSS</text>
-  <rect x="390" y="422" width="640" height="28" rx="6" fill="#d9dee8"/>
-  <rect x="390" y="422" width="129.9" height="28" rx="6" fill="#178a55"/>
-  <text x="1045" y="442" class="label">364</text>
-  <line x1="40" y1="505" x2="1080" y2="505" stroke="#d9dee8"/>
-  <text x="40" y="548" class="number">2,866 calls</text>
-  <text x="240" y="548" class="number">364 cheap calls</text>
-  <text x="515" y="548" class="number">56/60 trajectories</text>
-  <text x="805" y="548" class="number">400 switches</text>
-  <text x="40" y="575" class="small">total</text>
-  <text x="240" y="575" class="small">12.70% of all calls</text>
-  <text x="515" y="575" class="small">used GPT-OSS at least once</text>
-  <text x="805" y="575" class="small">between model tiers</text>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="673.941701pt" height="387.29854pt" viewBox="0 0 673.941701 387.29854" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 387.29854
+L 673.941701 387.29854
+L 673.941701 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 192.90625 299.55277
+L 645.553715 299.55277
+L 645.553715 24.597656
+L 192.90625 24.597656
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 192.90625 299.55277
+L 192.90625 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="192.90625" y="317.410192" transform="rotate(-0 192.90625 317.410192)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <path d="M 245.912942 299.55277
+L 245.912942 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="245.912942" y="317.410192" transform="rotate(-0 245.912942 317.410192)">250</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <path d="M 298.919634 299.55277
+L 298.919634 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="298.919634" y="317.410192" transform="rotate(-0 298.919634 317.410192)">500</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <path d="M 351.926326 299.55277
+L 351.926326 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="351.926326" y="317.410192" transform="rotate(-0 351.926326 317.410192)">750</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <path d="M 404.933017 299.55277
+L 404.933017 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="404.933017" y="317.410192" transform="rotate(-0 404.933017 317.410192)">1000</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <path d="M 457.939709 299.55277
+L 457.939709 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="457.939709" y="317.410192" transform="rotate(-0 457.939709 317.410192)">1250</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <path d="M 510.946401 299.55277
+L 510.946401 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="510.946401" y="317.410192" transform="rotate(-0 510.946401 317.410192)">1500</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8">
+      <path d="M 563.953093 299.55277
+L 563.953093 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="563.953093" y="317.410192" transform="rotate(-0 563.953093 317.410192)">1750</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9">
+      <path d="M 616.959785 299.55277
+L 616.959785 24.597656
+" clip-path="url(#pe3d31c7400)" style="fill: none; stroke: #d9dee8; stroke-width: 0.7; stroke-linecap: round"/>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5f6b7a" x="616.959785" y="317.410192" transform="rotate(-0 616.959785 317.410192)">2000</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172033" x="419.229982" y="333.170895" transform="rotate(-0 419.229982 333.170895)">Calls</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="55.062541" transform="rotate(-0 183.40625 55.062541)">Classifier selected Qwen</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="99.539266" transform="rotate(-0 183.40625 99.539266)">Context guard forced Qwen</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="144.015991" transform="rotate(-0 183.40625 144.015991)">Cheap-burst guard forced Qwen</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="188.492716" transform="rotate(-0 183.40625 188.492716)">Initial-call guard forced Qwen</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="text_15">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="232.969441" transform="rotate(-0 183.40625 232.969441)">Dwell guard forced Qwen</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="text_16">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5f6b7a" x="183.40625" y="277.446166" transform="rotate(-0 183.40625 277.446166)">Classifier selected GPT-OSS</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 192.90625 37.095616
+L 573.282271 37.095616
+L 573.282271 64.671185
+L 192.90625 64.671185
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #2563eb; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 192.90625 81.572341
+L 275.384663 81.572341
+L 275.384663 109.147911
+L 192.90625 109.147911
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #5f6b7a; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 192.90625 126.049066
+L 219.833649 126.049066
+L 219.833649 153.624636
+L 192.90625 153.624636
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #5f6b7a; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 192.90625 170.525791
+L 218.349462 170.525791
+L 218.349462 198.101361
+L 192.90625 198.101361
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #5f6b7a; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 192.90625 215.002516
+L 208.172177 215.002516
+L 208.172177 242.578086
+L 192.90625 242.578086
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #5f6b7a; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 192.90625 259.479241
+L 270.083993 259.479241
+L 270.083993 287.054811
+L 192.90625 287.054811
+z
+" clip-path="url(#pe3d31c7400)" style="fill: #178a55; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 192.90625 299.55277
+L 645.553715 299.55277
+" style="fill: none; stroke: #d9dee8; stroke-width: 1.25; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="579.282271" y="54.000588" transform="rotate(-0 579.282271 54.000588)">1,794 (62.6%)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="281.384663" y="98.477313" transform="rotate(-0 281.384663 98.477313)">389 (13.6%)</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="225.833649" y="142.954038" transform="rotate(-0 225.833649 142.954038)">127 (4.4%)</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="224.349462" y="187.430763" transform="rotate(-0 224.349462 187.430763)">120 (4.2%)</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="214.172177" y="231.907488" transform="rotate(-0 214.172177 231.907488)">72 (2.5%)</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172033" x="276.083993" y="276.384213" transform="rotate(-0 276.083993 276.384213)">364 (12.7%)</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #5f6b7a" transform="translate(192.90625 365.462788)">2,866 calls  ·  364 GPT-OSS  ·  2,502 Qwen  ·  56/60 trajectories used GPT-OSS</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #5f6b7a" transform="translate(192.90625 376.865385)">400 switches  ·  60/60 trajectories satisfied every guard</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172033" x="419.229982" y="18.597656" transform="rotate(-0 419.229982 18.597656)">Activation audit: one recorded reason for every model call</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe3d31c7400">
+   <rect x="192.90625" y="24.597656" width="452.647465" height="274.955114"/>
+  </clipPath>
+ </defs>
 </svg>

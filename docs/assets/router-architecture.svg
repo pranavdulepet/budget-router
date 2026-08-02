@@ -1,71 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="550" viewBox="0 0 1120 550" role="img" aria-labelledby="title desc">
-  <title id="title">Budget Router architecture</title>
-  <desc id="desc">Offline training produces a calibrated artifact. Online routing applies hard constraints, predicts success per model, and selects a model. Provider execution remains separate.</desc>
-  <rect width="1120" height="550" fill="#ffffff"/>
-  <style>
-    text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
-    .label { font-size: 18px; font-weight: 600; }
-    .small { font-size: 15px; fill: #5f6b7a; }
-    .tick { font-size: 14px; fill: #5f6b7a; }
-    .number { font-size: 24px; font-weight: 700; }
-  </style>
-
-  <defs>
-    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M0,0 L9,4.5 L0,9 z" fill="#5f6b7a"/>
-    </marker>
-  </defs>
-  <text x="40" y="45" class="label">Offline: learn one immutable routing artifact</text>
-  <rect x="40" y="70" width="220" height="112" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="62" y="104" class="label">Outcome matrix</text>
-  <text x="62" y="132" class="small">Requests × candidate models</text>
-  <text x="62" y="154" class="small">Train and calibration splits</text>
-<path d="M 260 126 H 302" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="302" y="70" width="220" height="112" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="324" y="104" class="label">Classifier</text>
-  <text x="324" y="132" class="small">P(success | request, model)</text>
-  <text x="324" y="154" class="small">Shared features + interactions</text>
-<path d="M 522 126 H 564" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="564" y="70" width="220" height="112" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="586" y="104" class="label">Calibration</text>
-  <text x="586" y="132" class="small">Per-model probabilities</text>
-  <text x="586" y="154" class="small">Non-inferiority gate</text>
-<path d="M 784 126 H 826" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="826" y="70" width="254" height="112" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="848" y="104" class="label">Versioned artifact</text>
-  <text x="848" y="132" class="small">Weights, calibrators, costs</text>
-  <text x="848" y="154" class="small">Cards, policy, content hash</text>
-
-  <line x1="40" y1="225" x2="1080" y2="225" stroke="#d9dee8"/>
-  <text x="40" y="270" class="label">Online: select before inference</text>
-  <rect x="40" y="295" width="190" height="122" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="62" y="329" class="label">Visible state</text>
-  <text x="62" y="357" class="small">Prompt or agent prefix</text>
-  <text x="62" y="379" class="small">Token estimate</text>
-<path d="M 230 356 H 270" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="270" y="295" width="190" height="122" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="292" y="329" class="label">Hard filters</text>
-  <text x="292" y="357" class="small">Capability and context</text>
-  <text x="292" y="379" class="small">Provider and cost limits</text>
-<path d="M 460 356 H 500" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="500" y="295" width="200" height="122" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="522" y="329" class="label">Success surface</text>
-  <text x="522" y="357" class="small">Calibrated probability</text>
-  <text x="522" y="379" class="small">for each eligible model</text>
-<path d="M 700 356 H 740" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="740" y="295" width="160" height="122" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="762" y="329" class="label">Policy</text>
-  <text x="762" y="357" class="small">Quality, balanced,</text>
-  <text x="762" y="379" class="small">or cost mode</text>
-<path d="M 900 356 H 940" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="940" y="295" width="140" height="122" rx="14" fill="#f6f8fb" stroke="#d9dee8"/>
-  <text x="962" y="329" class="label">Selection</text>
-  <text x="962" y="357" class="small">Model ID</text>
-  <text x="962" y="379" class="small">No API call</text>
-
-  <path d="M1010 417 V474 H760" stroke="#5f6b7a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <rect x="430" y="448" width="330" height="68" rx="14" fill="#fff7ed" stroke="#fed7aa"/>
-  <text x="452" y="478" class="label">Provider/runtime layer</text>
-  <text x="452" y="501" class="small">Endpoint, health, latency, retry, session cache</text>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 12.2.1 (20241206.2353)
+ -->
+<!-- Title: router Pages: 1 -->
+<svg width="518pt" height="432pt"
+ viewBox="0.00 0.00 517.60 431.60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(10.8 420.8)">
+<title>router</title>
+<polygon fill="white" stroke="none" points="-10.8,10.8 -10.8,-420.8 506.8,-420.8 506.8,10.8 -10.8,10.8"/>
+<g id="clust1" class="cluster">
+<title>cluster_offline</title>
+<polygon fill="white" stroke="#d9dee8" points="8,-235.45 8,-402 488,-402 488,-235.45 8,-235.45"/>
+<text text-anchor="middle" x="151" y="-386.6" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00" fill="#172033">OFFLINE · LEARN ONE VERSIONED ARTIFACT</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_online</title>
+<polygon fill="white" stroke="#d9dee8" points="36,-60.9 36,-227.45 472,-227.45 472,-60.9 36,-60.9"/>
+<text text-anchor="middle" x="159.88" y="-212.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00" fill="#172033">ONLINE · SELECT BEFORE INFERENCE</text>
+</g>
+<!-- outcomes -->
+<g id="node1" class="node">
+<title>outcomes</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M158.08,-365.25C158.08,-365.25 35.92,-365.25 35.92,-365.25 29.92,-365.25 23.92,-359.25 23.92,-353.25 23.92,-353.25 23.92,-340.35 23.92,-340.35 23.92,-334.35 29.92,-328.35 35.92,-328.35 35.92,-328.35 158.08,-328.35 158.08,-328.35 164.08,-328.35 170.08,-334.35 170.08,-340.35 170.08,-340.35 170.08,-353.25 170.08,-353.25 170.08,-359.25 164.08,-365.25 158.08,-365.25"/>
+<text text-anchor="middle" x="97" y="-348.55" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Outcome matrix</text>
+<text text-anchor="middle" x="97" y="-337.3" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">requests × candidate models</text>
+</g>
+<!-- classifier -->
+<g id="node2" class="node">
+<title>classifier</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M317.2,-365.25C317.2,-365.25 198.8,-365.25 198.8,-365.25 192.8,-365.25 186.8,-359.25 186.8,-353.25 186.8,-353.25 186.8,-340.35 186.8,-340.35 186.8,-334.35 192.8,-328.35 198.8,-328.35 198.8,-328.35 317.2,-328.35 317.2,-328.35 323.2,-328.35 329.2,-334.35 329.2,-340.35 329.2,-340.35 329.2,-353.25 329.2,-353.25 329.2,-359.25 323.2,-365.25 317.2,-365.25"/>
+<text text-anchor="middle" x="258" y="-348.55" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Classifier</text>
+<text text-anchor="middle" x="258" y="-337.3" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">P(success | request, model)</text>
+</g>
+<!-- outcomes&#45;&gt;classifier -->
+<g id="edge1" class="edge">
+<title>outcomes&#45;&gt;classifier</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M170.43,-347C170.43,-347 177.57,-347 177.57,-347"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="177.57,-349.45 184.57,-347 177.57,-344.55 177.57,-349.45"/>
+</g>
+<!-- calibration -->
+<g id="node3" class="node">
+<title>calibration</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M459.58,-365.25C459.58,-365.25 358.42,-365.25 358.42,-365.25 352.42,-365.25 346.42,-359.25 346.42,-353.25 346.42,-353.25 346.42,-340.35 346.42,-340.35 346.42,-334.35 352.42,-328.35 358.42,-328.35 358.42,-328.35 459.58,-328.35 459.58,-328.35 465.58,-328.35 471.58,-334.35 471.58,-340.35 471.58,-340.35 471.58,-353.25 471.58,-353.25 471.58,-359.25 465.58,-365.25 459.58,-365.25"/>
+<text text-anchor="middle" x="409" y="-348.55" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Calibration</text>
+<text text-anchor="middle" x="409" y="-337.3" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">comparable probabilities</text>
+</g>
+<!-- classifier&#45;&gt;calibration -->
+<g id="edge2" class="edge">
+<title>classifier&#45;&gt;calibration</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M329.52,-347C329.52,-347 337.14,-347 337.14,-347"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="337.14,-349.45 344.14,-347 337.14,-344.55 337.14,-349.45"/>
+</g>
+<!-- gate -->
+<g id="node4" class="node">
+<title>gate</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M293.08,-288.35C293.08,-288.35 176.92,-288.35 176.92,-288.35 170.92,-288.35 164.92,-282.35 164.92,-276.35 164.92,-276.35 164.92,-263.45 164.92,-263.45 164.92,-257.45 170.92,-251.45 176.92,-251.45 176.92,-251.45 293.08,-251.45 293.08,-251.45 299.08,-251.45 305.08,-257.45 305.08,-263.45 305.08,-263.45 305.08,-276.35 305.08,-276.35 305.08,-282.35 299.08,-288.35 293.08,-288.35"/>
+<text text-anchor="middle" x="235" y="-271.65" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Policy selection + gate</text>
+<text text-anchor="middle" x="235" y="-260.4" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">quality margin · cost weight</text>
+</g>
+<!-- calibration&#45;&gt;gate -->
+<g id="edge3" class="edge">
+<title>calibration&#45;&gt;gate</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M409,-327.85C409,-318.01 409,-308 409,-308 409,-308 245.94,-308 245.94,-308 245.94,-308 245.94,-297.32 245.94,-297.32"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="248.39,-297.32 245.94,-290.32 243.49,-297.32 248.39,-297.32"/>
+</g>
+<!-- artifact -->
+<g id="node5" class="node">
+<title>artifact</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M459.95,-288.35C459.95,-288.35 334.05,-288.35 334.05,-288.35 328.05,-288.35 322.05,-282.35 322.05,-276.35 322.05,-276.35 322.05,-263.45 322.05,-263.45 322.05,-257.45 328.05,-251.45 334.05,-251.45 334.05,-251.45 459.95,-251.45 459.95,-251.45 465.95,-251.45 471.95,-257.45 471.95,-263.45 471.95,-263.45 471.95,-276.35 471.95,-276.35 471.95,-282.35 465.95,-288.35 459.95,-288.35"/>
+<text text-anchor="middle" x="397" y="-271.65" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Immutable artifact</text>
+<text text-anchor="middle" x="397" y="-260.4" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">weights · cards · costs · hash</text>
+</g>
+<!-- gate&#45;&gt;artifact -->
+<g id="edge4" class="edge">
+<title>gate&#45;&gt;artifact</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M305.11,-270C305.11,-270 312.82,-270 312.82,-270"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="312.82,-272.45 319.82,-270 312.82,-267.55 312.82,-272.45"/>
+</g>
+<!-- surface -->
+<g id="node8" class="node">
+<title>surface</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M443.83,-190.7C443.83,-190.7 350.17,-190.7 350.17,-190.7 344.17,-190.7 338.17,-184.7 338.17,-178.7 338.17,-178.7 338.17,-165.8 338.17,-165.8 338.17,-159.8 344.17,-153.8 350.17,-153.8 350.17,-153.8 443.83,-153.8 443.83,-153.8 449.83,-153.8 455.83,-159.8 455.83,-165.8 455.83,-165.8 455.83,-178.7 455.83,-178.7 455.83,-184.7 449.83,-190.7 443.83,-190.7"/>
+<text text-anchor="middle" x="397" y="-174" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Success surface</text>
+<text text-anchor="middle" x="397" y="-162.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">for each eligible model</text>
+</g>
+<!-- artifact&#45;&gt;surface -->
+<g id="edge11" class="edge">
+<title>artifact&#45;&gt;surface</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" stroke-dasharray="5,2" d="M397,-251.07C397,-251.07 397,-199.84 397,-199.84"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="399.45,-199.84 397,-192.84 394.55,-199.84 399.45,-199.84"/>
+</g>
+<!-- state -->
+<g id="node6" class="node">
+<title>state</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M155.7,-190.7C155.7,-190.7 64.3,-190.7 64.3,-190.7 58.29,-190.7 52.3,-184.7 52.3,-178.7 52.3,-178.7 52.3,-165.8 52.3,-165.8 52.3,-159.8 58.3,-153.8 64.3,-153.8 64.3,-153.8 155.7,-153.8 155.7,-153.8 161.7,-153.8 167.7,-159.8 167.7,-165.8 167.7,-165.8 167.7,-178.7 167.7,-178.7 167.7,-184.7 161.7,-190.7 155.7,-190.7"/>
+<text text-anchor="middle" x="110" y="-174" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Visible state</text>
+<text text-anchor="middle" x="110" y="-162.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">prompt or agent prefix</text>
+</g>
+<!-- filters -->
+<g id="node7" class="node">
+<title>filters</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M309.58,-190.7C309.58,-190.7 196.42,-190.7 196.42,-190.7 190.42,-190.7 184.42,-184.7 184.42,-178.7 184.42,-178.7 184.42,-165.8 184.42,-165.8 184.42,-159.8 190.42,-153.8 196.42,-153.8 196.42,-153.8 309.58,-153.8 309.58,-153.8 315.58,-153.8 321.58,-159.8 321.58,-165.8 321.58,-165.8 321.58,-178.7 321.58,-178.7 321.58,-184.7 315.58,-190.7 309.58,-190.7"/>
+<text text-anchor="middle" x="253" y="-174" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Hard filters</text>
+<text text-anchor="middle" x="253" y="-162.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">capability · context · policy</text>
+</g>
+<!-- state&#45;&gt;filters -->
+<g id="edge5" class="edge">
+<title>state&#45;&gt;filters</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M168.16,-172C168.16,-172 175.3,-172 175.3,-172"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="175.3,-174.45 182.3,-172 175.3,-169.55 175.3,-174.45"/>
+</g>
+<!-- filters&#45;&gt;surface -->
+<g id="edge6" class="edge">
+<title>filters&#45;&gt;surface</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M322.05,-172C322.05,-172 329.2,-172 329.2,-172"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="329.2,-174.45 336.2,-172 329.2,-169.55 329.2,-174.45"/>
+</g>
+<!-- fallback -->
+<g id="node11" class="node">
+<title>fallback</title>
+<path fill="#fff7ed" stroke="#fed7aa" stroke-width="1.1" d="M183.45,-113.8C183.45,-113.8 78.55,-113.8 78.55,-113.8 72.55,-113.8 66.55,-107.8 66.55,-101.8 66.55,-101.8 66.55,-88.9 66.55,-88.9 66.55,-82.9 72.55,-76.9 78.55,-76.9 78.55,-76.9 183.45,-76.9 183.45,-76.9 189.45,-76.9 195.45,-82.9 195.45,-88.9 195.45,-88.9 195.45,-101.8 195.45,-101.8 195.45,-107.8 189.45,-113.8 183.45,-113.8"/>
+<text text-anchor="middle" x="131" y="-97.1" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Abstain + strong fallback</text>
+<text text-anchor="middle" x="131" y="-85.85" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">fail closed if unavailable</text>
+</g>
+<!-- filters&#45;&gt;fallback -->
+<g id="edge9" class="edge">
+<title>filters&#45;&gt;fallback</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M189.94,-153.63C189.94,-153.63 189.94,-122.88 189.94,-122.88"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="192.39,-122.88 189.94,-115.88 187.49,-122.88 192.39,-122.88"/>
+<text text-anchor="middle" x="167.81" y="-139.66" font-family="Helvetica,sans-Serif" font-size="8.00" fill="#5f6b7a">none eligible</text>
+</g>
+<!-- policy -->
+<g id="node9" class="node">
+<title>policy</title>
+<path fill="#f6f8fb" stroke="#d9dee8" stroke-width="1.1" d="M325.2,-113.8C325.2,-113.8 224.79,-113.8 224.79,-113.8 218.79,-113.8 212.79,-107.8 212.79,-101.8 212.79,-101.8 212.79,-88.9 212.79,-88.9 212.79,-82.9 218.79,-76.9 224.79,-76.9 224.79,-76.9 325.2,-76.9 325.2,-76.9 331.2,-76.9 337.2,-82.9 337.2,-88.9 337.2,-88.9 337.2,-101.8 337.2,-101.8 337.2,-107.8 331.2,-113.8 325.2,-113.8"/>
+<text text-anchor="middle" x="275" y="-97.1" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Decision policy</text>
+<text text-anchor="middle" x="275" y="-85.85" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">quality · balanced · cost</text>
+</g>
+<!-- surface&#45;&gt;policy -->
+<g id="edge7" class="edge">
+<title>surface&#45;&gt;policy</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M346.3,-153.53C346.3,-132.42 346.3,-101 346.3,-101 346.3,-101 345.42,-101 345.42,-101"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="346.37,-98.55 339.37,-101 346.37,-103.45 346.37,-98.55"/>
+</g>
+<!-- selected -->
+<g id="node10" class="node">
+<title>selected</title>
+<path fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.1" d="M443.58,-113.35C443.58,-113.35 366.42,-113.35 366.42,-113.35 360.42,-113.35 354.42,-107.35 354.42,-101.35 354.42,-101.35 354.42,-89.35 354.42,-89.35 354.42,-83.35 360.42,-77.35 366.42,-77.35 366.42,-77.35 443.58,-77.35 443.58,-77.35 449.58,-77.35 455.58,-83.35 455.58,-89.35 455.58,-89.35 455.58,-101.35 455.58,-101.35 455.58,-107.35 449.58,-113.35 443.58,-113.35"/>
+<text text-anchor="middle" x="405" y="-91.48" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Selected model ID</text>
+</g>
+<!-- policy&#45;&gt;selected -->
+<g id="edge8" class="edge">
+<title>policy&#45;&gt;selected</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M337.33,-89C337.33,-89 345.24,-89 345.24,-89"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="345.24,-91.45 352.24,-89 345.24,-86.55 345.24,-91.45"/>
+</g>
+<!-- policy&#45;&gt;fallback -->
+<g id="edge10" class="edge">
+<title>policy&#45;&gt;fallback</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M212.68,-95C212.68,-95 204.52,-95 204.52,-95"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="204.52,-92.55 197.52,-95 204.52,-97.45 204.52,-92.55"/>
+<text text-anchor="middle" x="200.35" y="-87.4" font-family="Helvetica,sans-Serif" font-size="8.00" fill="#5f6b7a">uncertain</text>
+</g>
+<!-- runtime -->
+<g id="node12" class="node">
+<title>runtime</title>
+<path fill="#eef4ff" stroke="#bfdbfe" stroke-width="1.1" d="M354.2,-36.9C354.2,-36.9 181.8,-36.9 181.8,-36.9 175.8,-36.9 169.8,-30.9 169.8,-24.9 169.8,-24.9 169.8,-12 169.8,-12 169.8,-6 175.8,0 181.8,0 181.8,0 354.2,0 354.2,0 360.2,0 366.2,-6 366.2,-12 366.2,-12 366.2,-24.9 366.2,-24.9 366.2,-30.9 360.2,-36.9 354.2,-36.9"/>
+<text text-anchor="middle" x="268" y="-20.2" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">Provider/runtime layer</text>
+<text text-anchor="middle" x="268" y="-8.95" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#172033">endpoint · health · latency · retry · cache</text>
+</g>
+<!-- selected&#45;&gt;runtime -->
+<g id="edge12" class="edge">
+<title>selected&#45;&gt;runtime</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M360.31,-77.13C360.31,-77.13 360.31,-46.16 360.31,-46.16"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="362.76,-46.16 360.31,-39.16 357.86,-46.16 362.76,-46.16"/>
+</g>
+<!-- fallback&#45;&gt;runtime -->
+<g id="edge13" class="edge">
+<title>fallback&#45;&gt;runtime</title>
+<path fill="none" stroke="#5f6b7a" stroke-width="1.2" d="M182.62,-76.73C182.62,-76.73 182.62,-45.98 182.62,-45.98"/>
+<polygon fill="#5f6b7a" stroke="#5f6b7a" stroke-width="1.2" points="185.08,-45.98 182.63,-38.98 180.18,-45.98 185.08,-45.98"/>
+</g>
+</g>
 </svg>

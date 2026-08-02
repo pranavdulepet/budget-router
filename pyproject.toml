@@ -29,6 +29,7 @@ Changelog = "https://github.com/pranavdulepet/budget-router/releases"
 
 [project.optional-dependencies]
 data = ["duckdb>=1.1", "pyarrow>=17"]
+figures = ["matplotlib>=3.10,<4", "seaborn>=0.13,<1"]
 ml = ["scikit-learn>=1.9,<2"]
 proxy = ["fastapi>=0.116,<1", "httpx>=0.28,<1", "uvicorn>=0.35,<1"]
 tinker = [
@@ -56,9 +57,11 @@ test = [
 all = [
   "duckdb>=1.1",
   "litellm==1.81.3",
+  "matplotlib>=3.10,<4",
   "mini-swe-agent==2.3.0",
   "pyarrow>=17",
   "scikit-learn>=1.9,<2",
+  "seaborn>=0.13,<1",
   "fastapi>=0.116,<1",
   "httpx>=0.28,<1",
   "uvicorn>=0.35,<1",

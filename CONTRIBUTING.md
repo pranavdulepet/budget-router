@@ -27,6 +27,20 @@ Provider and coding-runner dependencies are optional:
 python -m pip install -e ".[tinker,runner]"
 ```
 
+Article figures use Matplotlib and Seaborn; diagrams use the Graphviz `dot`
+executable:
+
+```bash
+python -m pip install -e ".[figures]"
+python scripts/generate_blog_figures.py
+```
+
+Rendering the article PDF additionally requires Pandoc and XeLaTeX:
+
+```bash
+sh scripts/render_technical_blog.sh
+```
+
 Tests submitted to the project must not require paid API calls, provider
 credentials, Docker, or network access. Use deterministic fixtures for core
 router behavior.

@@ -1,0 +1,49 @@
+digraph agent_loop {
+  graph [
+    bgcolor="white",
+    fontname="Helvetica",
+    pad="0.18",
+    rankdir="TB",
+    ranksep="0.50",
+    nodesep="0.32",
+    splines="spline"
+  ];
+  node [
+    shape="box",
+    style="rounded,filled",
+    fillcolor="#f6f8fb",
+    color="#d9dee8",
+    fontcolor="#172033",
+    fontname="Helvetica",
+    fontsize="11",
+    margin="0.16,0.11",
+    penwidth="1.1"
+  ];
+  edge [
+    color="#5f6b7a",
+    fontcolor="#5f6b7a",
+    fontname="Helvetica",
+    fontsize="8",
+    arrowsize="0.72",
+    penwidth="1.2"
+  ];
+
+  state [label="Visible state s_t\nissue · messages · tools · errors · budget"];
+  router [label="Frozen router π(s_t)\nconstraints · score · guard"];
+  model [label="Selected model m_t"];
+  action [label="Model action a_t\nresponse or tool call"];
+  environment [label="Environment T\ncommand · tool result · working tree"];
+  next [
+    label="Next visible state s_{t+1}\nreturns to the router on the next call",
+    fillcolor="#ecfdf5",
+    color="#a7f3d0"
+  ];
+  grader [
+    label="Terminal repository\nofficial grader",
+    fillcolor="#eef4ff",
+    color="#bfdbfe"
+  ];
+
+  state -> router -> model -> action -> environment -> next;
+  environment -> grader [label="task ends", style="dashed"];
+}
