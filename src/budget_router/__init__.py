@@ -1,4 +1,4 @@
-"""Provider-neutral, budget-aware routing for coding agents."""
+"""Train and run provider-neutral model routers."""
 
 from .agent_step import (
     AgentPrefixSummary,
@@ -21,10 +21,7 @@ from .semantic import (
     train_semantic_router,
 )
 from .semantic_agent import SemanticAgentRouteDecision, SemanticAgentRouter
-from .semantic_evaluation import (
-    SemanticEvaluationOutcome,
-    evaluate_semantic_router,
-)
+from .semantic_evaluation import SemanticEvaluationOutcome, evaluate_semantic_router
 from .task_model import HashedLinearModelHead
 from .types import (
     ActionEstimate,

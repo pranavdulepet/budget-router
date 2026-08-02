@@ -10,7 +10,7 @@ from budget_router.handoff import (
     select_transfer_format,
 )
 from budget_router.parallel import BranchResult, ParallelBranchExecutor
-from budget_router.providers import MockProvider, ModelRequest, ProviderError
+from budget_router.providers import MockProvider, ModelRequest
 from budget_router.runner import (
     MiniSweAgentCommand,
     ProviderHarness,

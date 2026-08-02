@@ -1,6 +1,6 @@
 # Active protocol: classifier-centered open model router
 
-Status: **normative; completed through Amendment 012; further Tinker
+Status: **normative; completed through Amendment 013; further Tinker
 strong-candidate search stopped**
 
 Study ID: `open-router-study-2026-07-29-v1`
@@ -21,6 +21,7 @@ Active amendments:
 - `docs/active_router_protocol_amendment_010_task_block_image_lifecycle.md`
 - `docs/active_router_protocol_amendment_011_kimi128_strong_qualification.md`
 - `docs/active_router_protocol_amendment_012_terminal_workspace_capture.md`
+- `docs/active_router_protocol_amendment_013_mit_license.md`
 
 This document supersedes earlier proposals as the active plan. Earlier
 experiments and protocols remain evidence and design history; they do not
@@ -33,7 +34,7 @@ The project has two inseparable deliverables:
 1. A technical blog post explaining what public production routers reveal,
    how this router was developed, which alternatives were tested, and how it
    performed against complete fixed-model baselines.
-2. An Apache-2.0, provider-neutral router that accepts arbitrary model cards
+2. An MIT-licensed, provider-neutral router that accepts arbitrary model cards
    and logged outcomes, trains a calibrated classifier, exposes cost/quality
    controls, and can be used as a Python library or OpenAI-compatible proxy.
 

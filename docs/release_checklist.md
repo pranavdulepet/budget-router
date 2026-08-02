@@ -2,7 +2,7 @@
 
 ## Complete locally
 
-- Apache-2.0 license, contribution guide, and security policy.
+- MIT license, contribution guide, and security policy.
 - Python 3.12 package with CLI, Python API, arbitrary-pool semantic router,
   agent-step adapter, held-out evaluator, and OpenAI-compatible proxy.
 - Calibration-gate fallback: only exact passing policy candidates route by
@@ -10,14 +10,14 @@
   model and fail closed if constraints exclude it.
 - Complete self-contained example for training, prompt routing, held-out
   evaluation, and agent-step routing.
-- Frozen protocols through Amendment 012 and sanitized result artifacts for
+- Frozen protocols through Amendment 013 and sanitized result artifacts for
   the prompt, static task, cascade, isolated scout, agent-step v1, guarded
   agent-step v2, three-tier compatibility, and Kimi qualification studies.
-- Article, four deterministic SVG figures, Medium-ready PNG exports,
-  aggregate figure data, README, and production guide.
-- CI jobs for the 201-test fresh-clone suite, documented quickstart, package
+- Article, five deterministic SVG visuals, Medium-ready PNG exports, rendered
+  PDF, aggregate figure data, README, and production guide.
+- CI jobs for the 202-test fresh-clone suite, documented quickstart, package
   build, archive privacy check, and clean wheel import.
-- Local full suite: 211 tests passed.
+- Local full suite: 212 tests passed.
 - Local wheel and source archive rebuilt from current source.
 - Source archive excludes top-level `data/`, `logs/`, and `outputs/`, plus raw
   patches, run logs, and grader output.

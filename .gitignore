@@ -10,7 +10,6 @@ __pycache__/
 .hf-cache/
 .minisweagent/
 .agents/
-.codex/
 dist/
 build/
 /outputs/

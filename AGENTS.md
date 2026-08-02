@@ -38,6 +38,9 @@ terminal workspace diff before cleanup and store it separately from the
 explicit submission. Do not claim that Amendment 011 proved Kimi less capable
 on this cohort; it failed the precommitted quality-cost admission gate.
 
+Amendment 013 changes the repository license from Apache-2.0 to MIT at the
+copyright holder's direction. It changes no study design or result.
+
 Do not silently change models, task splits, caps, metrics, gates, or classifier
 selection rules. A change is allowed only for an infrastructure defect, model
 retirement, invalid treatment, or explicit user direction. Record the reason,

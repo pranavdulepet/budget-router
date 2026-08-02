@@ -1,0 +1,89 @@
+digraph router {
+  graph [
+    bgcolor="white",
+    fontname="Helvetica",
+    pad="0.15",
+    rankdir="TB",
+    ranksep="0.55",
+    nodesep="0.24",
+    splines="ortho"
+  ];
+  node [
+    shape="box",
+    style="rounded,filled",
+    fillcolor="#f6f8fb",
+    color="#d9dee8",
+    fontcolor="#172033",
+    fontname="Helvetica",
+    fontsize="10",
+    margin="0.14,0.10",
+    penwidth="1.1"
+  ];
+  edge [
+    color="#5f6b7a",
+    fontcolor="#5f6b7a",
+    fontname="Helvetica",
+    fontsize="8",
+    arrowsize="0.70",
+    penwidth="1.2"
+  ];
+
+  subgraph cluster_offline {
+    label="OFFLINE · LEARN ONE VERSIONED ARTIFACT";
+    labelloc="t";
+    labeljust="l";
+    color="#d9dee8";
+    fontcolor="#172033";
+    fontname="Helvetica-Bold";
+    fontsize="12";
+    margin="16";
+
+    outcomes [label="Outcome matrix\nrequests × candidate models"];
+    classifier [label="Classifier\nP(success | request, model)"];
+    calibration [label="Calibration\ncomparable probabilities"];
+    gate [label="Policy selection + gate\nquality margin · cost weight"];
+    artifact [label="Immutable artifact\nweights · cards · costs · hash"];
+
+    { rank=same; outcomes; classifier; calibration; }
+    { rank=same; gate; artifact; }
+    outcomes -> classifier -> calibration -> gate -> artifact;
+  }
+
+  subgraph cluster_online {
+    label="ONLINE · SELECT BEFORE INFERENCE";
+    labelloc="t";
+    labeljust="l";
+    color="#d9dee8";
+    fontcolor="#172033";
+    fontname="Helvetica-Bold";
+    fontsize="12";
+    margin="16";
+
+    state [label="Visible state\nprompt or agent prefix"];
+    filters [label="Hard filters\ncapability · context · policy"];
+    surface [label="Success surface\nfor each eligible model"];
+    policy [label="Decision policy\nquality · balanced · cost"];
+    selected [label="Selected model ID", fillcolor="#ecfdf5", color="#a7f3d0"];
+    fallback [
+      label="Abstain + strong fallback\nfail closed if unavailable",
+      fillcolor="#fff7ed",
+      color="#fed7aa"
+    ];
+
+    { rank=same; state; filters; surface; }
+    { rank=same; policy; selected; fallback; }
+    state -> filters -> surface -> policy -> selected;
+    filters -> fallback [xlabel="none eligible"];
+    policy -> fallback [xlabel="uncertain"];
+  }
+
+  runtime [
+    label="Provider/runtime layer\nendpoint · health · latency · retry · cache",
+    fillcolor="#eef4ff",
+    color="#bfdbfe"
+  ];
+
+  artifact -> surface [style="dashed"];
+  selected -> runtime;
+  fallback -> runtime;
+}

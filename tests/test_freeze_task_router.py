@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import json
-
 import pytest
 
 from budget_router.serialization import stable_hash, stable_json
