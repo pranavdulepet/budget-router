@@ -370,6 +370,9 @@ plausible. A classifier alone was still insufficient.
 
 ## Reproducibility
 
+This article is the narrative synthesis. The linked reports preserve each
+experiment’s frozen design and result.
+
 The [active protocol](active_router_protocol.md) records the ordered study,
 gates, and amendments. Sanitized aggregate results are in
 [`public_router_v1_results.json`](../artifacts/public_router_v1_results.json),

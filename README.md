@@ -312,12 +312,16 @@ outputs are stochastic.
 
 The package grew from a classifier-centered routing study.
 
-| Study | Router | Comparator | Observed quality | Observed cost |
+| Study | Router | Comparator | Observed quality | Cost |
 |---|---|---|---:|---:|
-| Public ID prompts, secondary balanced point | Shared classifier | Fixed GPT-5 | 73.64% vs 73.52% | $38.31 vs $56.52 |
+| ID prompts, secondary balanced point | Shared classifier | Fixed GPT-5 | 73.64% vs 73.52% | $38.31 vs $56.52 |
 | ARC-AGI transfer | Same frozen artifact | Fixed GPT-5 | 25.25% vs 52.00% | $1.01 vs $52.60 |
-| Agent steps, all 60 held-out tasks | Guarded binary router | Fixed Qwen3.6 35B | 26/60 vs 24/60 | $24.54 vs $30.98 |
-| Agent steps, 50 novel-repository tasks | Same guarded router | Fixed Qwen3.6 35B | 22/50 vs 22/50 | $20.61 vs $26.02 |
+| Agent steps, 60-task operational result | Guarded binary router | Fixed Qwen3.6 35B | 26/60 vs 24/60 | $24.54 vs $30.98 |
+| Agent steps, predeclared novel-repository result | Same guarded router | Fixed Qwen3.6 35B | 22/50 vs 22/50 | $20.61 vs $26.02 |
+
+Prompt-study costs use the benchmark’s frozen cost field. Agent-study costs
+use conservative uncached token accounting. Costs are comparable within each
+row, not across the two studies.
 
 The prompt study’s confirmatory primary failed. The balanced prompt point is
 secondary. In the agent study, the paired cost interval excluded zero saving;

@@ -1,16 +1,23 @@
 # Documentation
 
-Start with the [README](../README.md). It covers installation, training,
-routing, evaluation, the Python interface, and the proxy.
+The repository has one narrative synthesis: the
+[article](technical_blog.md). The former technical-report draft repeated the
+article and experiment reports, so it was removed.
 
-## Use the router
+| Document | Purpose |
+|---|---|
+| [README](../README.md) | Install, train, evaluate, and integrate the router |
+| [Article](technical_blog.md) | Explain the experiments, results, failures, and conclusions |
+| [Production guide](open_source_router.md) | Prepare data and operate a frozen router |
+| Experiment reports | Preserve the design and result of one completed study |
+| [Active protocol](active_router_protocol.md) | Record what was frozen, changed, and stopped |
+| [Public artifacts](../artifacts/README.md) | Supply sanitized machine-readable evidence |
 
-- [Production guide](open_source_router.md): data collection, frozen
-  evaluation, agent integration, and deployment checks.
-- [Article](technical_blog.md): what the experiments found and how the design
-  changed.
+Earlier protocols may mention a planned technical report. Those files remain
+unchanged as chronological records. Experiment reports are evidence, not
+alternate drafts.
 
-## Check the evidence
+## Experiment records
 
 - [Guarded agent-step report](agent_step_router_v2_final_report.md): the main
   60-task agent result.
@@ -23,8 +30,5 @@ routing, evaluation, the Python interface, and the proxy.
 - [Public artifacts](../artifacts/README.md): sanitized results and frozen
   router records.
 
-## Audit the study
-
 The [active protocol](active_router_protocol.md) and its numbered amendments
-are the chronological research record. Earlier reports remain for provenance;
-the article is the current synthesis.
+are the chronological research record.
