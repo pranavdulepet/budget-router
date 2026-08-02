@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a coding agent with a bash tool."
+    },
+    {
+      "role": "user",
+      "content": "Fix the parser regression and verify the smallest relevant test."
+    }
+  ]
+}

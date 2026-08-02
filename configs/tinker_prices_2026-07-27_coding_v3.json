@@ -1,0 +1,14 @@
+{
+  "snapshot_id": "tinker-2026-07-27-coding-v3",
+  "source_url": "https://tinker-docs.thinkingmachines.ai/tinker/models/",
+  "as_of": "2026-07-27",
+  "currency": "USD",
+  "unit": "per_million_tokens",
+  "notes": "Coding-router study v3. Conservative caps use uncached list prices. This snapshot adds the current Qwen3-8B cheap tier.",
+  "models": {
+    "Qwen/Qwen3-8B": {"input_per_million_usd": "0.195", "cached_input_per_million_usd": "0.039", "output_per_million_usd": "0.60", "training_per_million_usd": "0.44", "context_tokens": 32768},
+    "Qwen/Qwen3.6-35B-A3B": {"input_per_million_usd": "0.54", "cached_input_per_million_usd": "0.108", "output_per_million_usd": "1.335", "training_per_million_usd": "1.177", "context_tokens": 65536},
+    "thinkingmachines/Inkling": {"input_per_million_usd": "1.87", "cached_input_per_million_usd": "0.374", "output_per_million_usd": "4.68", "training_per_million_usd": "5.61", "context_tokens": 65536},
+    "moonshotai/Kimi-K2.6": {"input_per_million_usd": "2.205", "cached_input_per_million_usd": "0.441", "output_per_million_usd": "5.49", "training_per_million_usd": "4.84", "context_tokens": 32768}
+  }
+}

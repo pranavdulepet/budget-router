@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose a provider-neutral routing or evaluation improvement.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Which routing or evaluation problem is not addressed?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed interface
+      description: Describe the API, CLI, artifact, or evaluation change.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evaluation plan
+      description: State the fixed baselines, split, metrics, and failure criteria.
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Project constraints
+      options:
+        - label: The core design remains provider-neutral.
+          required: true
+        - label: The proposal does not require credentials or paid calls in tests.
+          required: true

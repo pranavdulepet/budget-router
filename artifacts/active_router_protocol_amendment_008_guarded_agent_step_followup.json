@@ -1,0 +1,159 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "008-guarded-live-calibrated-agent-step-followup",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-29",
+  "status": "prospective_freeze_before_new_classifier_fit_or_paid_inference",
+  "inferential_status": "prospective_result_informed_agent_step_followup",
+  "authorization": {
+    "user_direction": "finish_remaining_agent_routing_experiments_with_enough_cases_and_right_models",
+    "original_incremental_hard_ceiling_usd": "220.00",
+    "spending_is_target": false
+  },
+  "model_selection": {
+    "cheap": "openai/gpt-oss-20b",
+    "strong": "Qwen/Qwen3.6-35B-A3B",
+    "evidence": {
+      "cheap_screen_decision": "eligible_cheap_winner",
+      "cheap_screen_resolved": 3,
+      "strong_role": "best_reliable_same_harness_control",
+      "excluded_gpt_oss_120b": "failed_structural_gate",
+      "excluded_deepseek_v3_1": "zero_official_screen_resolutions",
+      "excluded_qwen_27b": "zero_official_screen_resolutions",
+      "excluded_nemotron_ultra": "zero_official_screen_resolutions",
+      "excluded_nemotron_nano": "systematic_harness_incompatibility"
+    },
+    "model_pool_config": "configs/model_pool_router_v1.json",
+    "price_snapshot": "tinker-2026-07-29-router-v1"
+  },
+  "public_training_source": {
+    "name": "TwinRouterBench",
+    "revision": "430acecac71141de77afd8e5e13690d236d58e93",
+    "question_bank_path": "/private/tmp/TwinRouterBench/data/static/question_bank.jsonl",
+    "question_bank_sha256": "5b4f90c24643b214a9b0f26bf4e05afc742554262f4ef405e0b3b4a4cce503f4",
+    "manifest_path": "/private/tmp/TwinRouterBench/data/static/manifest.json",
+    "manifest_sha256": "e575b8cc8e33bba993f2d1bcf09b4ee6940fbb098c9255a9c8e5ef7c6771e726",
+    "excluded_swe_repository_prefixes": [
+      "astropy",
+      "django",
+      "matplotlib",
+      "pydata",
+      "pytest-dev",
+      "scikit-learn",
+      "sphinx-doc",
+      "sympy"
+    ]
+  },
+  "split": {
+    "unit": "instance_id",
+    "within": "benchmark",
+    "seed": "agent-step-router-live-followup-20260729-v2",
+    "train_fraction": 0.7,
+    "calibration_fraction": 0.15,
+    "static_test_fraction": 0.15
+  },
+  "classifier": {
+    "kind": "binary_hashed_logistic",
+    "dimension": 16384,
+    "hash_seed": "agent-step-router-features-v1",
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "inverse_l2_strength_candidates": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "cross_validation": "five_fold_instance_grouped_training_only",
+    "selection_metric": "mean_binary_log_loss",
+    "calibration": "platt_on_public_calibration_split"
+  },
+  "live_threshold": {
+    "development_trajectories": "outputs/agent_step_router_v1/trajectories/heldout/router_frozen-agent-step-v1",
+    "development_records": "outputs/agent_step_router_v1/dynamic_episodes.jsonl",
+    "official_outcomes_used": false,
+    "candidate_thresholds": "unique_observed_calibrated_probabilities",
+    "selection": "lowest_threshold_satisfying_all_activation_constraints",
+    "minimum_shadow_cheap_call_share": 0.15,
+    "maximum_shadow_cheap_call_share": 0.2,
+    "minimum_shadow_trajectories_with_cheap_call": 15,
+    "expected_development_trajectories": 20
+  },
+  "runtime": {
+    "force_strong_initial_calls": 2,
+    "maximum_consecutive_cheap_calls": 2,
+    "force_strong_approximate_context_tokens": 24000,
+    "strong_minimum_dwell_calls_before_deescalation": 2,
+    "max_agent_steps": 75,
+    "fixed_cheap_episode_cap_usd": "0.35",
+    "fixed_strong_episode_cap_usd": "0.90",
+    "routed_episode_cap_usd": "0.90"
+  },
+  "development_gate": {
+    "task_source": "amendment_007_heldout_now_development",
+    "tasks": 20,
+    "treatments": [
+      "frozen_guarded_router_v2"
+    ],
+    "minimum_actual_cheap_call_share": 0.1,
+    "maximum_actual_cheap_call_share": 0.2,
+    "minimum_trajectories_with_cheap_call": 15,
+    "minimum_structurally_valid_episodes": 19,
+    "minimum_official_resolutions": 6,
+    "maximum_provider_failures": 0,
+    "unclassified_grader_errors_allowed": 0,
+    "result_contingent_threshold_change_allowed": false
+  },
+  "heldout": {
+    "task_manifest": "artifacts/agent_step_followup_v2_task_manifest.json",
+    "tasks": 60,
+    "treatments": [
+      "fixed_gpt_oss_20b",
+      "fixed_qwen_35b",
+      "frozen_guarded_router_v2"
+    ],
+    "blocked_by_task": true,
+    "treatment_order_seed": 20260729,
+    "official_grades_open_after_canonical_episodes": 180,
+    "novel_repository_primary_subgroup": {
+      "tasks": 50,
+      "repositories": {
+        "django/django": 27,
+        "matplotlib/matplotlib": 18,
+        "astropy/astropy": 5
+      }
+    },
+    "familiar_repository_secondary_subgroup": {
+      "tasks": 10,
+      "repositories": {
+        "pydata/xarray": 2,
+        "pytest-dev/pytest": 2,
+        "scikit-learn/scikit-learn": 2,
+        "sphinx-doc/sphinx": 2,
+        "sympy/sympy": 2
+      }
+    },
+    "exact_task_previously_unexecuted": true,
+    "selection_seed": "agent-step-router-v2-heldout-20260729"
+  },
+  "analysis": {
+    "primary_quality": "official_swebench_resolved_count",
+    "joint_success": "router_resolved_count >= fixed_qwen_resolved_count and router_total_cost < fixed_qwen_total_cost and router_cheap_call_share >= 0.10 and routed_trajectories_with_cheap_call >= 30",
+    "novel_repository_subgroup_is_primary_transfer_analysis": true,
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_seed": 20260729,
+    "repository_macro_analysis": true,
+    "shadow_identity_audit": true
+  },
+  "budget": {
+    "recorded_pre_amendment_exposure_usd": "66.739823475",
+    "development_routed_max_usd": "18.00",
+    "heldout_fixed_cheap_max_usd": "21.00",
+    "heldout_fixed_strong_max_usd": "54.00",
+    "heldout_routed_max_usd": "54.00",
+    "infrastructure_recovery_reserve_usd": "3.00",
+    "maximum_new_exposure_usd": "150.00",
+    "maximum_cumulative_active_router_exposure_usd": "216.739823475",
+    "remaining_original_ceiling_reserve_usd": "3.260176525"
+  }
+}

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt routing quality-cost curves</title>
+  <desc id="desc">Four learned routing methods trace quality-cost curves on 2,184 held-out prompts. The published balanced shared classifier is highlighted, along with the failed confirmatory primary, GPT-5, and a non-deployable hindsight oracle.</desc>
+  <rect width="1120" height="660" fill="#ffffff"/>
+  <style>
+    text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .label { font-size: 18px; font-weight: 600; }
+    .small { font-size: 15px; fill: #5f6b7a; }
+    .tick { font-size: 14px; fill: #5f6b7a; }
+    .number { font-size: 24px; font-weight: 700; }
+  </style>
+<line x1="92.0" y1="55" x2="92.0" y2="555" stroke="#d9dee8"/>
+  <text x="92.0" y="583" text-anchor="middle" class="tick">$0</text>
+  <line x1="197.6" y1="55" x2="197.6" y2="555" stroke="#d9dee8"/>
+  <text x="197.6" y="583" text-anchor="middle" class="tick">$10</text>
+  <line x1="303.1" y1="55" x2="303.1" y2="555" stroke="#d9dee8"/>
+  <text x="303.1" y="583" text-anchor="middle" class="tick">$20</text>
+  <line x1="408.7" y1="55" x2="408.7" y2="555" stroke="#d9dee8"/>
+  <text x="408.7" y="583" text-anchor="middle" class="tick">$30</text>
+  <line x1="514.2" y1="55" x2="514.2" y2="555" stroke="#d9dee8"/>
+  <text x="514.2" y="583" text-anchor="middle" class="tick">$40</text>
+  <line x1="619.8" y1="55" x2="619.8" y2="555" stroke="#d9dee8"/>
+  <text x="619.8" y="583" text-anchor="middle" class="tick">$50</text>
+  <line x1="725.3" y1="55" x2="725.3" y2="555" stroke="#d9dee8"/>
+  <text x="725.3" y="583" text-anchor="middle" class="tick">$60</text>
+  <line x1="830.9" y1="55" x2="830.9" y2="555" stroke="#d9dee8"/>
+  <text x="830.9" y="583" text-anchor="middle" class="tick">$70</text>
+  <line x1="92" y1="555.0" x2="852" y2="555.0" stroke="#d9dee8"/>
+  <text x="78" y="560.0" text-anchor="end" class="tick">50%</text>
+  <line x1="92" y1="430.0" x2="852" y2="430.0" stroke="#d9dee8"/>
+  <text x="78" y="435.0" text-anchor="end" class="tick">60%</text>
+  <line x1="92" y1="305.0" x2="852" y2="305.0" stroke="#d9dee8"/>
+  <text x="78" y="310.0" text-anchor="end" class="tick">70%</text>
+  <line x1="92" y1="180.0" x2="852" y2="180.0" stroke="#d9dee8"/>
+  <text x="78" y="185.0" text-anchor="end" class="tick">80%</text>
+  <line x1="92" y1="55.0" x2="852" y2="55.0" stroke="#d9dee8"/>
+  <text x="78" y="60.0" text-anchor="end" class="tick">90%</text>
+  <polyline points="109.3,389.4 109.5,389.0 115.8,388.9 186.3,350.2 377.3,286.5 496.4,259.6 604.1,261.5 655.7,250.4 691.2,244.8 739.5,258.2" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <circle cx="109.3" cy="389.4" r="4.5" fill="#2563eb"/>
+  <circle cx="109.5" cy="389.0" r="4.5" fill="#2563eb"/>
+  <circle cx="115.8" cy="388.9" r="4.5" fill="#2563eb"/>
+  <circle cx="186.3" cy="350.2" r="4.5" fill="#2563eb"/>
+  <circle cx="377.3" cy="286.5" r="4.5" fill="#2563eb"/>
+  <circle cx="496.4" cy="259.6" r="4.5" fill="#2563eb"/>
+  <circle cx="604.1" cy="261.5" r="4.5" fill="#2563eb"/>
+  <circle cx="655.7" cy="250.4" r="4.5" fill="#2563eb"/>
+  <circle cx="691.2" cy="244.8" r="4.5" fill="#2563eb"/>
+  <circle cx="739.5" cy="258.2" r="4.5" fill="#2563eb"/>
+  <polyline points="109.2,407.0 113.7,417.9 131.7,401.6 243.3,368.3 383.8,335.4 491.1,289.0 548.7,277.5 603.3,270.7 610.7,267.9 635.3,270.7" fill="none" stroke="#0f9f8f" stroke-width="3"/>
+  <circle cx="109.2" cy="407.0" r="4.5" fill="#0f9f8f"/>
+  <circle cx="113.7" cy="417.9" r="4.5" fill="#0f9f8f"/>
+  <circle cx="131.7" cy="401.6" r="4.5" fill="#0f9f8f"/>
+  <circle cx="243.3" cy="368.3" r="4.5" fill="#0f9f8f"/>
+  <circle cx="383.8" cy="335.4" r="4.5" fill="#0f9f8f"/>
+  <circle cx="491.1" cy="289.0" r="4.5" fill="#0f9f8f"/>
+  <circle cx="548.7" cy="277.5" r="4.5" fill="#0f9f8f"/>
+  <circle cx="603.3" cy="270.7" r="4.5" fill="#0f9f8f"/>
+  <circle cx="610.7" cy="267.9" r="4.5" fill="#0f9f8f"/>
+  <circle cx="635.3" cy="270.7" r="4.5" fill="#0f9f8f"/>
+  <polyline points="108.4,411.7 108.5,412.7 111.0,416.4 182.9,397.1 371.4,331.1 499.6,276.0 663.0,284.4 760.2,314.8 786.4,317.5 832.0,316.8" fill="none" stroke="#e17b21" stroke-width="3"/>
+  <circle cx="108.4" cy="411.7" r="4.5" fill="#e17b21"/>
+  <circle cx="108.5" cy="412.7" r="4.5" fill="#e17b21"/>
+  <circle cx="111.0" cy="416.4" r="4.5" fill="#e17b21"/>
+  <circle cx="182.9" cy="397.1" r="4.5" fill="#e17b21"/>
+  <circle cx="371.4" cy="331.1" r="4.5" fill="#e17b21"/>
+  <circle cx="499.6" cy="276.0" r="4.5" fill="#e17b21"/>
+  <circle cx="663.0" cy="284.4" r="4.5" fill="#e17b21"/>
+  <circle cx="760.2" cy="314.8" r="4.5" fill="#e17b21"/>
+  <circle cx="786.4" cy="317.5" r="4.5" fill="#e17b21"/>
+  <circle cx="832.0" cy="316.8" r="4.5" fill="#e17b21"/>
+  <polyline points="109.6,426.1 119.0,414.0 145.4,400.2 225.7,390.8 392.3,355.9 495.0,328.0 566.4,310.6 609.1,308.0 625.5,309.0 642.4,308.7" fill="none" stroke="#7c4dff" stroke-width="3"/>
+  <circle cx="109.6" cy="426.1" r="4.5" fill="#7c4dff"/>
+  <circle cx="119.0" cy="414.0" r="4.5" fill="#7c4dff"/>
+  <circle cx="145.4" cy="400.2" r="4.5" fill="#7c4dff"/>
+  <circle cx="225.7" cy="390.8" r="4.5" fill="#7c4dff"/>
+  <circle cx="392.3" cy="355.9" r="4.5" fill="#7c4dff"/>
+  <circle cx="495.0" cy="328.0" r="4.5" fill="#7c4dff"/>
+  <circle cx="566.4" cy="310.6" r="4.5" fill="#7c4dff"/>
+  <circle cx="609.1" cy="308.0" r="4.5" fill="#7c4dff"/>
+  <circle cx="625.5" cy="309.0" r="4.5" fill="#7c4dff"/>
+  <circle cx="642.4" cy="308.7" r="4.5" fill="#7c4dff"/>
+  <circle cx="688.6" cy="261.0" r="7" fill="#172033"/>
+  <text x="674.6" y="243.0" text-anchor="end" class="small">Always GPT-5</text>
+  <path d="M186.6,75.8 L194.6,83.8 L186.6,91.8 L178.6,83.8 Z" fill="#178a55"/>
+  <text x="198.6" y="65.8" text-anchor="start" class="small">Hindsight oracle</text>
+  <circle cx="496.4" cy="259.6" r="10" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <path d="M489.4,252.6 L478.4,234.6" stroke="#5f6b7a" fill="none"/>
+  <text x="474.4" y="230.6" text-anchor="end" class="small">published λ=0.10</text>
+  <circle cx="392.3" cy="355.9" r="10" fill="#ffffff" stroke="#c43d4b" stroke-width="3"/>
+  <text x="406.3" y="360.9" class="small">confirmatory primary</text>
+  <line x1="890" y1="110" x2="930" y2="110" stroke="#2563eb" stroke-width="4"/>
+  <text x="944" y="115" class="small">Shared classifier</text>
+  <line x1="890" y1="148" x2="930" y2="148" stroke="#0f9f8f" stroke-width="4"/>
+  <text x="944" y="153" class="small">Independent heads</text>
+  <line x1="890" y1="186" x2="930" y2="186" stroke="#e17b21" stroke-width="4"/>
+  <text x="944" y="191" class="small">Gradient boosting</text>
+  <line x1="890" y1="224" x2="930" y2="224" stroke="#7c4dff" stroke-width="4"/>
+  <text x="944" y="229" class="small">Text kNN</text>
+  <text x="472.0" y="625" text-anchor="middle" class="label">Observed cost across 2,184 prompts</text>
+  <text x="24" y="305.0" transform="rotate(-90 24 305.0)" text-anchor="middle" class="label">Macro-average score</text>
+  <text x="890" y="340" class="small">Each line varies the frozen</text>
+  <text x="890" y="362" class="small">cost penalty λ. Lower cost</text>
+  <text x="890" y="384" class="small">moves left.</text>
+  <text x="890" y="438" class="small">The oracle sees terminal</text>
+  <text x="890" y="460" class="small">outcomes and is not deployable.</text>
+</svg>

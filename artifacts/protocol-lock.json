@@ -1,0 +1,13 @@
+{
+  "files": {
+    "artifacts/swebench_verified_split.json": "35d671d7dec74ac914f538414e9f2f0525c371f88c8ee8e96eed669a9e0b2b48",
+    "configs/experiment.json": "3607aebd682e89b1476d70ae89ab23462ba84e2686acdf4f1e833bdaeb1b9697",
+    "configs/harness_prompt.txt": "f125912a62d3846d00362a3aa9e6876e25462a36dd3a9533001fa11b89acba26",
+    "configs/model_pool.json": "b1a9d3b0f79c18afdde374bb6f9fe9e0378750fcca3a4313400391fcfcdf0017",
+    "configs/tinker_prices_2026-07-25.json": "854eec20300b2fa84995acfe2955519227e9b926191941699f06d3d3b1657137",
+    "docs/analysis_protocol.md": "1736540039cb121831ba13e8136e7ed308e23bb39f76169ac87f1992f175981a"
+  },
+  "frozen_at": "2026-07-25T20:46:28.890354+00:00",
+  "locked_test_opened": false,
+  "schema_version": "protocol-lock-v1"
+}

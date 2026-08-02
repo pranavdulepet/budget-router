@@ -1,0 +1,749 @@
+{
+  "amendment_id": "007-confirmatory-agent-step-routing",
+  "cost_accounting": {
+    "frozen_maximum_new_exposure_usd": "43.90",
+    "heldout_cost_usd": "23.210598015",
+    "new_exposure_usd": "23.461945320",
+    "smoke_cost_usd": "0.251347305"
+  },
+  "inferential_status": "new_confirmatory_agent_step_experiment",
+  "official_grading": {
+    "classified_model_caused_errors": [
+      {
+        "model": "agent_step_fixed_qwen35",
+        "task_id": "sympy__sympy-13372"
+      },
+      {
+        "model": "agent_step_router",
+        "task_id": "scikit-learn__scikit-learn-13439"
+      }
+    ],
+    "complete_with_no_unclassified_errors": true,
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076",
+    "grading_manifest_sha256": "d51c4c786e87946a656356ab12d826c9ae1936ada007d3a3d5528c23fc3a91e9",
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "predictions_manifest_sha256": "7ec8c2d09b4c395b02962c5af241e4c8bec6463dc880b5972b23f6ab4ed732de",
+    "reports": {
+      "fixed:openai-gpt-oss-20b": {
+        "official_terminal_count": 10,
+        "report_sha256": "90af20e91c0777344ac04b2da18e132413ec6762ab4f851220827e497fac0dc6",
+        "submitted_count": 10
+      },
+      "fixed:qwen3.6-35b": {
+        "official_terminal_count": 11,
+        "report_sha256": "0a1884b3e9f6777c29c80c2199ec63e6f089b26b234824f323fbf1edab15b612",
+        "submitted_count": 11
+      },
+      "router:frozen-agent-step-v1": {
+        "official_terminal_count": 13,
+        "report_sha256": "bfc9a0002558add607657fbfe5a0e0faa3bccdecb50b28fb66c6409fcbe981b4",
+        "submitted_count": 13
+      }
+    }
+  },
+  "policies": {
+    "fixed:openai-gpt-oss-20b": {
+      "cheap_call_share": 1.0,
+      "cheap_calls": 1176,
+      "cost_per_resolved_task_usd": "0.598421385",
+      "episodes": 20,
+      "model_calls": 1176,
+      "model_caused_error_count": 0,
+      "model_caused_error_task_ids": [],
+      "provider_failure_count": 0,
+      "resolution_rate": 0.3,
+      "resolved_count": 6,
+      "resolved_task_ids": [
+        "pydata__xarray-3677",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7205",
+        "scikit-learn__scikit-learn-13439",
+        "scikit-learn__scikit-learn-25931",
+        "scikit-learn__scikit-learn-26323"
+      ],
+      "strong_calls": 0,
+      "structurally_valid_count": 19,
+      "submitted_count": 10,
+      "switch_count": 0,
+      "total_conservative_cost_usd": "3.59052831"
+    },
+    "fixed:qwen3.6-35b": {
+      "cheap_call_share": 0.0,
+      "cheap_calls": 0,
+      "cost_per_resolved_task_usd": "1.263815848125",
+      "episodes": 20,
+      "model_calls": 1129,
+      "model_caused_error_count": 1,
+      "model_caused_error_task_ids": [
+        "sympy__sympy-13372"
+      ],
+      "provider_failure_count": 0,
+      "resolution_rate": 0.4,
+      "resolved_count": 8,
+      "resolved_task_ids": [
+        "pydata__xarray-3677",
+        "pytest-dev__pytest-10081",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7205",
+        "pytest-dev__pytest-7236",
+        "scikit-learn__scikit-learn-13439",
+        "scikit-learn__scikit-learn-26323",
+        "sympy__sympy-19954"
+      ],
+      "strong_calls": 1129,
+      "structurally_valid_count": 20,
+      "submitted_count": 11,
+      "switch_count": 0,
+      "total_conservative_cost_usd": "10.110526785"
+    },
+    "router:frozen-agent-step-v1": {
+      "cheap_call_share": 0.0,
+      "cheap_calls": 0,
+      "cost_per_resolved_task_usd": "1.056615880",
+      "episodes": 20,
+      "model_calls": 1129,
+      "model_caused_error_count": 1,
+      "model_caused_error_task_ids": [
+        "scikit-learn__scikit-learn-13439"
+      ],
+      "provider_failure_count": 0,
+      "resolution_rate": 0.45,
+      "resolved_count": 9,
+      "resolved_task_ids": [
+        "pydata__xarray-3677",
+        "pydata__xarray-4695",
+        "pytest-dev__pytest-10081",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7205",
+        "scikit-learn__scikit-learn-25931",
+        "scikit-learn__scikit-learn-26323",
+        "sympy__sympy-13372",
+        "sympy__sympy-19954"
+      ],
+      "strong_calls": 1129,
+      "structurally_valid_count": 20,
+      "submitted_count": 13,
+      "switch_count": 0,
+      "total_conservative_cost_usd": "9.509542920"
+    }
+  },
+  "primary_joint_criterion": "router_resolved_count >= fixed_qwen_resolved_count and router_total_cost < fixed_qwen_total_cost",
+  "protocol_sha256": "a98d2862425dfa51e6f7cdee4f1e2b3dda71fd389c687f4490d67b62193d82b1",
+  "router_artifact_hash": "a6d0468edee1d8f06c74f606d7c1a86b6c5594246832e69c3ef13464f17ec0f8",
+  "router_vs_fixed_strong": {
+    "joint_success": true,
+    "mcnemar_exact_two_sided_p": 1.0,
+    "mcnemar_router_losses": 2,
+    "mcnemar_router_wins": 3,
+    "paired_bootstrap": {
+      "cost_saving_fraction_95ci": [
+        7.870009700420415e-06,
+        0.12206047627244598
+      ],
+      "quality_difference_95ci": [
+        -0.15,
+        0.25
+      ],
+      "samples": 10000,
+      "seed": 20260729
+    },
+    "routed_cost_saving_fraction": 0.05944139981821926,
+    "routed_cost_saving_usd": "0.600983865",
+    "routed_minus_fixed_strong_resolution_rate": 0.04999999999999999,
+    "routed_minus_fixed_strong_resolved": 1
+  },
+  "routing_mechanism_audit": {
+    "cheap_call_share": 0.0,
+    "cheap_calls": 0,
+    "interpretation": "The frozen policy selected only the strong model. The raw cost difference versus fixed strong therefore reflects trajectory/token variation, not cheaper-model substitution.",
+    "mixed_model_routing_activated": false,
+    "observed_cost_difference_attributable_to_model_routing": false,
+    "strong_calls": 1129,
+    "switch_count": 0
+  },
+  "schema_version": "agent-step-results-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "task_manifest_hash": "778649c68f773eb7e57c9cc47ad0cbcc7b96e75e43fc4f03d61f6e101e55e207",
+  "task_results": [
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 48,
+          "cost_usd": "0.13131108",
+          "model_calls": 48,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.232154775",
+          "model_calls": 42,
+          "resolved": true,
+          "strong_calls": 42,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.172359900",
+          "model_calls": 33,
+          "resolved": true,
+          "strong_calls": 33,
+          "submitted": true
+        }
+      },
+      "task_id": "pydata__xarray-3677"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23095269",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.559151235",
+          "model_calls": 65,
+          "resolved": false,
+          "strong_calls": 65,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.396254865",
+          "model_calls": 54,
+          "resolved": false,
+          "strong_calls": 54,
+          "submitted": true
+        }
+      },
+      "task_id": "pydata__xarray-4687"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 69,
+          "cost_usd": "0.19473408",
+          "model_calls": 69,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.768175410",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.675170190",
+          "model_calls": 74,
+          "resolved": true,
+          "strong_calls": 74,
+          "submitted": true
+        }
+      },
+      "task_id": "pydata__xarray-4695"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.24531444",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.810317055",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.857120640",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "pydata__xarray-7229"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 34,
+          "cost_usd": "0.07826013",
+          "model_calls": 34,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.330271440",
+          "model_calls": 49,
+          "resolved": true,
+          "strong_calls": 49,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.386736555",
+          "model_calls": 52,
+          "resolved": true,
+          "strong_calls": 52,
+          "submitted": true
+        }
+      },
+      "task_id": "pytest-dev__pytest-10081"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 26,
+          "cost_usd": "0.06752592",
+          "model_calls": 26,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.294429240",
+          "model_calls": 42,
+          "resolved": true,
+          "strong_calls": 42,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.182884710",
+          "model_calls": 37,
+          "resolved": true,
+          "strong_calls": 37,
+          "submitted": true
+        }
+      },
+      "task_id": "pytest-dev__pytest-5631"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 28,
+          "cost_usd": "0.04662837",
+          "model_calls": 28,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.156297150",
+          "model_calls": 31,
+          "resolved": true,
+          "strong_calls": 31,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.131137920",
+          "model_calls": 30,
+          "resolved": true,
+          "strong_calls": 30,
+          "submitted": true
+        }
+      },
+      "task_id": "pytest-dev__pytest-7205"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 43,
+          "cost_usd": "0.12514932",
+          "model_calls": 43,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.677686530",
+          "model_calls": 54,
+          "resolved": true,
+          "strong_calls": 54,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.700648050",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "pytest-dev__pytest-7236"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 29,
+          "cost_usd": "0.07112583",
+          "model_calls": 29,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.178615770",
+          "model_calls": 38,
+          "resolved": true,
+          "strong_calls": 38,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.155843850",
+          "model_calls": 34,
+          "resolved": false,
+          "strong_calls": 34,
+          "submitted": true
+        }
+      },
+      "task_id": "scikit-learn__scikit-learn-13439"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 69,
+          "cost_usd": "0.19310247",
+          "model_calls": 69,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.809060685",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.647655435",
+          "model_calls": 69,
+          "resolved": true,
+          "strong_calls": 69,
+          "submitted": true
+        }
+      },
+      "task_id": "scikit-learn__scikit-learn-25931"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.24496236",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.364100595",
+          "model_calls": 48,
+          "resolved": false,
+          "strong_calls": 48,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.339690675",
+          "model_calls": 45,
+          "resolved": false,
+          "strong_calls": 45,
+          "submitted": true
+        }
+      },
+      "task_id": "scikit-learn__scikit-learn-26194"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 56,
+          "cost_usd": "0.16511625",
+          "model_calls": 56,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.321041460",
+          "model_calls": 51,
+          "resolved": true,
+          "strong_calls": 51,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.433523745",
+          "model_calls": 62,
+          "resolved": true,
+          "strong_calls": 62,
+          "submitted": true
+        }
+      },
+      "task_id": "scikit-learn__scikit-learn-26323"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 41,
+          "cost_usd": "0.11595654",
+          "model_calls": 41,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.877347135",
+          "model_calls": 65,
+          "resolved": false,
+          "strong_calls": 65,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.755428005",
+          "model_calls": 66,
+          "resolved": false,
+          "strong_calls": 66,
+          "submitted": true
+        }
+      },
+      "task_id": "sphinx-doc__sphinx-11510"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 60,
+          "cost_usd": "0.20653326",
+          "model_calls": 60,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.603727860",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.611095560",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "sphinx-doc__sphinx-7440"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.28943820",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.880737090",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.877732395",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "sphinx-doc__sphinx-7454"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.24685290",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.602549640",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.619685685",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "sphinx-doc__sphinx-9591"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.25708545",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.148116495",
+          "model_calls": 34,
+          "resolved": false,
+          "strong_calls": 34,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.121781025",
+          "model_calls": 33,
+          "resolved": true,
+          "strong_calls": 33,
+          "submitted": true
+        }
+      },
+      "task_id": "sympy__sympy-13372"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.22137120",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.523241130",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.494075280",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        }
+      },
+      "task_id": "sympy__sympy-14248"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 73,
+          "cost_usd": "0.17756523",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.879043275",
+          "model_calls": 65,
+          "resolved": false,
+          "strong_calls": 65,
+          "submitted": false
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.862852470",
+          "model_calls": 66,
+          "resolved": false,
+          "strong_calls": 66,
+          "submitted": false
+        }
+      },
+      "task_id": "sympy__sympy-15599"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.28154259",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.094462815",
+          "model_calls": 22,
+          "resolved": true,
+          "strong_calls": 22,
+          "submitted": true
+        },
+        "router:frozen-agent-step-v1": {
+          "cheap_calls": 0,
+          "cost_usd": "0.087865965",
+          "model_calls": 24,
+          "resolved": true,
+          "strong_calls": 24,
+          "submitted": true
+        }
+      },
+      "task_id": "sympy__sympy-19954"
+    }
+  ]
+}

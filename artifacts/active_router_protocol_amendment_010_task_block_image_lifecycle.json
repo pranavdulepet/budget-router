@@ -1,0 +1,42 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "010-task-block-docker-image-lifecycle",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-30",
+  "status": "prospective_infrastructure_freeze_before_amendment_009_matrix",
+  "reason": "the 60-development and 100-heldout task images cannot coexist within local disk capacity",
+  "supersedes": {
+    "amendment": "004-docker-image-preflight",
+    "scope": "amendment_009_development_and_heldout_matrix_image_preflight_only"
+  },
+  "task_block_lifecycle": [
+    "process_tasks_in_frozen_manifest_order",
+    "inspect_or_pull_exact_task_image_before_any_paid_call_for_task",
+    "run_every_pending_frozen_treatment_for_task",
+    "persist_and_validate_all_terminal_records_and_trajectories",
+    "stop_and_retain_image_on_provider_or_unclassified_infrastructure_failure",
+    "remove_only_the_exact_resolved_task_image_after_the_full_block_is_terminal"
+  ],
+  "development_treatments_per_complete_block": 3,
+  "heldout_treatments_per_complete_block": 6,
+  "resume_key": [
+    "study_stage",
+    "task_id",
+    "treatment"
+  ],
+  "unchanged": [
+    "models",
+    "tasks",
+    "prompts",
+    "seeds",
+    "renderers",
+    "sampling",
+    "episode_caps",
+    "treatment_order_rule",
+    "grading_lock",
+    "metrics",
+    "gates",
+    "budget"
+  ],
+  "incremental_hard_ceiling_usd": "3000.00"
+}

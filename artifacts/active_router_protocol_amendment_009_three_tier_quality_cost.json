@@ -1,0 +1,152 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-30",
+  "status": "prospective_freeze_before_affected_paid_inference",
+  "inferential_status": "prospective_three_tier_agent_routing_study",
+  "authorization": {
+    "user_direction": "complete_a_route_llm_style_quality_cost_curve_with_distinct_tinker_cheap_medium_strong_models_and_official_agent_correctness",
+    "incremental_hard_ceiling_usd": "3000.00",
+    "separate_from_completed_amendments_001_through_008": true,
+    "spending_is_target": false
+  },
+  "catalog": {
+    "source": "https://tinker-docs.thinkingmachines.ai/tinker/models/",
+    "reviewed_on": "2026-07-30",
+    "distinct_current_weights_reviewed": 16
+  },
+  "model_pool_config": "configs/model_pool_quality_cost_v1.json",
+  "price_snapshot": "configs/tinker_prices_2026-07-30_quality_cost_v1.json",
+  "models": [
+    {
+      "role": "cheap",
+      "model": "openai/gpt-oss-20b",
+      "tinker_size": "Small",
+      "context_tokens": 32768,
+      "episode_cap_usd": "0.35"
+    },
+    {
+      "role": "medium",
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "tinker_size": "Medium",
+      "context_tokens": 65536,
+      "episode_cap_usd": "0.90"
+    },
+    {
+      "role": "strong",
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "tinker_size": "Large",
+      "context_tokens": 65536,
+      "episode_cap_usd": "5.00"
+    }
+  ],
+  "strong_compatibility_gate": {
+    "synthetic_two_turn_tool_smoke": true,
+    "tasks": [
+      "pydata__xarray-3677",
+      "pytest-dev__pytest-5631",
+      "pytest-dev__pytest-7205",
+      "pytest-dev__pytest-10081",
+      "pydata__xarray-7229",
+      "pydata__xarray-4695"
+    ],
+    "minimum_structurally_valid": 5,
+    "minimum_official_resolutions": 2,
+    "systematic_renderer_defects_allowed": 0,
+    "result_dependent_model_replacement_allowed": false
+  },
+  "data_design": {
+    "development": {
+      "tasks": 60,
+      "repositories": {
+        "astropy/astropy": 15,
+        "matplotlib/matplotlib": 15,
+        "pydata/xarray": 15,
+        "pytest-dev/pytest": 15
+      },
+      "selection_seed": "three-tier-router-development-20260730"
+    },
+    "heldout": {
+      "tasks": 100,
+      "repositories": {
+        "django/django": 32,
+        "scikit-learn/scikit-learn": 14,
+        "sphinx-doc/sphinx": 26,
+        "sympy/sympy": 28
+      },
+      "selection_seed": "three-tier-router-heldout-20260730",
+      "exact_task_previously_unexecuted": true,
+      "repository_disjoint_from_development": true
+    }
+  },
+  "task_router": {
+    "evaluation": "exact_counterfactual_selection_from_complete_fixed_matrix",
+    "learned_methods": [
+      "calibrated_hashed_logistic",
+      "calibrated_gradient_boosting",
+      "text_nearest_neighbor"
+    ],
+    "validation": "leave_one_development_repository_out",
+    "selector": "predicted_success_minus_lambda_times_normalized_expected_cost",
+    "lambda_grid": {
+      "minimum": 0.0,
+      "maximum": 4.0,
+      "points": 401
+    },
+    "random_assignments": 10000,
+    "random_seed": 20260730
+  },
+  "agent_router": {
+    "decision_frequency": "every_llm_call",
+    "classifier": "shared_visible_prefix_and_model_card_success_classifier",
+    "validation": "leave_one_development_repository_out_grouped_by_task",
+    "monotone_escalation": [
+      "cheap_to_medium_or_strong",
+      "medium_to_strong"
+    ],
+    "deescalation_allowed": false,
+    "operating_points": [
+      "cost",
+      "balanced",
+      "quality"
+    ],
+    "development_check_tasks_per_point": 12,
+    "minimum_structurally_valid_per_point": 11,
+    "minimum_tiers_represented_per_point": 2
+  },
+  "heldout_treatments": [
+    "fixed_cheap",
+    "fixed_medium",
+    "fixed_strong",
+    "agent_cost",
+    "agent_balanced",
+    "agent_quality"
+  ],
+  "heldout_canonical_episodes": 600,
+  "official_grading_opens_after_all_canonical_terminal": true,
+  "primary_claim": {
+    "comparison": "agent_balanced_vs_heldout_best_fixed",
+    "requirements": [
+      "resolved_count_at_least_best_fixed",
+      "lower_total_cost",
+      "at_least_two_tiers_used",
+      "at_least_25_heldout_trajectories_use_a_tier_cheaper_than_strong"
+    ]
+  },
+  "ordered_budget_stages": [
+    {"stage": "synthetic_compatibility_smoke", "maximum_usd": "0.50"},
+    {"stage": "strong_compatibility_gate", "maximum_usd": "30.00"},
+    {"stage": "development_fixed_matrix", "maximum_usd": "375.00"},
+    {"stage": "development_agent_checks", "maximum_usd": "180.00"},
+    {"stage": "heldout_fixed_matrix", "maximum_usd": "625.00"},
+    {"stage": "heldout_agent_policies", "maximum_usd": "1500.00"},
+    {"stage": "recovery_and_contingency", "maximum_usd": "289.50"}
+  ],
+  "change_control": {
+    "silent_changes_forbidden": true,
+    "heldout_tuning_forbidden": true,
+    "credentials_environment_only": true,
+    "unused_budget_is_not_a_spending_target": true
+  }
+}

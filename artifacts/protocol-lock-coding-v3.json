@@ -1,0 +1,18 @@
+{
+  "files": {
+    "artifacts/swebench_verified_split.json": "35d671d7dec74ac914f538414e9f2f0525c371f88c8ee8e96eed669a9e0b2b48",
+    "configs/experiment.json": "3607aebd682e89b1476d70ae89ab23462ba84e2686acdf4f1e833bdaeb1b9697",
+    "configs/harness_prompt.txt": "f125912a62d3846d00362a3aa9e6876e25462a36dd3a9533001fa11b89acba26",
+    "configs/model_pool_coding_v3.json": "47153ed651878be70cb31c0ae77923aa72d9f4cb24dd6579a64b4e48f1e839a6",
+    "configs/tinker_prices_2026-07-25_coding_v2.json": "2fdf8772173fd86bf86b5834a754ccea761a77c8ff283f86d648f2d1467085f3",
+    "docs/analysis_protocol.md": "1736540039cb121831ba13e8136e7ed308e23bb39f76169ac87f1992f175981a",
+    "pyproject.toml": "0fa0d3241bbf850680927332a89bd458c1af50977edb304c5bc7984e50c64d1d",
+    "scripts/run_tinker_pilot.py": "e29c221a8f68b3acb39581aed7509d055daeb46bd1d1a3637aac76a162e3bd9b",
+    "scripts/tinker_protocol_smoke.py": "9b68c8f92db13793ac5f859f6cadbe1a11a5c69d54e1808913fdbb36f254a345",
+    "src/budget_router/mini_swe_tinker.py": "141a3d89a3d3afb31c26a7ba7d03f100d8435e7b30ca14512e185c875a7be254",
+    "src/budget_router/providers/tinker.py": "43a1966c4ed8292b03cc48990e5d469b9971b04d530974c6145d41045f5beaff"
+  },
+  "frozen_at": "2026-07-26T00:53:36.587633+00:00",
+  "locked_test_opened": false,
+  "schema_version": "protocol-lock-v2"
+}

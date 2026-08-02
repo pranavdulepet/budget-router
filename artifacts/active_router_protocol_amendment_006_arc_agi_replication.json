@@ -1,0 +1,58 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "006-arc-agi-sequential-replication",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-29",
+  "status": "frozen_before_aggregate_arc_agi_outcome_analysis",
+  "inferential_status": "result_informed_sequential_external_replication",
+  "reason": "Evaluate the exact reusable shared classifier corresponding to the strong prespecified secondary curve point on one untouched public dataset; do not replace the failed confirmatory primary analysis.",
+  "source": {
+    "github_revision": "c77cb0506949d8f959e97967d2fefca0e8ff1b05",
+    "huggingface_dataset": "NPULH/LLMRouterBench",
+    "huggingface_revision": "0e5af1b84bf73437a01a1849c0f1d2468baa93fc",
+    "archive_sha256": "b79f8cde1a6f029c2efa663a3a3b6f7748defb22341fe59f328cebef6648c8f1",
+    "dataset": "arc-agi",
+    "split": "v1"
+  },
+  "models": [
+    "claude-sonnet-4",
+    "deepseek-v3-0324",
+    "deepseek-v3.1-terminus",
+    "deepseek-r1-0528",
+    "gemini-2.5-flash",
+    "gemini-2.5-pro",
+    "gpt-5-chat",
+    "gpt-5",
+    "qwen3-235b-a22b-2507",
+    "qwen3-235b-a22b-thinking-2507",
+    "glm-4.6",
+    "kimi-k2-0905",
+    "intern-s1"
+  ],
+  "frozen_router": {
+    "artifact_hash": "677eba863b0d1eb765560e31992bfdcf94364325d1e11f08468d7110c35ab0d8",
+    "method": "shared_task_model_hashed_classifier",
+    "hash_dimension": 65536,
+    "training_seed": 20260729,
+    "lambda": 0.1,
+    "calibration": "per_model_isotonic_from_original_calibration_split"
+  },
+  "comparison": {
+    "primary_fixed_model": "gpt-5",
+    "quality_field": "score",
+    "acceptable_threshold": 0.5,
+    "cost_field": "cost",
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_seed": 20260729
+  },
+  "disclosure": {
+    "aggregate_arc_agi_outcomes_inspected_before_freeze": false,
+    "example_records_inspected_before_freeze": 1,
+    "file_level_metadata_seen_before_freeze": true,
+    "replaces_confirmatory_primary": false
+  },
+  "budget": {
+    "paid_inference_authorized": false,
+    "expected_incremental_cost_usd": 0.0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "quality-cost-fixed-execution-lock-v1",
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "infrastructure_amendment_id": "010-task-block-docker-image-lifecycle",
+  "frozen_before_stage": "development_fixed_matrix",
+  "files": {
+    "artifacts/active_router_protocol.json": "1c28e51b59ee83de0df6279ff9e4cc25ad2336a0e255bd72477379ff21ec268c",
+    "artifacts/active_router_protocol_amendment_009_three_tier_quality_cost.json": "23a88abe794b24f14955995af3befe7b70131aed15bb7aa0a1743593466fb000",
+    "artifacts/active_router_protocol_amendment_010_task_block_image_lifecycle.json": "1c1899f919341d0f39178dfcf7fd34cac88426502598a1790f238b362107253a",
+    "artifacts/quality_cost_v1_task_manifest.json": "14a9b6f1b53cd781016f36c6f60ecde2053059dbd625b9fd0a315fa4dd708d3f",
+    "configs/model_pool_quality_cost_v1.json": "c655bd20aa1cac2379c3894ea508956f663c7e4da8cf00ffc3cd50b2d306a6fd",
+    "configs/tinker_prices_2026-07-30_quality_cost_v1.json": "27bfc5082b104d54f8c746d9e70c30b1c9fa50d996bb5ce82efc34328a79dd4e",
+    "configs/harness_prompt.txt": "f125912a62d3846d00362a3aa9e6876e25462a36dd3a9533001fa11b89acba26",
+    "scripts/run_quality_cost_fixed_matrix.py": "e85ec1fcb2d5691f83ed487c3f9622d58d5afa8485985e2951f197f90d557852",
+    "scripts/run_tinker_pilot.py": "dd2b15a5565589d34cb0765340f3176102a112bc0d5bccc601ff3c5806d704d3",
+    "src/budget_router/mini_swe_tinker.py": "aefe5a983a15401be065fe1b1e47ac1ef5142e34b5f1c22f5ce1c2aaea543870",
+    "src/budget_router/providers/tinker.py": "e7fd7062ebf3d4642be6553f82dc4b7ffcc004993cfba34cba70d577aa270bef",
+    "data/swebench_verified_tasks.json": "315ed58461cf640813f879ea4dbb75c1e0abe44850a55ba170cfa7000a97e918"
+  },
+  "external": {
+    "mini_swe_agent_version": "2.3.0",
+    "mini_swe_agent_swebench_yaml_sha256": "f90e7baa84c9e36e535cf4f37ee39e6e08c05964d55b5f56ed12cad7f817ffa8",
+    "official_harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "official_dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076"
+  },
+  "runtime": {
+    "max_output_tokens_per_turn": 8000,
+    "max_turns": 75,
+    "request_timeout_seconds": 1800,
+    "workers_per_task_block": 3,
+    "task_order": "frozen_manifest_order",
+    "within_task_order": "sha256_seeded_shuffle_20260730",
+    "prune_exact_image_only_after_complete_valid_task_block": true
+  },
+  "heldout_labels_opened": false,
+  "execution_lock_hash": "89d3d91450f5bf9bec01a04a00007d1fd463fcfd2cea74535d07b397eecf0e95"
+}

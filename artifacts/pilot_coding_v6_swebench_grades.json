@@ -1,0 +1,562 @@
+{
+  "grader": {
+    "dataset": "SWE-bench/SWE-bench_Verified",
+    "dataset_revision": "91aa3ed51b709be6457e12d00300a6a596d4c6a3",
+    "grader_errors": 0,
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "name": "official SWE-bench terminal harness",
+    "submitted_patches_graded": 19
+  },
+  "models": {
+    "Qwen/Qwen3.6-35B-A3B": {
+      "cost_per_resolved_task_usd": "1.0328493625",
+      "episode_count": 12,
+      "graded_count": 8,
+      "grader_error_count": 0,
+      "grader_report": "outputs/pilot_coding_v6_final/swebench_grader/Qwen__Qwen3.6-35B-A3B.pilot-v6-qwen.json",
+      "latency_per_resolved_task_seconds": 550.0706224166692,
+      "mean_latency_of_resolved_episodes_seconds": 254.19004449299732,
+      "overall_resolution_rate": 0.5,
+      "resolved_count": 6,
+      "resolved_task_ids": [
+        "astropy__astropy-12907",
+        "astropy__astropy-14309",
+        "django__django-11451",
+        "django__django-14765",
+        "matplotlib__matplotlib-24570",
+        "matplotlib__matplotlib-24637"
+      ],
+      "submission_pass_rate": 0.75,
+      "submitted_count": 8,
+      "total_conservative_cost_usd": "6.197096175",
+      "total_episode_latency_seconds": 3300.4237345000147,
+      "unresolved_submission_count": 2,
+      "unresolved_without_submission_count": 4
+    },
+    "moonshotai/Kimi-K2.6": {
+      "cost_per_resolved_task_usd": "2.829221145",
+      "episode_count": 12,
+      "graded_count": 3,
+      "grader_error_count": 0,
+      "grader_report": "outputs/pilot_coding_v6_final/swebench_grader/moonshotai__Kimi-K2.6.pilot-v6-kimi.json",
+      "latency_per_resolved_task_seconds": 1365.4622213746577,
+      "mean_latency_of_resolved_episodes_seconds": 248.87320965264612,
+      "overall_resolution_rate": 0.25,
+      "resolved_count": 3,
+      "resolved_task_ids": [
+        "astropy__astropy-14309",
+        "django__django-11451",
+        "django__django-14765"
+      ],
+      "submission_pass_rate": 1.0,
+      "submitted_count": 3,
+      "total_conservative_cost_usd": "8.487663435",
+      "total_episode_latency_seconds": 4096.386664123973,
+      "unresolved_submission_count": 0,
+      "unresolved_without_submission_count": 9
+    },
+    "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16": {
+      "cost_per_resolved_task_usd": "8.27299152",
+      "episode_count": 12,
+      "graded_count": 3,
+      "grader_error_count": 0,
+      "grader_report": "outputs/pilot_coding_v6_final/swebench_grader/nvidia__NVIDIA-Nemotron-3-Super-120B-A12B-BF16.pilot-v6-nemotron-super.json",
+      "latency_per_resolved_task_seconds": 17865.302142831963,
+      "mean_latency_of_resolved_episodes_seconds": 666.3979224159848,
+      "overall_resolution_rate": 0.08333333333333333,
+      "resolved_count": 1,
+      "resolved_task_ids": [
+        "astropy__astropy-12907"
+      ],
+      "submission_pass_rate": 0.3333333333333333,
+      "submitted_count": 3,
+      "total_conservative_cost_usd": "8.27299152",
+      "total_episode_latency_seconds": 17865.302142831963,
+      "unresolved_submission_count": 2,
+      "unresolved_without_submission_count": 9
+    },
+    "openai/gpt-oss-120b:peft:131072": {
+      "cost_per_resolved_task_usd": null,
+      "episode_count": 12,
+      "graded_count": 0,
+      "grader_error_count": 0,
+      "grader_report": null,
+      "latency_per_resolved_task_seconds": null,
+      "mean_latency_of_resolved_episodes_seconds": null,
+      "overall_resolution_rate": 0.0,
+      "resolved_count": 0,
+      "resolved_task_ids": [],
+      "submission_pass_rate": null,
+      "submitted_count": 0,
+      "total_conservative_cost_usd": "9.45381750",
+      "total_episode_latency_seconds": 7609.338566789869,
+      "unresolved_submission_count": 0,
+      "unresolved_without_submission_count": 12
+    },
+    "thinkingmachines/Inkling": {
+      "cost_per_resolved_task_usd": "1.59546739",
+      "episode_count": 12,
+      "graded_count": 5,
+      "grader_error_count": 0,
+      "grader_report": "outputs/pilot_coding_v6_final/swebench_grader/thinkingmachines__Inkling.pilot-v6-inkling.json",
+      "latency_per_resolved_task_seconds": 225.56905513524543,
+      "mean_latency_of_resolved_episodes_seconds": 51.57766934376559,
+      "overall_resolution_rate": 0.3333333333333333,
+      "resolved_count": 4,
+      "resolved_task_ids": [
+        "astropy__astropy-14309",
+        "django__django-11451",
+        "django__django-14765",
+        "matplotlib__matplotlib-24570"
+      ],
+      "submission_pass_rate": 0.8,
+      "submitted_count": 5,
+      "total_conservative_cost_usd": "6.38186956",
+      "total_episode_latency_seconds": 902.2762205409817,
+      "unresolved_submission_count": 1,
+      "unresolved_without_submission_count": 7
+    }
+  },
+  "overall": {
+    "best_fixed_model": "Qwen/Qwen3.6-35B-A3B",
+    "best_fixed_model_resolved_count": 6,
+    "cost_per_resolved_task_usd": "2.770959870714285714285714286",
+    "episode_count": 60,
+    "latency_per_resolved_task_seconds": 2412.409094913343,
+    "oracle_incremental_unique_resolutions_over_best_fixed": 0,
+    "overall_resolution_rate": 0.23333333333333334,
+    "resolved_count": 14,
+    "submission_pass_rate": 0.7368421052631579,
+    "submitted_count": 19,
+    "total_conservative_cost_usd": "38.793438190",
+    "total_episode_latency_seconds": 33773.7273287868,
+    "unique_resolved_task_count": 6,
+    "unique_task_count": 12,
+    "unresolved_count": 46,
+    "unresolved_submission_count": 5,
+    "unresolved_without_submission_count": 41
+  },
+  "schema_version": "swebench-pilot-grades-v1",
+  "task_results": [
+    {
+      "conservative_cost_usd": "0.536199465",
+      "latency_seconds": 326.32044016598957,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "conservative_cost_usd": "0.839491605",
+      "latency_seconds": 492.8763227920281,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "conservative_cost_usd": "0.32177616",
+      "latency_seconds": 666.3979224159848,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "resolved",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "conservative_cost_usd": "0.80609654",
+      "latency_seconds": 692.8116928329691,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "conservative_cost_usd": "0.76210814",
+      "latency_seconds": 119.61759987502592,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "conservative_cost_usd": "0.452948025",
+      "latency_seconds": 368.3463629169855,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "conservative_cost_usd": "0.420078060",
+      "latency_seconds": 490.200222415966,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "resolved",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "conservative_cost_usd": "0.50064624",
+      "latency_seconds": 2604.5320973329945,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "conservative_cost_usd": "0.79912362",
+      "latency_seconds": 1057.9682619159576,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "conservative_cost_usd": "0.17018667",
+      "latency_seconds": 30.668199333013035,
+      "model": "thinkingmachines/Inkling",
+      "status": "resolved",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "conservative_cost_usd": "0.344680530",
+      "latency_seconds": 221.15504604199668,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "graded_unresolved",
+      "task_id": "astropy__astropy-14365"
+    },
+    {
+      "conservative_cost_usd": "0.826095510",
+      "latency_seconds": 209.10934274998726,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14365"
+    },
+    {
+      "conservative_cost_usd": "0.77783718",
+      "latency_seconds": 1447.8611653330154,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14365"
+    },
+    {
+      "conservative_cost_usd": "0.79236742",
+      "latency_seconds": 301.704843332991,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14365"
+    },
+    {
+      "conservative_cost_usd": "0.78231768",
+      "latency_seconds": 124.35585770796752,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "astropy__astropy-14365"
+    },
+    {
+      "conservative_cost_usd": "0.195023955",
+      "latency_seconds": 102.75480487500317,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "django__django-11451"
+    },
+    {
+      "conservative_cost_usd": "0.451563165",
+      "latency_seconds": 168.66720654198434,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "resolved",
+      "task_id": "django__django-11451"
+    },
+    {
+      "conservative_cost_usd": "0.75780309",
+      "latency_seconds": 964.8535288340063,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "django__django-11451"
+    },
+    {
+      "conservative_cost_usd": "0.70096196",
+      "latency_seconds": 567.5901516249869,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "django__django-11451"
+    },
+    {
+      "conservative_cost_usd": "0.05049377",
+      "latency_seconds": 13.801958875032142,
+      "model": "thinkingmachines/Inkling",
+      "status": "resolved",
+      "task_id": "django__django-11451"
+    },
+    {
+      "conservative_cost_usd": "0.245084235",
+      "latency_seconds": 192.34384754201164,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "django__django-14765"
+    },
+    {
+      "conservative_cost_usd": "0.210075480",
+      "latency_seconds": 87.75219999998808,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "resolved",
+      "task_id": "django__django-14765"
+    },
+    {
+      "conservative_cost_usd": "0.54772779",
+      "latency_seconds": 1017.8612445829785,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "django__django-14765"
+    },
+    {
+      "conservative_cost_usd": "0.79325894",
+      "latency_seconds": 755.8455039999681,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "django__django-14765"
+    },
+    {
+      "conservative_cost_usd": "0.06614013",
+      "latency_seconds": 38.181256417010445,
+      "model": "thinkingmachines/Inkling",
+      "status": "resolved",
+      "task_id": "django__django-14765"
+    },
+    {
+      "conservative_cost_usd": "0.834079185",
+      "latency_seconds": 365.51923774997704,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-14623"
+    },
+    {
+      "conservative_cost_usd": "0.822899340",
+      "latency_seconds": 556.5802240829798,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-14623"
+    },
+    {
+      "conservative_cost_usd": "0.64708968",
+      "latency_seconds": 1189.2097071249736,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "graded_unresolved",
+      "task_id": "matplotlib__matplotlib-14623"
+    },
+    {
+      "conservative_cost_usd": "0.80333772",
+      "latency_seconds": 848.1032229580451,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-14623"
+    },
+    {
+      "conservative_cost_usd": "0.77141107",
+      "latency_seconds": 115.71893425000599,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-14623"
+    },
+    {
+      "conservative_cost_usd": "0.287845275",
+      "latency_seconds": 222.13850649999222,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "matplotlib__matplotlib-24570"
+    },
+    {
+      "conservative_cost_usd": "0.807324570",
+      "latency_seconds": 230.49183954199543,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24570"
+    },
+    {
+      "conservative_cost_usd": "0.76063044",
+      "latency_seconds": 398.44395487499423,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24570"
+    },
+    {
+      "conservative_cost_usd": "0.79094772",
+      "latency_seconds": 430.8199942080537,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24570"
+    },
+    {
+      "conservative_cost_usd": "0.41628243",
+      "latency_seconds": 123.65926275000675,
+      "model": "thinkingmachines/Inkling",
+      "status": "resolved",
+      "task_id": "matplotlib__matplotlib-24570"
+    },
+    {
+      "conservative_cost_usd": "0.524032695",
+      "latency_seconds": 313.2363049580017,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "resolved",
+      "task_id": "matplotlib__matplotlib-24637"
+    },
+    {
+      "conservative_cost_usd": "0.816944760",
+      "latency_seconds": 832.7245139580336,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24637"
+    },
+    {
+      "conservative_cost_usd": "0.78149223",
+      "latency_seconds": 1931.9805136250216,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24637"
+    },
+    {
+      "conservative_cost_usd": "0.79257648",
+      "latency_seconds": 482.87966820795555,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24637"
+    },
+    {
+      "conservative_cost_usd": "0.75795001",
+      "latency_seconds": 63.212887041969225,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "matplotlib__matplotlib-24637"
+    },
+    {
+      "conservative_cost_usd": "0.873452970",
+      "latency_seconds": 269.1352572500473,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3069"
+    },
+    {
+      "conservative_cost_usd": "0.846371565",
+      "latency_seconds": 266.2142742500291,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3069"
+    },
+    {
+      "conservative_cost_usd": "0.59828484",
+      "latency_seconds": 1601.799048707995,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "graded_unresolved",
+      "task_id": "mwaskom__seaborn-3069"
+    },
+    {
+      "conservative_cost_usd": "0.78930632",
+      "latency_seconds": 377.8317253749701,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3069"
+    },
+    {
+      "conservative_cost_usd": "0.75545961",
+      "latency_seconds": 50.45774395798799,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3069"
+    },
+    {
+      "conservative_cost_usd": "0.871948305",
+      "latency_seconds": 533.1653000829974,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3187"
+    },
+    {
+      "conservative_cost_usd": "0.803068110",
+      "latency_seconds": 209.8460977919749,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3187"
+    },
+    {
+      "conservative_cost_usd": "0.85835076",
+      "latency_seconds": 1154.4450109580066,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3187"
+    },
+    {
+      "conservative_cost_usd": "0.79446816",
+      "latency_seconds": 324.55179975001374,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3187"
+    },
+    {
+      "conservative_cost_usd": "0.76298493",
+      "latency_seconds": 99.71675641596084,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "mwaskom__seaborn-3187"
+    },
+    {
+      "conservative_cost_usd": "0.843662220",
+      "latency_seconds": 257.3007988749887,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4551"
+    },
+    {
+      "conservative_cost_usd": "0.823859595",
+      "latency_seconds": 295.6664979159832,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4551"
+    },
+    {
+      "conservative_cost_usd": "0.87214179",
+      "latency_seconds": 1982.872593084001,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4551"
+    },
+    {
+      "conservative_cost_usd": "0.79864170",
+      "latency_seconds": 566.0263699589996,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4551"
+    },
+    {
+      "conservative_cost_usd": "0.76124368",
+      "latency_seconds": 63.005645084020216,
+      "model": "thinkingmachines/Inkling",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4551"
+    },
+    {
+      "conservative_cost_usd": "0.188139315",
+      "latency_seconds": 129.00782754202373,
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "status": "graded_unresolved",
+      "task_id": "pylint-dev__pylint-4661"
+    },
+    {
+      "conservative_cost_usd": "0.819891675",
+      "latency_seconds": 256.257922083023,
+      "model": "moonshotai/Kimi-K2.6",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4661"
+    },
+    {
+      "conservative_cost_usd": "0.84921132",
+      "latency_seconds": 2905.045355957991,
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4661"
+    },
+    {
+      "conservative_cost_usd": "0.79273092",
+      "latency_seconds": 1203.2053326249588,
+      "model": "openai/gpt-oss-120b:peft:131072",
+      "status": "no_submission",
+      "task_id": "pylint-dev__pylint-4661"
+    },
+    {
+      "conservative_cost_usd": "0.32529144",
+      "latency_seconds": 59.88011883298168,
+      "model": "thinkingmachines/Inkling",
+      "status": "graded_unresolved",
+      "task_id": "pylint-dev__pylint-4661"
+    }
+  ]
+}

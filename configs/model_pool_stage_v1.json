@@ -1,0 +1,52 @@
+{
+  "pool_version": "tinker-isolated-stage-router-2026-07-28-v1",
+  "price_snapshot": "tinker-2026-07-28-stage-v1",
+  "prompt_version": "mini-swe-isolated-diagnostic-scout-v1",
+  "harness_version": "mini-swe-tinker-v4-safe-opaque-redaction",
+  "seed_policy": "signed-int32-modulo-v1",
+  "environment": {
+    "python": "3.12",
+    "tinker": "0.23.1",
+    "tinker-cookbook": "0.5.2",
+    "tml-renderers": "0.1.0",
+    "mini-swe-agent": "2.3.0"
+  },
+  "scouts": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "renderer": "qwen3",
+      "reasoning": "enabled",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "context_tokens": 32768
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "renderer": "gpt_oss_no_sysprompt",
+      "reasoning": "native",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": -1,
+      "context_tokens": 32768
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "renderer": "gpt_oss_no_sysprompt",
+      "reasoning": "native",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": -1,
+      "context_tokens": 32768
+    }
+  ],
+  "finisher": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "renderer": "qwen3_5",
+    "reasoning": "enabled",
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "context_tokens": 65536
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "open-router-study-2026-07-29-amendment-001",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "status": "normative_pre_paid_collection",
+  "authorized_date": "2026-07-29",
+  "purpose": "Add secondary frontier fixed-model comparisons while reusing compatible public per-instance results before considering fresh calls.",
+  "primary_protocol_unchanged": true,
+  "tinker_ceiling_unchanged": true,
+  "reuse_priority": [
+    "LLMRouterBench standardized flagship-model records",
+    "public SWE-bench or SWE-Router per-instance predictions with terminal official grades",
+    "official provider artifacts with exact recoverable membership and evaluation conditions"
+  ],
+  "exact_task_inclusion_requires": [
+    "exact task ID match",
+    "per-task official grade or reconstructable prediction",
+    "documented dataset and harness",
+    "missing predictions counted unresolved",
+    "no held-out use in training or tuning"
+  ],
+  "claim_scope": {
+    "different_harness": "external_quality_reference",
+    "cost_comparison_requires_compatible_accounting": true,
+    "primary_confirmatory_comparison_remains_tinker_matrix": true
+  },
+  "fresh_frontier_calls": {
+    "authorized": false,
+    "requires_no_cost_reuse_audit_first": true,
+    "requires_exact_cost_projection": true,
+    "requires_explicit_user_credit_approval": true,
+    "requires_versioned_locked_amendment": true,
+    "outside_current_tinker_ceiling": true
+  }
+}

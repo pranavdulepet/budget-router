@@ -1,0 +1,19 @@
+{
+  "artifact": "../outputs/semantic_router.json",
+  "mode": "balanced",
+  "router_model_name": "auto",
+  "default_output_tokens": 1024,
+  "allow_ungated_policy": false,
+  "upstreams": {
+    "local/cheap-model": {
+      "base_url": "http://127.0.0.1:8001/v1",
+      "api_key_env": "LOCAL_MODEL_API_KEY",
+      "upstream_model": "local-model"
+    },
+    "cloud/strong-model": {
+      "base_url": "https://provider.example/v1",
+      "api_key_env": "CLOUD_MODEL_API_KEY",
+      "upstream_model": "strong-model"
+    }
+  }
+}

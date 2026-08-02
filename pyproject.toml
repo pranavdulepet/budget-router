@@ -1,0 +1,111 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "budget-router"
+version = "0.1.0"
+description = "Train and serve calibrated, provider-neutral model routers"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+authors = [{ name = "Pranav Dulepet" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "typer>=0.12,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/pranavdulepet/budget-router"
+Repository = "https://github.com/pranavdulepet/budget-router"
+Documentation = "https://github.com/pranavdulepet/budget-router/blob/main/docs/open_source_router.md"
+Issues = "https://github.com/pranavdulepet/budget-router/issues"
+Changelog = "https://github.com/pranavdulepet/budget-router/releases"
+
+[project.optional-dependencies]
+data = ["duckdb>=1.1", "pyarrow>=17"]
+ml = ["scikit-learn>=1.9,<2"]
+proxy = ["fastapi>=0.116,<1", "httpx>=0.28,<1", "uvicorn>=0.35,<1"]
+tinker = [
+  "tinker==0.23.1",
+  "tinker-cookbook==0.5.2",
+  "tml-renderers==0.1.0",
+]
+runner = [
+  "litellm==1.81.3",
+  "mini-swe-agent==2.3.0",
+]
+test = [
+  "build>=1.2",
+  "coverage>=7",
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "pyyaml>=6",
+  "scikit-learn>=1.9,<2",
+]
+all = [
+  "duckdb>=1.1",
+  "litellm==1.81.3",
+  "mini-swe-agent==2.3.0",
+  "pyarrow>=17",
+  "scikit-learn>=1.9,<2",
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "uvicorn>=0.35,<1",
+  "tinker==0.23.1",
+  "tinker-cookbook==0.5.2",
+  "tml-renderers==0.1.0",
+]
+
+[project.scripts]
+budget-router = "budget_router.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/budget_router"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/.github",
+  "/artifacts",
+  "/configs",
+  "/docs",
+  "/examples",
+  "/scripts",
+  "/src",
+  "/tests",
+  "/AGENTS.md",
+  "/CITATION.cff",
+  "/CONTRIBUTING.md",
+  "/LICENSE",
+  "/README.md",
+  "/SECURITY.md",
+  "/pyproject.toml",
+]
+exclude = [
+  "/.agents",
+  "/.codex",
+  "/.hf-cache",
+  "/.venv",
+  "/dist",
+  "/logs",
+  "/outputs",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

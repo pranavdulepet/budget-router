@@ -1,0 +1,87 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "011-kimi128-strong-qualification",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-30",
+  "status": "completed_failed_stop_tinker_strong_candidate_search",
+  "relationship_to_amendment_009": {
+    "qwen397_gate_result_unchanged": true,
+    "amendment_009_paid_stop_unchanged": true,
+    "new_separately_labeled_development_qualification": true
+  },
+  "candidate": {
+    "role": "strong_candidate",
+    "model": "moonshotai/Kimi-K2.6:peft:131072",
+    "tinker_size": "Large",
+    "context_tokens": 131072,
+    "renderer": "kimi_k26",
+    "reasoning": "full",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": -1,
+    "max_output_tokens_per_turn": 8000,
+    "max_turns": 75,
+    "episode_hard_cap_usd": "8.00"
+  },
+  "price_snapshot": "configs/tinker_prices_2026-07-30_kimi128_gate.json",
+  "model_pool": "configs/model_pool_kimi128_gate_v1.json",
+  "task_manifest": "artifacts/pilot_tasks.json",
+  "task_count": 12,
+  "fixed_medium_reference": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "official_resolved_count": 6,
+    "resolved_ids": [
+      "astropy__astropy-12907",
+      "astropy__astropy-14309",
+      "django__django-11451",
+      "django__django-14765",
+      "matplotlib__matplotlib-24570",
+      "matplotlib__matplotlib-24637"
+    ]
+  },
+  "gate": {
+    "synthetic_tool_smoke_required": true,
+    "minimum_structurally_valid": 11,
+    "minimum_official_resolutions": 8,
+    "minimum_unique_resolutions_beyond_fixed_medium": 1,
+    "provider_failures_allowed": 0,
+    "unclassified_infrastructure_errors_allowed": 0,
+    "official_grades_open_after_all_terminal": true
+  },
+  "budget": {
+    "synthetic_smoke_maximum_usd": "1.50",
+    "qualification_maximum_usd": "96.00",
+    "maximum_usd": "97.50",
+    "funding_source": "amendment_009_recovery_and_contingency",
+    "overall_ceiling_increase_usd": "0",
+    "pre_inference_correction": {
+      "provider_calls_before_correction": 0,
+      "original_smoke_cap_usd": "1.00",
+      "two_full_context_worst_case_reservation_usd": "1.35788544",
+      "corrected_smoke_cap_usd": "1.50",
+      "qualification_calls_before_output_correction": 0,
+      "original_max_output_tokens_per_turn": 16000,
+      "corrected_max_output_tokens_per_turn": 8000,
+      "reason": "preserve the shared runner limit and fixed-study comparability"
+    }
+  },
+  "on_pass": "freeze_versioned_full_study_continuation_before_more_paid_inference",
+  "on_failure": "stop_further_tinker_strong_candidate_search",
+  "heldout_labels_accessed": false,
+  "result": {
+    "passed": false,
+    "decision": "stop_further_tinker_strong_candidate_search",
+    "public_result": "artifacts/kimi128_strong_qualification_result.json",
+    "human_report": "docs/kimi128_strong_qualification_report.md",
+    "synthetic_smoke_structurally_valid": true,
+    "structurally_valid_count": 12,
+    "submitted_count": 6,
+    "official_resolved_count": 4,
+    "unique_beyond_fixed_medium_count": 0,
+    "provider_failure_count": 0,
+    "unclassified_infrastructure_error_count": 0,
+    "episode_cost_usd": "51.20758943",
+    "smoke_cost_usd": "0.0028202",
+    "total_cost_usd": "51.21040963"
+  }
+}

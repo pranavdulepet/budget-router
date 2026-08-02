@@ -1,0 +1,52 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "012-terminal-workspace-patch-capture",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-30",
+  "status": "normative_infrastructure_repair_after_amendment_011",
+  "reason": "Two Kimi no-submission episodes contained complete correct tracked source diffs that were lost when the ephemeral workspace was cleaned up before harness-owned patch capture.",
+  "historical_primary_unchanged": {
+    "amendment": "011-kimi128-strong-qualification",
+    "formal_submitted_count": 6,
+    "formal_official_resolved_count": 4,
+    "gate_passed": false,
+    "decision": "stop_further_tinker_strong_candidate_search"
+  },
+  "posthoc_diagnostic": {
+    "public_result": "artifacts/kimi128_terminal_workspace_audit.json",
+    "recovered_patch_count": 2,
+    "official_resolved_count": 2,
+    "resolved_ids": [
+      "astropy__astropy-12907",
+      "matplotlib__matplotlib-24637"
+    ],
+    "combined_recoverable_resolved_count": 6,
+    "fixed_medium_resolved_count": 6,
+    "unique_beyond_fixed_medium_count": 0,
+    "changes_gate_decision": false,
+    "paid_model_cost_usd": "0"
+  },
+  "repair": {
+    "capture_timing": "after_any_agent_terminal_path_before_environment_cleanup",
+    "command": "git diff --binary --no-ext-diff HEAD --",
+    "tracked_files_only": true,
+    "zero_model_calls": true,
+    "persist_separately_from_explicit_submission": true,
+    "explicit_submission_never_replaced": true,
+    "capture_failure_never_masks_original_terminal_status": true,
+    "record_fields": [
+      "terminal_workspace_patch_capture_attempted",
+      "terminal_workspace_patch_captured",
+      "terminal_workspace_patch_sha256",
+      "terminal_workspace_patch_bytes",
+      "terminal_workspace_patch_path",
+      "terminal_workspace_patch_capture_returncode",
+      "terminal_workspace_patch_capture_error"
+    ]
+  },
+  "future_primary_use_requires_prospective_protocol": true,
+  "paid_inference_authorized": false,
+  "heldout_outcomes_changed": false,
+  "usd_ceiling_changed": false
+}
+

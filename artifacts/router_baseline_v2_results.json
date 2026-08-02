@@ -1,0 +1,137 @@
+{
+  "schema_version": "router-baseline-v2-public-results-v1",
+  "study": {
+    "study_id": "cost-aware-router-paired-baselines-2026-07-27-v2",
+    "manifest_hash": "caec3eab9575b53f9fef2bbb670e8292186b71857798d37575d38c2b20ec156d",
+    "dataset": "SWE-bench/SWE-bench_Verified",
+    "dataset_revision": "91aa3ed51b709be6457e12d00300a6a596d4c6a3",
+    "dataset_snapshot_sha256": "545d417f42f5bff2112f8a4d7b283d51fd23c17d0805fc910046732c167a045c",
+    "official_harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "train_tasks": 60,
+    "calibration_tasks": 20,
+    "test_tasks": 20,
+    "test_repository_disjoint": true
+  },
+  "screen": {
+    "task_count": 32,
+    "best_fixed_model": "Qwen/Qwen3.6-35B-A3B",
+    "oracle_gain_tasks_over_best_fixed": 2,
+    "cheap_model": "Qwen/Qwen3-8B",
+    "cheap_model_resolved_count": 1,
+    "cheap_model_safe_opportunity_count": 1,
+    "cheap_cost_signal_passed": false,
+    "quality_complementarity_signal_passed": true,
+    "surviving_models": [
+      "Qwen/Qwen3.6-35B-A3B",
+      "thinkingmachines/Inkling",
+      "moonshotai/Kimi-K2.6"
+    ],
+    "gate_hash": "22ae350bf29df31eb98840ad732e7f7f6f22a43347e06b281bf5023b0ffe174b"
+  },
+  "router": {
+    "kind": "hashed-linear issue-text success heads with cost-aware selection",
+    "training_task_count": 60,
+    "calibration_task_count": 20,
+    "feature_fields": [
+      "problem_statement"
+    ],
+    "repository_identity_feature": false,
+    "selector": "predicted_success - 0.8 * expected_cost / maximum_expected_cost",
+    "calibration_resolved_count": 11,
+    "calibration_task_count_selected_by_model": {
+      "Qwen/Qwen3.6-35B-A3B": 20,
+      "thinkingmachines/Inkling": 0,
+      "moonshotai/Kimi-K2.6": 0
+    },
+    "artifact_hash": "e60eeefa2f7428880603421d2fcf68013eb45181159dafb5ad9d907c1bfcb0f6",
+    "artifact_sha256": "4cfbe081bc2cce37c81bc5ecbb49e65279a60f9edcc0e1df42838ac3166fb896",
+    "public_artifact_path": "artifacts/router_baseline_v2_task_router.json",
+    "freeze_hash": "34ef59db74012923111fe835e76b2d5c0d41cfeefd14769f90249fa780a79a25",
+    "test_labels_accessed_before_freeze": false
+  },
+  "held_out_test": {
+    "official_submitted_patches_graded": 35,
+    "grader_error_count": 0,
+    "fixed_models": {
+      "Qwen/Qwen3.6-35B-A3B": {
+        "submitted_count": 16,
+        "resolved_count": 13,
+        "resolution_rate": 0.65,
+        "resolution_rate_95_wilson_interval": [
+          0.43285427668523624,
+          0.818808175898918
+        ],
+        "total_cost_usd": "8.437635570",
+        "mean_cost_usd": "0.4218817785",
+        "cost_per_resolved_task_usd": "0.649048890",
+        "official_report_sha256": "4107b3fab059f2c13ab44267ee6b6500550fcc4215ad0ba618bfdaf71a6d512f"
+      },
+      "thinkingmachines/Inkling": {
+        "submitted_count": 13,
+        "resolved_count": 10,
+        "resolution_rate": 0.5,
+        "resolution_rate_95_wilson_interval": [
+          0.2992980081982123,
+          0.7007019918017877
+        ],
+        "total_cost_usd": "10.39386889",
+        "mean_cost_usd": "0.5196934445",
+        "cost_per_resolved_task_usd": "1.039386889",
+        "official_report_sha256": "708f019a182c103e9773f47fa9f2c46c93e35deb430e863945f270cb0fab9aa5"
+      },
+      "moonshotai/Kimi-K2.6": {
+        "submitted_count": 6,
+        "resolved_count": 4,
+        "resolution_rate": 0.2,
+        "resolution_rate_95_wilson_interval": [
+          0.08065766257979806,
+          0.41601743225189364
+        ],
+        "total_cost_usd": "12.971993760",
+        "mean_cost_usd": "0.648599688",
+        "cost_per_resolved_task_usd": "3.242998440",
+        "official_report_sha256": "16fe51edd029b756a2a85b80e154a8941e7a87e3c6e00b95082e0433e0aafa6a"
+      }
+    },
+    "task_oracle_resolved_count": 13,
+    "task_oracle_gain_over_best_fixed": 0,
+    "frozen_router": {
+      "selection_counts": {
+        "Qwen/Qwen3.6-35B-A3B": 20,
+        "thinkingmachines/Inkling": 0,
+        "moonshotai/Kimi-K2.6": 0
+      },
+      "resolved_count": 13,
+      "resolution_rate": 0.65,
+      "total_cost_usd": "8.437635570",
+      "cost_per_resolved_task_usd": "0.649048890",
+      "resolved_count_delta_vs_best_fixed": 0,
+      "total_cost_delta_usd_vs_best_fixed": "0"
+    },
+    "pairwise_exact_mcnemar_p": {
+      "Qwen/Qwen3.6-35B-A3B__vs__thinkingmachines/Inkling": 0.25,
+      "Qwen/Qwen3.6-35B-A3B__vs__moonshotai/Kimi-K2.6": 0.00390625,
+      "thinkingmachines/Inkling__vs__moonshotai/Kimi-K2.6": 0.03125
+    },
+    "grade_summary_sha256": "ab6be37849d0d808cf26637ced888792efdc43bd491553a5711d65a26384e45e",
+    "evaluation_sha256": "721c3fffb196f23469d1e5c10d7f57e1b6091892d475efb3a44702f93c486a62",
+    "evaluation_hash": "bbb76c150141752cba2142108eb5cc8f8c6ff3e380850278bbf5e89ae5d777f6"
+  },
+  "cost_accounting": {
+    "new_valid_episode_count": 296,
+    "new_recorded_exposure_usd": "158.708486065",
+    "abandoned_provider_hang_reserve_usd": "0.90",
+    "new_reserve_adjusted_exposure_usd": "159.608486065",
+    "working_limit_usd": "190",
+    "absolute_limit_usd": "200",
+    "reused_valid_pilot_data_cost_usd": "38.793438190",
+    "valid_data_cost_including_reused_pilot_usd": "197.501924255"
+  },
+  "conclusion": {
+    "learned_router_beats_best_fixed": false,
+    "learned_router_matches_best_fixed": true,
+    "observed_test_complementarity": false,
+    "recommended_default": "Qwen/Qwen3.6-35B-A3B",
+    "claim_scope": "This custom budgeted, single-seed, 20-task repository-disjoint held-out treatment comparison is not a public SWE-bench leaderboard score."
+  }
+}

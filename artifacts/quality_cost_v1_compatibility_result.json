@@ -1,0 +1,40 @@
+{
+  "schema_version": "quality-cost-compatibility-result-v1",
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "model": "Qwen/Qwen3.5-397B-A17B",
+  "model_role": "strong_candidate",
+  "synthetic_smoke": {
+    "structurally_valid": true,
+    "conservative_cost_usd": "0.0039105"
+  },
+  "agent_gate": {
+    "task_count": 6,
+    "structurally_valid_count": 6,
+    "submitted_count": 2,
+    "no_submission_count": 4,
+    "provider_failure_count": 0,
+    "conservative_cost_usd": "23.1296895"
+  },
+  "official_grading": {
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076",
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "resolved_count": 1,
+    "resolved_ids": [
+      "pytest-dev__pytest-5631"
+    ],
+    "model_caused_error_ids": [
+      "pytest-dev__pytest-7205"
+    ],
+    "unclassified_error_ids": []
+  },
+  "gate": {
+    "minimum_structurally_valid": 5,
+    "minimum_official_resolutions": 2,
+    "passed": false,
+    "decision": "stop_amendment_009_paid_work"
+  },
+  "interpretation": "strong_candidate_failed_agent_compatibility_gate_before_router_training",
+  "heldout_labels_opened": false,
+  "development_matrix_started": false,
+  "artifact_hash": "baee7d3c2a3031749bc83fe19009ba25bbee230f4cfaad575a8d84bfd8f4ab5a"
+}

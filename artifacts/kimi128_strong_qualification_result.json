@@ -1,0 +1,79 @@
+{
+  "schema_version": "kimi128-strong-qualification-public-result-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "amendment_id": "011-kimi128-strong-qualification",
+  "candidate": "moonshotai/Kimi-K2.6:peft:131072",
+  "decision": "stop_further_tinker_strong_candidate_search",
+  "passed": false,
+  "gate": {
+    "minimum_structurally_valid": 11,
+    "minimum_official_resolutions": 8,
+    "minimum_unique_resolutions_beyond_fixed_medium": 1,
+    "provider_failures_allowed": 0,
+    "unclassified_infrastructure_errors_allowed": 0
+  },
+  "observed": {
+    "task_count": 12,
+    "structurally_valid_count": 12,
+    "submitted_count": 6,
+    "official_resolved_count": 4,
+    "unique_beyond_fixed_medium_count": 0,
+    "provider_failure_count": 0,
+    "unclassified_infrastructure_error_count": 0,
+    "episode_cost_usd": "51.20758943",
+    "smoke_cost_usd": "0.0028202",
+    "total_cost_usd": "51.21040963",
+    "mean_episode_cost_usd": "4.267299119166666666666666667",
+    "median_episode_cost_usd": "4.06589503",
+    "total_episode_latency_seconds": 10892.819445000961,
+    "mean_episode_latency_seconds": 907.7349537500801,
+    "median_episode_latency_seconds": 452.02054029196734,
+    "maximum_episode_latency_seconds": 3024.9351014590356,
+    "throughput_tasks_per_hour": 3.965915364531794
+  },
+  "fixed_medium_reference": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "official_resolved_count": 6
+  },
+  "resolved_ids": [
+    "astropy__astropy-14309",
+    "django__django-11451",
+    "django__django-14765",
+    "matplotlib__matplotlib-24570"
+  ],
+  "no_submission_ids": [
+    "astropy__astropy-12907",
+    "matplotlib__matplotlib-14623",
+    "matplotlib__matplotlib-24637",
+    "mwaskom__seaborn-3069",
+    "mwaskom__seaborn-3187",
+    "pylint-dev__pylint-4551"
+  ],
+  "official_grading": {
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076",
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "predictions_sha256": "67e8dad41691d7b3b2b15560b0e33ee2795bfe3cd49ac14dda654babcc52ae06",
+    "report_sha256": "110cb5ce6cd0c5c9ce29fba6575928c68c2d634da7b937268fe55fdd9ac3fc58",
+    "unclassified_errors": []
+  },
+  "posthoc_terminal_workspace_audit": {
+    "amendment_id": "012-terminal-workspace-patch-capture",
+    "inferential_status": "posthoc_infrastructure_diagnostic_not_primary_evidence",
+    "public_result": "artifacts/kimi128_terminal_workspace_audit.json",
+    "recovered_patch_count": 2,
+    "recovered_official_resolved_count": 2,
+    "combined_recoverable_resolved_count": 6,
+    "fixed_medium_resolved_count": 6,
+    "resolved_set_equals_fixed_medium": true,
+    "unique_beyond_fixed_medium_count": 0,
+    "changes_frozen_gate_decision": false
+  },
+  "source_artifact_sha256": {
+    "episodes_jsonl": "4bac964cbf29ecf9b974884da46c01d7c5c242875e045ad49eebf413a67a486f",
+    "summary_json": "8575f225980c85c98f43740ee0a4dc07361d09f1f83b5d3d2f98fe2e22b5281a",
+    "gate_json": "d5e750214c7e0e43b9464a22765bb4c7be9c95efd139e7308b13a9b6fb815500",
+    "smoke_json": "c6ae6f267dd486c536628e6cfca98542bb481412ee3f9daa86bd7e3d6631d43d",
+    "grading_manifest_json": "b475cbf6952fde8e123e37319e4d1ac8fd9dbc96a2ad83891a8578468e301fca"
+  },
+  "interpretation": "The frozen explicit-submission primary remains Kimi 4/12 versus fixed Qwen medium 6/12. A post-hoc infrastructure audit recovered two complete Kimi terminal-workspace diffs and both passed, making the separately labeled recoverable-workspace diagnostic a 6/12 tie with exactly Qwen's solve set. Kimi still missed the prospective 8/12 threshold, added no complementary solve, and was materially more expensive and slower, so it is not admitted as the strong arm."
+}

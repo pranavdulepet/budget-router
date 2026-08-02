@@ -1,0 +1,307 @@
+{
+  "schema_version": "active-router-protocol-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "status": "normative_completed_amendment_012_tinker_strong_search_stopped",
+  "effective_date": "2026-07-30",
+  "human_protocol": "docs/active_router_protocol.md",
+  "active_amendments": [
+    "artifacts/active_router_protocol_amendment_001_frontier_references.json",
+    "artifacts/active_router_protocol_amendment_002_nemotron_tool_recovery.json",
+    "artifacts/active_router_protocol_amendment_003_context_budgeting.json",
+    "artifacts/active_router_protocol_amendment_004_docker_image_preflight.json",
+    "artifacts/active_router_protocol_amendment_005_public_matrix.json",
+    "artifacts/active_router_protocol_amendment_006_arc_agi_replication.json",
+    "artifacts/active_router_protocol_amendment_007_agent_step_routing.json",
+    "artifacts/active_router_protocol_amendment_008_guarded_agent_step_followup.json",
+    "artifacts/active_router_protocol_amendment_009_three_tier_quality_cost.json",
+    "artifacts/active_router_protocol_amendment_010_task_block_image_lifecycle.json",
+    "artifacts/active_router_protocol_amendment_011_kimi128_strong_qualification.json",
+    "artifacts/active_router_protocol_amendment_012_terminal_workspace_capture.json"
+  ],
+  "objective": {
+    "blog": "Explain production router designs and report reproducible static and temporal router experiments.",
+    "software": "Release a provider-neutral classifier-centered router trainable on arbitrary model cards and outcome logs.",
+    "primary_hypothesis": "A calibrated task-model classifier can match or improve the best fixed model at lower observed cost."
+  },
+  "authorization": {
+    "provider": "Tinker",
+    "incremental_hard_ceiling_usd": "3000.00",
+    "spending_is_target": false,
+    "begins_after_protocol_freeze": true,
+    "separate_from_completed_amendments_001_through_008": true
+  },
+  "catalog_snapshot": {
+    "as_of": "2026-07-30",
+    "source": "https://tinker-docs.thinkingmachines.ai/tinker/models/"
+  },
+  "active_model_pool": {
+    "status": "stopped_no_admitted_three_tier_pool",
+    "config": "configs/model_pool_quality_cost_v1.json",
+    "price_snapshot": "configs/tinker_prices_2026-07-30_quality_cost_v1.json",
+    "cheap": "openai/gpt-oss-20b",
+    "medium": "Qwen/Qwen3.6-35B-A3B",
+    "strong": "Qwen/Qwen3.5-397B-A17B"
+  },
+  "successor_strong_qualification": {
+    "amendment": "artifacts/active_router_protocol_amendment_011_kimi128_strong_qualification.json",
+    "candidate": "moonshotai/Kimi-K2.6:peft:131072",
+    "status": "completed_failed",
+    "maximum_usd": "97.50",
+    "observed_total_usd": "51.21040963",
+    "official_resolved_count": 4,
+    "posthoc_recoverable_workspace_resolved_count": 6,
+    "fixed_medium_resolved_count": 6,
+    "unique_beyond_fixed_medium_count": 0,
+    "decision": "stop_further_tinker_strong_candidate_search",
+    "public_result": "artifacts/kimi128_strong_qualification_result.json",
+    "posthoc_audit": "artifacts/kimi128_terminal_workspace_audit.json"
+  },
+  "terminal_workspace_capture_repair": {
+    "amendment": "artifacts/active_router_protocol_amendment_012_terminal_workspace_capture.json",
+    "capture_timing": "after_any_agent_terminal_path_before_environment_cleanup",
+    "tracked_diff_command": "git diff --binary --no-ext-diff HEAD --",
+    "persist_separately_from_explicit_submission": true,
+    "historical_primary_outcomes_changed": false,
+    "paid_inference_authorized": false
+  },
+  "candidate_groups": {
+    "cheap_medium": {
+      "screen_tasks": 12,
+      "models": [
+        {
+          "model": "openai/gpt-oss-20b",
+          "family": "openai_gpt_oss",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "0.18",
+          "sample_per_million_usd": "0.45",
+          "episode_cap_usd": "0.35"
+        },
+        {
+          "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+          "family": "nvidia_nemotron",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "0.195",
+          "sample_per_million_usd": "0.495",
+          "episode_cap_usd": "0.35"
+        },
+        {
+          "model": "openai/gpt-oss-120b",
+          "family": "openai_gpt_oss",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "0.33",
+          "sample_per_million_usd": "0.84",
+          "episode_cap_usd": "0.75"
+        }
+      ],
+      "minimum_structurally_valid": 10,
+      "minimum_official_resolutions": 1
+    },
+    "higher_cost": {
+      "screen_tasks": 8,
+      "models": [
+        {
+          "model": "deepseek-ai/DeepSeek-V3.1",
+          "family": "deepseek",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "1.695",
+          "sample_per_million_usd": "4.215",
+          "episode_cap_usd": "1.50"
+        },
+        {
+          "model": "Qwen/Qwen3.6-27B",
+          "family": "qwen",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "1.86",
+          "sample_per_million_usd": "5.595",
+          "episode_cap_usd": "1.50"
+        },
+        {
+          "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "family": "nvidia_nemotron",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "2.49",
+          "sample_per_million_usd": "6.225",
+          "episode_cap_usd": "1.50"
+        }
+      ],
+      "minimum_structurally_valid": 7,
+      "minimum_official_resolutions": 1
+    }
+  },
+  "completed_control_2026_07_29": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "family": "qwen",
+    "context_tokens": 65536,
+    "prefill_per_million_usd": "0.54",
+    "sample_per_million_usd": "1.335",
+    "episode_cap_usd": "0.90",
+    "reuse_development_outcomes": true,
+    "rerun_heldout": true
+  },
+  "completed_candidate_groups_2026_07_29": {
+    "cheap_medium": {
+      "screen_tasks": 12,
+      "models": [
+        {
+          "model": "openai/gpt-oss-20b",
+          "family": "openai_gpt_oss",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "0.18",
+          "sample_per_million_usd": "0.45",
+          "episode_cap_usd": "0.35"
+        },
+        {
+          "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+          "family": "nvidia_nemotron",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "0.195",
+          "sample_per_million_usd": "0.495",
+          "episode_cap_usd": "0.35"
+        },
+        {
+          "model": "openai/gpt-oss-120b",
+          "family": "openai_gpt_oss",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "0.33",
+          "sample_per_million_usd": "0.84",
+          "episode_cap_usd": "0.75"
+        }
+      ],
+      "minimum_structurally_valid": 10,
+      "minimum_official_resolutions": 1
+    },
+    "higher_cost": {
+      "screen_tasks": 8,
+      "models": [
+        {
+          "model": "deepseek-ai/DeepSeek-V3.1",
+          "family": "deepseek",
+          "context_tokens": 32768,
+          "prefill_per_million_usd": "1.695",
+          "sample_per_million_usd": "4.215",
+          "episode_cap_usd": "1.50"
+        },
+        {
+          "model": "Qwen/Qwen3.6-27B",
+          "family": "qwen",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "1.86",
+          "sample_per_million_usd": "5.595",
+          "episode_cap_usd": "1.50"
+        },
+        {
+          "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "family": "nvidia_nemotron",
+          "context_tokens": 65536,
+          "prefill_per_million_usd": "2.49",
+          "sample_per_million_usd": "6.225",
+          "episode_cap_usd": "1.50"
+        }
+      ],
+      "minimum_structurally_valid": 7,
+      "minimum_official_resolutions": 1
+    }
+  },
+  "completed_final_pool_gate_2026_07_29": {
+    "maximum_models": 4,
+    "minimum_families": 3,
+    "required_roles": [
+      "qwen_control",
+      "cheap_winner",
+      "distinct_family_challenger"
+    ],
+    "optional_fourth_requires": [
+      "at_least_two_unique_screen_resolutions",
+      "or_non_dominated_cost_quality_point"
+    ],
+    "additions_after_screen": false,
+    "development_dominance_prune": true
+  },
+  "data_design": {
+    "public_benchmark": "LLMRouterBench",
+    "tinker_benchmark": "SWE-bench/SWE-bench_Verified",
+    "development_tasks": 60,
+    "heldout_tasks": 100,
+    "heldout_exact_task_ids_previously_unexecuted": true,
+    "study_repository_disjoint": true,
+    "all_final_models_on_every_heldout_task": true,
+    "heldout_on_policy_agent_operating_points": 3,
+    "open_grades_only_after_all_heldout_treatments": true
+  },
+  "public_matrix_lock": {
+    "amendment": "artifacts/active_router_protocol_amendment_005_public_matrix.json",
+    "dataset_revision": "0e5af1b84bf73437a01a1849c0f1d2468baa93fc",
+    "archive_sha256": "b79f8cde1a6f029c2efa663a3a3b6f7748defb22341fe59f328cebef6648c8f1",
+    "flagship_models": 13,
+    "id_sources": 9,
+    "ood_sources": 3,
+    "fresh_frontier_calls_authorized": false
+  },
+  "required_methods": {
+    "controls": [
+      "fixed_each",
+      "cheapest",
+      "development_best_fixed",
+      "frequency_matched_random",
+      "task_family_lookup",
+      "hindsight_oracle"
+    ],
+    "learned": [
+      "per_model_hashed_logistic",
+      "shared_task_model_classifier",
+      "embedding_knn",
+      "calibrated_gradient_boosting"
+    ],
+    "selection_validation": "leave_one_development_repository_out",
+    "primary_test_claim": "cost_savings_at_best_fixed_heldout_resolution_count"
+  },
+  "temporal_arm": {
+    "enabled": true,
+    "heldout_tasks": 100,
+    "total_episode_cap_usd": "5.00",
+    "handoff": "same_workspace_visible_state_monotone_escalation",
+    "actions": [
+      "continue_current_tier",
+      "escalate_to_medium",
+      "escalate_to_strong"
+    ],
+    "freeze_before_heldout_inference": true
+  },
+  "ordered_budget_stages": [
+    {
+      "stage": "synthetic_compatibility_smoke",
+      "maximum_usd": "0.50"
+    },
+    {
+      "stage": "strong_compatibility_gate",
+      "maximum_usd": "30.00"
+    },
+    {
+      "stage": "development_fixed_matrix",
+      "maximum_usd": "375.00"
+    },
+    {
+      "stage": "development_agent_checks",
+      "maximum_usd": "180.00"
+    },
+    {
+      "stage": "heldout_fixed_matrix",
+      "maximum_usd": "625.00"
+    },
+    {
+      "stage": "heldout_agent_policies",
+      "maximum_usd": "1500.00"
+    },
+    {
+      "stage": "recovery_and_contingency",
+      "maximum_usd": "289.50"
+    }
+  ],
+  "change_control": {
+    "silent_changes_forbidden": true,
+    "result_contingent_changes_forbidden": true,
+    "versioned_amendment_required": true,
+    "user_approval_required_for_scope_or_budget_change": true,
+    "credentials_environment_only": true
+  }
+}

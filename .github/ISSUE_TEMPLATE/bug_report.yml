@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible defect in the router, evaluator, or proxy.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, private prompts, raw trajectories, or sensitive repository content.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include commands, sanitized inputs, and the smallest relevant artifact.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Python 3.12, operating system, installation method
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Validation performed
+      description: Tests, evaluator output, or other checks that isolate the defect.

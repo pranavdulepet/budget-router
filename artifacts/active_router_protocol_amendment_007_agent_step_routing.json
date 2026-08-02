@@ -1,0 +1,111 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "007-confirmatory-agent-step-routing",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-29",
+  "status": "frozen_before_classifier_fit_or_new_paid_inference",
+  "inferential_status": "new_confirmatory_agent_step_experiment",
+  "authorization": {
+    "user_direction": "restore_agent_level_routing_as_primary_goal",
+    "original_incremental_hard_ceiling_usd": "220.00",
+    "spending_is_target": false
+  },
+  "research_question": "Can a classifier selecting a model at every agent LLM call match or exceed fixed Qwen held-out SWE-bench resolution at lower conservative observed cost?",
+  "public_training_source": {
+    "name": "TwinRouterBench",
+    "url": "https://github.com/CommonstackAI/TwinRouterBench",
+    "revision": "430acecac71141de77afd8e5e13690d236d58e93",
+    "license": "Apache-2.0",
+    "question_bank_path": "data/static/question_bank.jsonl",
+    "question_bank_sha256": "5b4f90c24643b214a9b0f26bf4e05afc742554262f4ef405e0b3b4a4cce503f4",
+    "manifest_sha256": "e575b8cc8e33bba993f2d1bcf09b4ee6940fbb098c9255a9c8e5ef7c6771e726",
+    "released_rows": 970,
+    "released_instances": 520,
+    "binary_mapping": {
+      "cheap": "target_tier_id == 0",
+      "strong": "target_tier_id > 0"
+    },
+    "excluded_swe_repository_prefixes": [
+      "pydata",
+      "pytest-dev",
+      "scikit-learn",
+      "sphinx-doc",
+      "sympy"
+    ]
+  },
+  "split": {
+    "unit": "instance_id",
+    "within": "benchmark",
+    "seed": "agent-step-router-20260729-v1",
+    "train_fraction": 0.7,
+    "calibration_fraction": 0.15,
+    "static_test_fraction": 0.15
+  },
+  "classifier": {
+    "kind": "binary_hashed_logistic",
+    "dimension": 16384,
+    "hash_seed": "agent-step-router-features-v1",
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "inverse_l2_strength_candidates": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "cross_validation": "five_fold_instance_grouped_training_only",
+    "selection_metric": "mean_binary_log_loss",
+    "calibration": "platt_on_calibration_split",
+    "threshold": "maximum_cheap_share_with_100_percent_calibration_strong_recall_and_trajectory_pass"
+  },
+  "static_launch_gate": {
+    "minimum_trajectory_pass": 0.9,
+    "minimum_strong_recall": 0.95,
+    "minimum_cheap_route_share": 0.1,
+    "artifact_frozen_before_static_test": true
+  },
+  "model_pool": {
+    "cheap": "openai/gpt-oss-20b",
+    "strong": "Qwen/Qwen3.6-35B-A3B",
+    "price_snapshot": "tinker-2026-07-29-router-v1",
+    "model_pool_config": "configs/model_pool_router_v1.json"
+  },
+  "runtime": {
+    "decision_frequency": "before_every_llm_call",
+    "force_strong_approximate_context_tokens": 24000,
+    "strong_minimum_dwell_calls_before_deescalation": 2,
+    "cheap_provider_failure_fallback": "one_qwen_retry_on_unchanged_visible_prefix",
+    "max_agent_steps": 75,
+    "fixed_cheap_episode_cap_usd": "0.35",
+    "fixed_strong_episode_cap_usd": "0.90",
+    "routed_episode_cap_usd": "0.90"
+  },
+  "dynamic_test": {
+    "task_manifest": "artifacts/active_router_task_manifest.json",
+    "heldout_tasks": 20,
+    "treatments": [
+      "fixed_gpt_oss_20b",
+      "fixed_qwen_35b",
+      "frozen_agent_step_router"
+    ],
+    "blocked_by_task": true,
+    "treatment_order_seed": 20260729,
+    "official_grades_open_after_canonical_episodes": 60
+  },
+  "analysis": {
+    "primary_quality": "official_swebench_resolved_count",
+    "joint_success": "router_resolved_count >= fixed_qwen_resolved_count and router_total_cost < fixed_qwen_total_cost",
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_seed": 20260729,
+    "external_frontier_results_are_same_split_comparators": false
+  },
+  "budget": {
+    "recorded_prior_active_router_exposure_usd": "43.277878155",
+    "development_smoke_max_usd": "0.90",
+    "heldout_fixed_cheap_max_usd": "7.00",
+    "heldout_fixed_strong_max_usd": "18.00",
+    "heldout_routed_max_usd": "18.00",
+    "maximum_new_exposure_usd": "43.90",
+    "maximum_cumulative_active_router_exposure_usd": "87.177878155"
+  }
+}

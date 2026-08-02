@@ -1,0 +1,81 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "005-public-matrix",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "effective_date": "2026-07-29",
+  "status": "normative_before_aggregate_outcome_analysis",
+  "reason": "The paid Tinker screen retained only two model families, triggering the predeclared stop rule and moving the powered classifier study to the public benchmark.",
+  "source": {
+    "github_revision": "c77cb0506949d8f959e97967d2fefca0e8ff1b05",
+    "huggingface_dataset": "NPULH/LLMRouterBench",
+    "huggingface_revision": "0e5af1b84bf73437a01a1849c0f1d2468baa93fc",
+    "archive": "bench-release.tar.gz",
+    "archive_sha256": "b79f8cde1a6f029c2efa663a3a3b6f7748defb22341fe59f328cebef6648c8f1"
+  },
+  "models": [
+    "claude-sonnet-4",
+    "deepseek-v3-0324",
+    "deepseek-v3.1-terminus",
+    "deepseek-r1-0528",
+    "gemini-2.5-flash",
+    "gemini-2.5-pro",
+    "gpt-5-chat",
+    "gpt-5",
+    "qwen3-235b-a22b-2507",
+    "qwen3-235b-a22b-thinking-2507",
+    "glm-4.6",
+    "kimi-k2-0905",
+    "intern-s1"
+  ],
+  "id_sources": [
+    {"dataset": "aime", "split": "hybrid"},
+    {"dataset": "livemathbench", "split": "test"},
+    {"dataset": "gpqa", "split": "test"},
+    {"dataset": "hle", "split": "test"},
+    {"dataset": "livecodebench", "split": "test"},
+    {"dataset": "mmlupro", "split": "test_3000"},
+    {"dataset": "swe-bench", "split": "verified"},
+    {"dataset": "simpleqa", "split": "test"},
+    {"dataset": "tau2", "split": "test"}
+  ],
+  "ood_sources": [
+    {"dataset": "arenahard_coding", "split": "test"},
+    {"dataset": "arenahard_math", "split": "test"},
+    {"dataset": "arenahard_creative_writing", "split": "test"}
+  ],
+  "split": {
+    "kind": "sha256_prompt_group_order",
+    "seed": "open-router-public-v1-20260729",
+    "train_fraction": 0.6,
+    "calibration_fraction": 0.2,
+    "id_test_fraction": 0.2,
+    "ood_is_test_only": true
+  },
+  "outcome": {
+    "quality_field": "score",
+    "quality_range": [0.0, 1.0],
+    "acceptable_threshold": 0.5,
+    "cost_field": "cost",
+    "primary_aggregation": "macro_by_dataset"
+  },
+  "selector": {
+    "kind": "predicted_score_minus_lambda_normalized_training_cost",
+    "lambdas": [0.0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.8, 1.6, 3.2],
+    "calibration_noninferiority_margin": 0.005,
+    "method_complexity_order": [
+      "independent_hashed_logistic",
+      "shared_task_model_hashed_classifier",
+      "text_knn",
+      "calibrated_gradient_boosting"
+    ]
+  },
+  "frontier_policy": {
+    "reuse_public_outcomes": true,
+    "fresh_frontier_calls_authorized": false
+  },
+  "disclosure": {
+    "aggregate_outcomes_inspected_before_freeze": false,
+    "example_records_inspected_before_freeze": 4,
+    "file_level_performance_metadata_seen_for_examples": true
+  }
+}

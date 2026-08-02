@@ -1,0 +1,38 @@
+{
+  "snapshot_id": "tinker-2026-07-28-stage-v1",
+  "source_url": "https://tinker-docs.thinkingmachines.ai/tinker/models/",
+  "as_of": "2026-07-28",
+  "currency": "USD",
+  "unit": "per_million_tokens",
+  "notes": "Isolated-scout stage-router study. Conservative caps use uncached list prices.",
+  "models": {
+    "Qwen/Qwen3-8B": {
+      "input_per_million_usd": "0.195",
+      "cached_input_per_million_usd": "0.039",
+      "output_per_million_usd": "0.60",
+      "training_per_million_usd": "0.44",
+      "context_tokens": 32768
+    },
+    "Qwen/Qwen3.6-35B-A3B": {
+      "input_per_million_usd": "0.54",
+      "cached_input_per_million_usd": "0.108",
+      "output_per_million_usd": "1.335",
+      "training_per_million_usd": "1.177",
+      "context_tokens": 65536
+    },
+    "openai/gpt-oss-20b": {
+      "input_per_million_usd": "0.18",
+      "cached_input_per_million_usd": "0.036",
+      "output_per_million_usd": "0.45",
+      "training_per_million_usd": "0.396",
+      "context_tokens": 32768
+    },
+    "openai/gpt-oss-120b": {
+      "input_per_million_usd": "0.33",
+      "cached_input_per_million_usd": "0.066",
+      "output_per_million_usd": "0.84",
+      "training_per_million_usd": "0.737",
+      "context_tokens": 32768
+    }
+  }
+}

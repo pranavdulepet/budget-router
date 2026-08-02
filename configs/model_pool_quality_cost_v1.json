@@ -1,0 +1,51 @@
+{
+  "pool_version": "tinker-three-tier-quality-cost-2026-07-30-v1",
+  "price_snapshot": "tinker-2026-07-30-quality-cost-v1",
+  "max_output_tokens": 8000,
+  "max_turns": 75,
+  "prompt_version": "mini-swe-budget-router-v1",
+  "harness_version": "mini-swe-tinker-v4-safe-opaque-redaction",
+  "seed_policy": "signed-int32-modulo-v1",
+  "renderer_policy": "tinker-cookbook-recommended-defaults-2026-07-30",
+  "treatments": [
+    {
+      "role": "cheap",
+      "model": "openai/gpt-oss-20b",
+      "family": "openai_gpt_oss",
+      "tinker_size": "Small",
+      "renderer": "gpt_oss_no_sysprompt",
+      "reasoning": "native_recommended",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": -1,
+      "context_tokens": 32768,
+      "episode_hard_cap_usd": "0.35"
+    },
+    {
+      "role": "medium",
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "family": "qwen",
+      "tinker_size": "Medium",
+      "renderer": "qwen3_5",
+      "reasoning": "thinking_recommended",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "context_tokens": 65536,
+      "episode_hard_cap_usd": "0.90"
+    },
+    {
+      "role": "strong",
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "family": "qwen",
+      "tinker_size": "Large",
+      "renderer": "qwen3_5",
+      "reasoning": "thinking_recommended",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "context_tokens": 65536,
+      "episode_hard_cap_usd": "5.00"
+    }
+  ]
+}

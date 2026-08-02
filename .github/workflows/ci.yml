@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install package and test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Run tests
+        run: python -m pytest
+      - name: Exercise the CLI
+        run: budget-router --help
+      - name: Exercise the self-contained quickstart
+        run: |
+          budget-router semantic-train \
+            --outcomes examples/outcomes.example.jsonl \
+            --model-cards examples/model_cards.example.json \
+            --output /tmp/semantic-router.json
+          budget-router semantic-evaluate \
+            --artifact /tmp/semantic-router.json \
+            --outcomes examples/heldout.example.jsonl \
+            --output /tmp/semantic-evaluation.json
+          budget-router agent-route \
+            --artifact /tmp/semantic-router.json \
+            --messages examples/agent_messages.example.json \
+            --step-index 0
+
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build wheel and source archive
+        run: |
+          python -m pip install --upgrade build pip
+          python -m build
+      - name: Reject private run material
+        run: |
+          if tar -tzf dist/*.tar.gz | grep -E '^budget_router-[^/]+/(logs|outputs|data)/|\.(patch|diff)$|run_instance\.log$|test_output\.txt$'; then
+            echo "source archive contains private run material"
+            exit 1
+          fi
+      - name: Verify the protocol lock inside the source archive
+        run: |
+          mkdir -p /tmp/router-sdist
+          tar -xzf dist/*.tar.gz -C /tmp/router-sdist --strip-components=1
+          cd /tmp/router-sdist
+          shasum -a 256 -c artifacts/active_router_protocol.sha256
+      - name: Test the wheel in a clean environment
+        run: |
+          python -m venv /tmp/router-wheel
+          /tmp/router-wheel/bin/pip install "dist/"*.whl
+          /tmp/router-wheel/bin/python -c "from budget_router import SemanticRouter, SemanticAgentRouter; from budget_router.cli import load_default_prices; load_default_prices()"
+          /tmp/router-wheel/bin/budget-router --help
+          /tmp/router-wheel/bin/budget-router explain --goal "Inspect a parser failure" --budget-usd 1.00

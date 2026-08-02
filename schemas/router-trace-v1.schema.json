@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/budget-router/router-trace-v1.schema.json",
+  "title": "Budget Router canonical turn trace",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "task_id", "run_id", "turn_id", "timestamp", "goal",
+    "visible_state", "eligible_actions", "action_propensities", "selected_action",
+    "action_estimates", "remaining_budget_usd", "conservative_spent_usd",
+    "billed_spent_usd", "price_snapshot", "price_provenance", "policy_version",
+    "record_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "task_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "parent_run_id": {"type": ["string", "null"]},
+    "turn_id": {"type": "integer", "minimum": 0},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "goal": {"type": "object"},
+    "visible_state": {"type": "object"},
+    "eligible_actions": {"type": "array", "items": {"type": "string"}},
+    "action_propensities": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+    },
+    "selected_action": {"type": "object"},
+    "action_estimates": {"type": "array", "items": {"type": "object"}},
+    "remaining_budget_usd": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "conservative_spent_usd": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "billed_spent_usd": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"},
+    "price_snapshot": {"type": "string"},
+    "price_provenance": {"type": "string"},
+    "policy_version": {"type": "string"},
+    "model_version": {"type": ["string", "null"]},
+    "event": {"type": ["object", "null"]},
+    "stopping_reason": {"type": ["string", "null"]},
+    "record_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
+

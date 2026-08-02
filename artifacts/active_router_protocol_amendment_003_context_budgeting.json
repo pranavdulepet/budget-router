@@ -1,0 +1,49 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "open-router-study-2026-07-29-amendment-003",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "status": "normative_infrastructure_repair",
+  "effective_date": "2026-07-29",
+  "reason": "Accumulated agent history plus the fixed output allowance exceeded both 64K Nemotron and 32K GPT-OSS context windows, establishing a shared harness defect.",
+  "scope_unchanged": [
+    "research_question",
+    "tasks",
+    "models",
+    "system_and_task_prompts",
+    "seeds",
+    "output_allowance",
+    "episode_caps",
+    "selection_rules",
+    "heldout_design",
+    "incremental_usd_ceiling"
+  ],
+  "repair": {
+    "reserve_full_output_allowance": true,
+    "context_tokens_source": "locked_model_treatment",
+    "preserve": [
+      "system_prompt",
+      "original_public_task_request",
+      "newest_complete_assistant_observation_exchanges"
+    ],
+    "drop": "oldest_complete_exchanges_only",
+    "orphan_tool_responses_forbidden": true,
+    "record_dropped_message_count": true,
+    "fail_locally_if_safe_trim_cannot_fit": true
+  },
+  "invalidated_episode_keys": [
+    {
+      "study_stage": "cheap_medium_screen",
+      "task_id": "astropy__astropy-7671",
+      "model": "openai/gpt-oss-20b",
+      "protocol_sha256": "5da1439b8a052f578fc2e05cbfecad2fd94e991693d7a9e8e2f989ec9b5f196f",
+      "cost_still_counted": true,
+      "excluded_from_quality_and_structural_metrics": true
+    }
+  ],
+  "interrupted_exposure_artifact": "outputs/active_router_v1/interrupted_exposure.json",
+  "recollection": {
+    "same_task_seed_prompt_cap_and_treatment": true,
+    "interrupted_episodes_have_no_quality_outcome": true,
+    "all_diagnostic_and_interrupted_costs_count": true
+  }
+}

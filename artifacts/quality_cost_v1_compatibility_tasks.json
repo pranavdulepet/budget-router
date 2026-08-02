@@ -1,0 +1,13 @@
+{
+  "schema_version": "quality-cost-compatibility-manifest-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "tasks": [
+    {"task_id": "pydata__xarray-3677"},
+    {"task_id": "pytest-dev__pytest-5631"},
+    {"task_id": "pytest-dev__pytest-7205"},
+    {"task_id": "pytest-dev__pytest-10081"},
+    {"task_id": "pydata__xarray-7229"},
+    {"task_id": "pydata__xarray-4695"}
+  ]
+}

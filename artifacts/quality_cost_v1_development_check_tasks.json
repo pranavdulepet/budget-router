@@ -1,0 +1,57 @@
+{
+  "schema_version": "quality-cost-development-check-v1",
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "selection_seed": "three-tier-router-development-check-20260730",
+  "selection_rule": "three lowest SHA-256 ranks per development repository",
+  "tasks": [
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14598"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-13453"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-13579"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-25287"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-24149"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-25960"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4687"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4629"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6938"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-6197"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-10051"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7521"
+    }
+  ],
+  "manifest_hash": "5344a36e03c6264f673b55552fd58cb3ce7afeaa8e6fac38b5834d5fdfddbc99"
+}

@@ -1,0 +1,694 @@
+{
+  "amendment_id": "009-three-tier-official-agent-quality-cost",
+  "compatibility": [
+    "pydata__xarray-3677",
+    "pydata__xarray-4695",
+    "pydata__xarray-7229",
+    "pytest-dev__pytest-10081",
+    "pytest-dev__pytest-5631",
+    "pytest-dev__pytest-7205"
+  ],
+  "development": [
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-12907"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-13236"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-13453"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-13579"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14182"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14309"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14508"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14539"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14598"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-14995"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-7166"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-7336"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-7671"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-8707"
+    },
+    {
+      "repository": "astropy/astropy",
+      "task_id": "astropy__astropy-8872"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-13989"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-20488"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-20676"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-20826"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-22719"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-22865"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-23412"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-24149"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-24627"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-25122"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-25287"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-25960"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-26113"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-26291"
+    },
+    {
+      "repository": "matplotlib/matplotlib",
+      "task_id": "matplotlib__matplotlib-26466"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-3095"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-3151"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-3993"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4075"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4094"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4356"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4629"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4687"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-4966"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6461"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6599"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6744"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6938"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-6992"
+    },
+    {
+      "repository": "pydata/xarray",
+      "task_id": "pydata__xarray-7233"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-10051"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-10356"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-5262"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-5787"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-5809"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-6197"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-6202"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7236"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7324"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7432"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7490"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7521"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7571"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-7982"
+    },
+    {
+      "repository": "pytest-dev/pytest",
+      "task_id": "pytest-dev__pytest-8399"
+    }
+  ],
+  "heldout": [
+    {
+      "repository": "django/django",
+      "task_id": "django__django-10880"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11095"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11206"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11211"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11490"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11532"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-11951"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-12193"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-12419"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-12708"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-13195"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-13344"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-13807"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-13925"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14170"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14493"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14580"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14752"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14771"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-14855"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15098"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15103"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15278"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15280"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15368"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15503"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15561"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15814"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15863"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-15916"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-16136"
+    },
+    {
+      "repository": "django/django",
+      "task_id": "django__django-16661"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-10297"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-11310"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-11578"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-12682"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-13142"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-13328"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-14141"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-14629"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-14894"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-14983"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-15100"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-25102"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-25232"
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "task_id": "scikit-learn__scikit-learn-9288"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-10323"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-10435"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-10449"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-10466"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-10614"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-11445"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-7590"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-7748"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-7889"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-7985"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8035"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8120"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8265"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8459"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8551"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8593"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8595"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-8621"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9230"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9258"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9281"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9320"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9367"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9461"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9698"
+    },
+    {
+      "repository": "sphinx-doc/sphinx",
+      "task_id": "sphinx-doc__sphinx-9711"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-11618"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-12096"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-12481"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-13031"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-13091"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-13615"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-13647"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-13757"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-14531"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-14711"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-15017"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-15976"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-16597"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-16886"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-17318"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-17655"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-18189"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-19346"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-20154"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-21379"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-21596"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-21847"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-22080"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-23262"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-24213"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-24539"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-24562"
+    },
+    {
+      "repository": "sympy/sympy",
+      "task_id": "sympy__sympy-24661"
+    }
+  ],
+  "invariants": {
+    "all_cohorts_exact_ids_disjoint": true,
+    "development_and_heldout_repositories_disjoint": true,
+    "development_tasks": 60,
+    "heldout_exact_ids_previously_unexecuted": true,
+    "heldout_official_grades_opened": false,
+    "heldout_paid_episodes_started": false,
+    "heldout_tasks": 100
+  },
+  "manifest_hash": "6de0e84d154e5c3315b4d0487d34dcf213e559e238a2262b74dfe08ccd282726",
+  "prior_execution_index": {
+    "executed_task_count": 219,
+    "executed_task_ids_sha256": "234f3906fcf04b21b53365282ea5f49c1548674ed50a827be4fe67080f509e81"
+  },
+  "repository_counts": {
+    "development": {
+      "astropy/astropy": 15,
+      "matplotlib/matplotlib": 15,
+      "pydata/xarray": 15,
+      "pytest-dev/pytest": 15
+    },
+    "heldout": {
+      "django/django": 32,
+      "scikit-learn/scikit-learn": 14,
+      "sphinx-doc/sphinx": 26,
+      "sympy/sympy": 28
+    }
+  },
+  "schema_version": "quality-cost-task-manifest-v1",
+  "selection": {
+    "development_seed": "three-tier-router-development-20260730",
+    "heldout_seed": "three-tier-router-heldout-20260730"
+  },
+  "source": {
+    "content_hash": "781aee0f41b6596bbc05b6667ce0efd3efcc8ffe1fbefaf66e9ad15d1354b52a",
+    "dataset": "SWE-bench/SWE-bench_Verified",
+    "revision": "91aa3ed51b709be6457e12d00300a6a596d4c6a3"
+  },
+  "study_id": "open-router-study-2026-07-29-v1"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "kimi128-terminal-workspace-posthoc-audit-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "amendment_id": "012-terminal-workspace-patch-capture",
+  "inferential_status": "posthoc_infrastructure_diagnostic_not_primary_evidence",
+  "model": "moonshotai/Kimi-K2.6:peft:131072",
+  "primary_result_unchanged": {
+    "official_resolved_count": 4,
+    "submitted_count": 6,
+    "task_count": 12,
+    "gate_passed": false
+  },
+  "recovered": [
+    {
+      "task_id": "astropy__astropy-12907",
+      "terminal_status": "BudgetLimitExceeded",
+      "source_trajectory_sha256": "f7f71a7b4e6931d5ca6de4dc48b86eaa362558bc215f515f923ceeda431cfff8",
+      "patch_sha256": "216123410193009200fe215fb5192175397bfbf717832e947e871a3be808ea3c",
+      "official_resolved": true
+    },
+    {
+      "task_id": "matplotlib__matplotlib-24637",
+      "terminal_status": "LimitsExceeded",
+      "source_trajectory_sha256": "1e25d26c0aca2fa06dedda337b4fc53dc3bfca0f45bcf8e1e526750aa44cfa54",
+      "patch_sha256": "37d90f386c61ba1764eeae7f00bb380eb949e7a02724f01dd401a5065032c3fa",
+      "official_resolved": true
+    }
+  ],
+  "official_grading": {
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076",
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "predictions_sha256": "d1bb0a18441d869b83eb780b097a979b2e810462ce58142d1b880f13f8efddbb",
+    "report_sha256": "929337eb3ce2768f0aaae695a219660526874327caa41f6300baae63c0bcc624",
+    "grading_manifest_sha256": "fcda72dcb7b214ad2b0b83c8383a5074c1614fedfba6247dd22a7aba47fe0496",
+    "submitted_count": 2,
+    "resolved_count": 2,
+    "unclassified_errors": []
+  },
+  "combined_diagnostic": {
+    "recoverable_resolved_count": 6,
+    "task_count": 12,
+    "fixed_qwen_resolved_count": 6,
+    "resolved_set_equals_fixed_qwen": true,
+    "unique_beyond_fixed_qwen_count": 0,
+    "changes_frozen_gate_decision": false
+  },
+  "interpretation": "The apparent 6-versus-4 quality gap on the Amendment 011 cohort was caused by the explicit submission boundary. Recoverable Kimi work ties Qwen at 6/12 but remains cost- and latency-dominated and does not satisfy the prospective 8/12 plus complementarity gate."
+}

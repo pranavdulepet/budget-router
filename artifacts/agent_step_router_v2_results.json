@@ -1,0 +1,6131 @@
+{
+  "active_router_audit": {
+    "cheap_calls_by_zero_based_position": {
+      "10": 13,
+      "11": 11,
+      "12": 5,
+      "13": 6,
+      "14": 12,
+      "15": 10,
+      "16": 3,
+      "17": 2,
+      "18": 7,
+      "19": 12,
+      "2": 9,
+      "20": 12,
+      "21": 11,
+      "22": 11,
+      "23": 7,
+      "24": 3,
+      "25": 10,
+      "26": 13,
+      "27": 8,
+      "28": 5,
+      "29": 10,
+      "3": 5,
+      "30": 9,
+      "31": 7,
+      "32": 8,
+      "33": 11,
+      "34": 13,
+      "35": 9,
+      "36": 6,
+      "37": 4,
+      "38": 9,
+      "39": 6,
+      "4": 1,
+      "40": 5,
+      "41": 8,
+      "42": 10,
+      "43": 5,
+      "44": 2,
+      "45": 6,
+      "46": 5,
+      "47": 3,
+      "48": 1,
+      "49": 2,
+      "5": 1,
+      "50": 3,
+      "51": 3,
+      "52": 1,
+      "54": 3,
+      "55": 3,
+      "56": 1,
+      "57": 1,
+      "59": 1,
+      "6": 7,
+      "60": 2,
+      "62": 1,
+      "63": 1,
+      "67": 1,
+      "68": 1,
+      "7": 6,
+      "73": 1,
+      "74": 1,
+      "8": 4,
+      "9": 7
+    },
+    "cheap_substitution_token_accounting": {
+      "caveat": "Same-token repricing isolates list-price substitution only; it is not a causal counterfactual because model choice changes future tokens and trajectory length.",
+      "cheap_input_tokens": 5140536,
+      "cheap_output_tokens": 112429,
+      "mechanical_same_token_saving_usd": "1.950092625",
+      "observed_cheap_call_cost_usd": "0.97588953",
+      "same_tokens_at_strong_list_price_usd": "2.925982155"
+    },
+    "decision_reasons": {
+      "classifier_cheap": 364,
+      "classifier_strong": 1794,
+      "force_strong_cheap_burst": 127,
+      "force_strong_context_guard": 389,
+      "force_strong_dwell": 72,
+      "force_strong_initial_calls": 120
+    },
+    "forced_guard_reasons": {
+      "force_strong_cheap_burst": 127,
+      "force_strong_context_guard": 389,
+      "force_strong_dwell": 72,
+      "force_strong_initial_calls": 120
+    },
+    "guard_compliant_trajectories": 60,
+    "task_rows": [
+      {
+        "calls": 37,
+        "cheap_call_positions_zero_based": [
+          10,
+          11,
+          29,
+          30
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.2777777777777778,
+          0.3055555555555556,
+          0.8055555555555556,
+          0.8333333333333334
+        ],
+        "task_id": "astropy__astropy-13236"
+      },
+      {
+        "calls": 61,
+        "cheap_call_positions_zero_based": [
+          14,
+          15
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.23333333333333334,
+          0.25
+        ],
+        "task_id": "astropy__astropy-13398"
+      },
+      {
+        "calls": 52,
+        "cheap_call_positions_zero_based": [
+          26,
+          27
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.5098039215686274,
+          0.5294117647058824
+        ],
+        "task_id": "astropy__astropy-13453"
+      },
+      {
+        "calls": 48,
+        "cheap_call_positions_zero_based": [
+          19,
+          20,
+          23
+        ],
+        "cheap_calls": 3,
+        "normalized_cheap_call_positions": [
+          0.40425531914893614,
+          0.425531914893617,
+          0.48936170212765956
+        ],
+        "task_id": "astropy__astropy-14096"
+      },
+      {
+        "calls": 63,
+        "cheap_call_positions_zero_based": [
+          7,
+          8,
+          12,
+          13,
+          16,
+          21,
+          22,
+          25,
+          26
+        ],
+        "cheap_calls": 9,
+        "normalized_cheap_call_positions": [
+          0.11290322580645161,
+          0.12903225806451613,
+          0.1935483870967742,
+          0.20967741935483872,
+          0.25806451612903225,
+          0.3387096774193548,
+          0.3548387096774194,
+          0.4032258064516129,
+          0.41935483870967744
+        ],
+        "task_id": "astropy__astropy-14182"
+      },
+      {
+        "calls": 23,
+        "cheap_call_positions_zero_based": [
+          5,
+          6,
+          9,
+          10,
+          13,
+          14,
+          18,
+          19
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.22727272727272727,
+          0.2727272727272727,
+          0.4090909090909091,
+          0.45454545454545453,
+          0.5909090909090909,
+          0.6363636363636364,
+          0.8181818181818182,
+          0.8636363636363636
+        ],
+        "task_id": "django__django-11099"
+      },
+      {
+        "calls": 47,
+        "cheap_call_positions_zero_based": [
+          2,
+          19,
+          20,
+          24,
+          25,
+          28,
+          31,
+          41,
+          42
+        ],
+        "cheap_calls": 9,
+        "normalized_cheap_call_positions": [
+          0.043478260869565216,
+          0.41304347826086957,
+          0.43478260869565216,
+          0.5217391304347826,
+          0.5434782608695652,
+          0.6086956521739131,
+          0.6739130434782609,
+          0.8913043478260869,
+          0.9130434782608695
+        ],
+        "task_id": "django__django-11239"
+      },
+      {
+        "calls": 38,
+        "cheap_call_positions_zero_based": [
+          19,
+          20,
+          29,
+          30,
+          33,
+          34
+        ],
+        "cheap_calls": 6,
+        "normalized_cheap_call_positions": [
+          0.5135135135135135,
+          0.5405405405405406,
+          0.7837837837837838,
+          0.8108108108108109,
+          0.8918918918918919,
+          0.918918918918919
+        ],
+        "task_id": "django__django-11400"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          26,
+          27,
+          34,
+          35,
+          41,
+          42,
+          48,
+          49
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.35135135135135137,
+          0.36486486486486486,
+          0.4594594594594595,
+          0.47297297297297297,
+          0.5540540540540541,
+          0.5675675675675675,
+          0.6486486486486487,
+          0.6621621621621622
+        ],
+        "task_id": "django__django-11555"
+      },
+      {
+        "calls": 43,
+        "cheap_call_positions_zero_based": [
+          8,
+          32,
+          41,
+          42
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.19047619047619047,
+          0.7619047619047619,
+          0.9761904761904762,
+          1.0
+        ],
+        "task_id": "django__django-11749"
+      },
+      {
+        "calls": 21,
+        "cheap_call_positions_zero_based": [
+          17,
+          18
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.85,
+          0.9
+        ],
+        "task_id": "django__django-11880"
+      },
+      {
+        "calls": 40,
+        "cheap_call_positions_zero_based": [
+          15,
+          16,
+          34,
+          35
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.38461538461538464,
+          0.41025641025641024,
+          0.8717948717948718,
+          0.8974358974358975
+        ],
+        "task_id": "django__django-12308"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          10,
+          11,
+          14,
+          32,
+          33,
+          42,
+          43,
+          46,
+          47,
+          50,
+          51
+        ],
+        "cheap_calls": 11,
+        "normalized_cheap_call_positions": [
+          0.13513513513513514,
+          0.14864864864864866,
+          0.1891891891891892,
+          0.43243243243243246,
+          0.44594594594594594,
+          0.5675675675675675,
+          0.581081081081081,
+          0.6216216216216216,
+          0.6351351351351351,
+          0.6756756756756757,
+          0.6891891891891891
+        ],
+        "task_id": "django__django-12663"
+      },
+      {
+        "calls": 21,
+        "cheap_call_positions_zero_based": [],
+        "cheap_calls": 0,
+        "normalized_cheap_call_positions": [],
+        "task_id": "django__django-12713"
+      },
+      {
+        "calls": 28,
+        "cheap_call_positions_zero_based": [
+          24,
+          25
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.8888888888888888,
+          0.9259259259259259
+        ],
+        "task_id": "django__django-13023"
+      },
+      {
+        "calls": 24,
+        "cheap_call_positions_zero_based": [
+          9,
+          10,
+          20,
+          21
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.391304347826087,
+          0.43478260869565216,
+          0.8695652173913043,
+          0.9130434782608695
+        ],
+        "task_id": "django__django-13028"
+      },
+      {
+        "calls": 49,
+        "cheap_call_positions_zero_based": [
+          25,
+          26,
+          29,
+          33,
+          34,
+          40,
+          41
+        ],
+        "cheap_calls": 7,
+        "normalized_cheap_call_positions": [
+          0.5208333333333334,
+          0.5416666666666666,
+          0.6041666666666666,
+          0.6875,
+          0.7083333333333334,
+          0.8333333333333334,
+          0.8541666666666666
+        ],
+        "task_id": "django__django-13279"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          22,
+          23,
+          32,
+          33,
+          41,
+          42,
+          45,
+          46,
+          49,
+          52
+        ],
+        "cheap_calls": 10,
+        "normalized_cheap_call_positions": [
+          0.2972972972972973,
+          0.3108108108108108,
+          0.43243243243243246,
+          0.44594594594594594,
+          0.5540540540540541,
+          0.5675675675675675,
+          0.6081081081081081,
+          0.6216216216216216,
+          0.6621621621621622,
+          0.7027027027027027
+        ],
+        "task_id": "django__django-13315"
+      },
+      {
+        "calls": 26,
+        "cheap_call_positions_zero_based": [
+          4,
+          12,
+          13
+        ],
+        "cheap_calls": 3,
+        "normalized_cheap_call_positions": [
+          0.16,
+          0.48,
+          0.52
+        ],
+        "task_id": "django__django-13363"
+      },
+      {
+        "calls": 47,
+        "cheap_call_positions_zero_based": [
+          11,
+          12,
+          19,
+          20,
+          38,
+          39,
+          44,
+          45
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.2391304347826087,
+          0.2608695652173913,
+          0.41304347826086957,
+          0.43478260869565216,
+          0.8260869565217391,
+          0.8478260869565217,
+          0.9565217391304348,
+          0.9782608695652174
+        ],
+        "task_id": "django__django-13449"
+      },
+      {
+        "calls": 41,
+        "cheap_call_positions_zero_based": [
+          11,
+          12,
+          21,
+          22,
+          25,
+          26,
+          29,
+          30,
+          35,
+          36
+        ],
+        "cheap_calls": 10,
+        "normalized_cheap_call_positions": [
+          0.275,
+          0.3,
+          0.525,
+          0.55,
+          0.625,
+          0.65,
+          0.725,
+          0.75,
+          0.875,
+          0.9
+        ],
+        "task_id": "django__django-13810"
+      },
+      {
+        "calls": 67,
+        "cheap_call_positions_zero_based": [
+          19,
+          20,
+          54,
+          55,
+          62,
+          63
+        ],
+        "cheap_calls": 6,
+        "normalized_cheap_call_positions": [
+          0.2878787878787879,
+          0.30303030303030304,
+          0.8181818181818182,
+          0.8333333333333334,
+          0.9393939393939394,
+          0.9545454545454546
+        ],
+        "task_id": "django__django-14007"
+      },
+      {
+        "calls": 29,
+        "cheap_call_positions_zero_based": [
+          10,
+          11,
+          14,
+          15,
+          25,
+          26
+        ],
+        "cheap_calls": 6,
+        "normalized_cheap_call_positions": [
+          0.35714285714285715,
+          0.39285714285714285,
+          0.5,
+          0.5357142857142857,
+          0.8928571428571429,
+          0.9285714285714286
+        ],
+        "task_id": "django__django-14140"
+      },
+      {
+        "calls": 50,
+        "cheap_call_positions_zero_based": [
+          13,
+          14,
+          19,
+          20,
+          36,
+          37,
+          40,
+          45,
+          46
+        ],
+        "cheap_calls": 9,
+        "normalized_cheap_call_positions": [
+          0.2653061224489796,
+          0.2857142857142857,
+          0.3877551020408163,
+          0.40816326530612246,
+          0.7346938775510204,
+          0.7551020408163265,
+          0.8163265306122449,
+          0.9183673469387755,
+          0.9387755102040817
+        ],
+        "task_id": "django__django-14311"
+      },
+      {
+        "calls": 61,
+        "cheap_call_positions_zero_based": [
+          27,
+          56,
+          57
+        ],
+        "cheap_calls": 3,
+        "normalized_cheap_call_positions": [
+          0.45,
+          0.9333333333333333,
+          0.95
+        ],
+        "task_id": "django__django-14539"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          14,
+          15,
+          21,
+          22,
+          25,
+          26,
+          36,
+          37,
+          40,
+          41,
+          45
+        ],
+        "cheap_calls": 11,
+        "normalized_cheap_call_positions": [
+          0.1891891891891892,
+          0.20270270270270271,
+          0.28378378378378377,
+          0.2972972972972973,
+          0.33783783783783783,
+          0.35135135135135137,
+          0.4864864864864865,
+          0.5,
+          0.5405405405405406,
+          0.5540540540540541,
+          0.6081081081081081
+        ],
+        "task_id": "django__django-15382"
+      },
+      {
+        "calls": 32,
+        "cheap_call_positions_zero_based": [
+          8,
+          9,
+          22,
+          23
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.25806451612903225,
+          0.2903225806451613,
+          0.7096774193548387,
+          0.7419354838709677
+        ],
+        "task_id": "django__django-15467"
+      },
+      {
+        "calls": 51,
+        "cheap_call_positions_zero_based": [
+          18,
+          19
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.36,
+          0.38
+        ],
+        "task_id": "django__django-15563"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          20,
+          21,
+          29
+        ],
+        "cheap_calls": 3,
+        "normalized_cheap_call_positions": [
+          0.2702702702702703,
+          0.28378378378378377,
+          0.3918918918918919
+        ],
+        "task_id": "django__django-15957"
+      },
+      {
+        "calls": 27,
+        "cheap_call_positions_zero_based": [
+          8,
+          23,
+          24
+        ],
+        "cheap_calls": 3,
+        "normalized_cheap_call_positions": [
+          0.3076923076923077,
+          0.8846153846153846,
+          0.9230769230769231
+        ],
+        "task_id": "django__django-16642"
+      },
+      {
+        "calls": 48,
+        "cheap_call_positions_zero_based": [
+          20,
+          21,
+          31,
+          32,
+          37,
+          38,
+          47
+        ],
+        "cheap_calls": 7,
+        "normalized_cheap_call_positions": [
+          0.425531914893617,
+          0.44680851063829785,
+          0.6595744680851063,
+          0.6808510638297872,
+          0.7872340425531915,
+          0.8085106382978723,
+          1.0
+        ],
+        "task_id": "django__django-16877"
+      },
+      {
+        "calls": 24,
+        "cheap_call_positions_zero_based": [
+          9,
+          10
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.391304347826087,
+          0.43478260869565216
+        ],
+        "task_id": "django__django-17029"
+      },
+      {
+        "calls": 34,
+        "cheap_call_positions_zero_based": [
+          9,
+          10,
+          13,
+          21,
+          22,
+          28,
+          29
+        ],
+        "cheap_calls": 7,
+        "normalized_cheap_call_positions": [
+          0.2727272727272727,
+          0.30303030303030304,
+          0.3939393939393939,
+          0.6363636363636364,
+          0.6666666666666666,
+          0.8484848484848485,
+          0.8787878787878788
+        ],
+        "task_id": "matplotlib__matplotlib-13989"
+      },
+      {
+        "calls": 56,
+        "cheap_call_positions_zero_based": [
+          2,
+          20,
+          21,
+          25,
+          30,
+          31,
+          34,
+          39,
+          40,
+          43,
+          44,
+          50,
+          51,
+          54,
+          55
+        ],
+        "cheap_calls": 15,
+        "normalized_cheap_call_positions": [
+          0.03636363636363636,
+          0.36363636363636365,
+          0.38181818181818183,
+          0.45454545454545453,
+          0.5454545454545454,
+          0.5636363636363636,
+          0.6181818181818182,
+          0.7090909090909091,
+          0.7272727272727273,
+          0.7818181818181819,
+          0.8,
+          0.9090909090909091,
+          0.9272727272727272,
+          0.9818181818181818,
+          1.0
+        ],
+        "task_id": "matplotlib__matplotlib-20676"
+      },
+      {
+        "calls": 65,
+        "cheap_call_positions_zero_based": [
+          26,
+          27,
+          30,
+          38,
+          39
+        ],
+        "cheap_calls": 5,
+        "normalized_cheap_call_positions": [
+          0.40625,
+          0.421875,
+          0.46875,
+          0.59375,
+          0.609375
+        ],
+        "task_id": "matplotlib__matplotlib-20826"
+      },
+      {
+        "calls": 73,
+        "cheap_call_positions_zero_based": [
+          21,
+          22,
+          32,
+          33,
+          39,
+          40
+        ],
+        "cheap_calls": 6,
+        "normalized_cheap_call_positions": [
+          0.2916666666666667,
+          0.3055555555555556,
+          0.4444444444444444,
+          0.4583333333333333,
+          0.5416666666666666,
+          0.5555555555555556
+        ],
+        "task_id": "matplotlib__matplotlib-21568"
+      },
+      {
+        "calls": 47,
+        "cheap_call_positions_zero_based": [
+          26,
+          27,
+          35,
+          36,
+          42,
+          43
+        ],
+        "cheap_calls": 6,
+        "normalized_cheap_call_positions": [
+          0.5652173913043478,
+          0.5869565217391305,
+          0.7608695652173914,
+          0.782608695652174,
+          0.9130434782608695,
+          0.9347826086956522
+        ],
+        "task_id": "matplotlib__matplotlib-22719"
+      },
+      {
+        "calls": 57,
+        "cheap_call_positions_zero_based": [
+          15,
+          16,
+          19,
+          20,
+          25,
+          26,
+          34,
+          45
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.26785714285714285,
+          0.2857142857142857,
+          0.3392857142857143,
+          0.35714285714285715,
+          0.44642857142857145,
+          0.4642857142857143,
+          0.6071428571428571,
+          0.8035714285714286
+        ],
+        "task_id": "matplotlib__matplotlib-22865"
+      },
+      {
+        "calls": 71,
+        "cheap_call_positions_zero_based": [],
+        "cheap_calls": 0,
+        "normalized_cheap_call_positions": [],
+        "task_id": "matplotlib__matplotlib-23299"
+      },
+      {
+        "calls": 44,
+        "cheap_call_positions_zero_based": [
+          33,
+          34,
+          38,
+          39
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.7674418604651163,
+          0.7906976744186046,
+          0.8837209302325582,
+          0.9069767441860465
+        ],
+        "task_id": "matplotlib__matplotlib-23314"
+      },
+      {
+        "calls": 15,
+        "cheap_call_positions_zero_based": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14
+        ],
+        "cheap_calls": 7,
+        "normalized_cheap_call_positions": [
+          0.14285714285714285,
+          0.21428571428571427,
+          0.42857142857142855,
+          0.5,
+          0.7142857142857143,
+          0.7857142857142857,
+          1.0
+        ],
+        "task_id": "matplotlib__matplotlib-24026"
+      },
+      {
+        "calls": 39,
+        "cheap_call_positions_zero_based": [
+          34,
+          35
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.8947368421052632,
+          0.9210526315789473
+        ],
+        "task_id": "matplotlib__matplotlib-24149"
+      },
+      {
+        "calls": 62,
+        "cheap_call_positions_zero_based": [
+          9,
+          10,
+          14,
+          15,
+          34
+        ],
+        "cheap_calls": 5,
+        "normalized_cheap_call_positions": [
+          0.14754098360655737,
+          0.16393442622950818,
+          0.22950819672131148,
+          0.2459016393442623,
+          0.5573770491803278
+        ],
+        "task_id": "matplotlib__matplotlib-24177"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          2,
+          21,
+          22,
+          35,
+          36,
+          42,
+          43,
+          46
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.02702702702702703,
+          0.28378378378378377,
+          0.2972972972972973,
+          0.47297297297297297,
+          0.4864864864864865,
+          0.5675675675675675,
+          0.581081081081081,
+          0.6216216216216216
+        ],
+        "task_id": "matplotlib__matplotlib-24870"
+      },
+      {
+        "calls": 46,
+        "cheap_call_positions_zero_based": [
+          17,
+          18,
+          28,
+          29,
+          32,
+          33,
+          38,
+          43
+        ],
+        "cheap_calls": 8,
+        "normalized_cheap_call_positions": [
+          0.37777777777777777,
+          0.4,
+          0.6222222222222222,
+          0.6444444444444445,
+          0.7111111111111111,
+          0.7333333333333333,
+          0.8444444444444444,
+          0.9555555555555556
+        ],
+        "task_id": "matplotlib__matplotlib-24970"
+      },
+      {
+        "calls": 15,
+        "cheap_call_positions_zero_based": [],
+        "cheap_calls": 0,
+        "normalized_cheap_call_positions": [],
+        "task_id": "matplotlib__matplotlib-25122"
+      },
+      {
+        "calls": 37,
+        "cheap_call_positions_zero_based": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15,
+          18,
+          19,
+          22,
+          23,
+          26,
+          27,
+          30,
+          31,
+          34,
+          35
+        ],
+        "cheap_calls": 18,
+        "normalized_cheap_call_positions": [
+          0.05555555555555555,
+          0.08333333333333333,
+          0.16666666666666666,
+          0.19444444444444445,
+          0.2777777777777778,
+          0.3055555555555556,
+          0.3888888888888889,
+          0.4166666666666667,
+          0.5,
+          0.5277777777777778,
+          0.6111111111111112,
+          0.6388888888888888,
+          0.7222222222222222,
+          0.75,
+          0.8333333333333334,
+          0.8611111111111112,
+          0.9444444444444444,
+          0.9722222222222222
+        ],
+        "task_id": "matplotlib__matplotlib-25479"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          60,
+          67,
+          68,
+          73,
+          74
+        ],
+        "cheap_calls": 5,
+        "normalized_cheap_call_positions": [
+          0.8108108108108109,
+          0.9054054054054054,
+          0.918918918918919,
+          0.9864864864864865,
+          1.0
+        ],
+        "task_id": "matplotlib__matplotlib-25775"
+      },
+      {
+        "calls": 58,
+        "cheap_call_positions_zero_based": [
+          20,
+          21,
+          54,
+          55
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.3508771929824561,
+          0.3684210526315789,
+          0.9473684210526315,
+          0.9649122807017544
+        ],
+        "task_id": "matplotlib__matplotlib-25960"
+      },
+      {
+        "calls": 46,
+        "cheap_call_positions_zero_based": [
+          9,
+          14,
+          15,
+          31,
+          32,
+          35,
+          36,
+          41,
+          42,
+          45
+        ],
+        "cheap_calls": 10,
+        "normalized_cheap_call_positions": [
+          0.2,
+          0.3111111111111111,
+          0.3333333333333333,
+          0.6888888888888889,
+          0.7111111111111111,
+          0.7777777777777778,
+          0.8,
+          0.9111111111111111,
+          0.9333333333333333,
+          1.0
+        ],
+        "task_id": "matplotlib__matplotlib-26466"
+      },
+      {
+        "calls": 40,
+        "cheap_call_positions_zero_based": [
+          13,
+          38
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.3333333333333333,
+          0.9743589743589743
+        ],
+        "task_id": "pydata__xarray-2905"
+      },
+      {
+        "calls": 14,
+        "cheap_call_positions_zero_based": [],
+        "cheap_calls": 0,
+        "normalized_cheap_call_positions": [],
+        "task_id": "pydata__xarray-4629"
+      },
+      {
+        "calls": 58,
+        "cheap_call_positions_zero_based": [
+          11,
+          28,
+          29,
+          33,
+          38
+        ],
+        "cheap_calls": 5,
+        "normalized_cheap_call_positions": [
+          0.19298245614035087,
+          0.49122807017543857,
+          0.5087719298245614,
+          0.5789473684210527,
+          0.6666666666666666
+        ],
+        "task_id": "pytest-dev__pytest-10051"
+      },
+      {
+        "calls": 63,
+        "cheap_call_positions_zero_based": [
+          25,
+          28,
+          29,
+          32,
+          33,
+          59,
+          60
+        ],
+        "cheap_calls": 7,
+        "normalized_cheap_call_positions": [
+          0.4032258064516129,
+          0.45161290322580644,
+          0.46774193548387094,
+          0.5161290322580645,
+          0.532258064516129,
+          0.9516129032258065,
+          0.967741935483871
+        ],
+        "task_id": "pytest-dev__pytest-5840"
+      },
+      {
+        "calls": 25,
+        "cheap_call_positions_zero_based": [
+          6,
+          7,
+          11,
+          12
+        ],
+        "cheap_calls": 4,
+        "normalized_cheap_call_positions": [
+          0.25,
+          0.2916666666666667,
+          0.4583333333333333,
+          0.5
+        ],
+        "task_id": "scikit-learn__scikit-learn-12585"
+      },
+      {
+        "calls": 33,
+        "cheap_call_positions_zero_based": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15,
+          18,
+          19,
+          22,
+          23,
+          26,
+          27,
+          30,
+          31
+        ],
+        "cheap_calls": 16,
+        "normalized_cheap_call_positions": [
+          0.0625,
+          0.09375,
+          0.1875,
+          0.21875,
+          0.3125,
+          0.34375,
+          0.4375,
+          0.46875,
+          0.5625,
+          0.59375,
+          0.6875,
+          0.71875,
+          0.8125,
+          0.84375,
+          0.9375,
+          0.96875
+        ],
+        "task_id": "scikit-learn__scikit-learn-12973"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          2,
+          10
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.02702702702702703,
+          0.13513513513513514
+        ],
+        "task_id": "sphinx-doc__sphinx-10673"
+      },
+      {
+        "calls": 75,
+        "cheap_call_positions_zero_based": [
+          33,
+          34
+        ],
+        "cheap_calls": 2,
+        "normalized_cheap_call_positions": [
+          0.44594594594594594,
+          0.4594594594594595
+        ],
+        "task_id": "sphinx-doc__sphinx-9602"
+      },
+      {
+        "calls": 52,
+        "cheap_call_positions_zero_based": [
+          2,
+          3,
+          6,
+          29,
+          30,
+          33,
+          34,
+          37,
+          38,
+          41,
+          42,
+          46,
+          47,
+          50,
+          51
+        ],
+        "cheap_calls": 15,
+        "normalized_cheap_call_positions": [
+          0.0392156862745098,
+          0.058823529411764705,
+          0.11764705882352941,
+          0.5686274509803921,
+          0.5882352941176471,
+          0.6470588235294118,
+          0.6666666666666666,
+          0.7254901960784313,
+          0.7450980392156863,
+          0.803921568627451,
+          0.8235294117647058,
+          0.9019607843137255,
+          0.9215686274509803,
+          0.9803921568627451,
+          1.0
+        ],
+        "task_id": "sympy__sympy-13551"
+      },
+      {
+        "calls": 43,
+        "cheap_call_positions_zero_based": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15,
+          18,
+          19,
+          22,
+          23,
+          26,
+          27,
+          30,
+          31,
+          34,
+          35,
+          38,
+          39,
+          42
+        ],
+        "cheap_calls": 21,
+        "normalized_cheap_call_positions": [
+          0.047619047619047616,
+          0.07142857142857142,
+          0.14285714285714285,
+          0.16666666666666666,
+          0.23809523809523808,
+          0.2619047619047619,
+          0.3333333333333333,
+          0.35714285714285715,
+          0.42857142857142855,
+          0.4523809523809524,
+          0.5238095238095238,
+          0.5476190476190477,
+          0.6190476190476191,
+          0.6428571428571429,
+          0.7142857142857143,
+          0.7380952380952381,
+          0.8095238095238095,
+          0.8333333333333334,
+          0.9047619047619048,
+          0.9285714285714286,
+          1.0
+        ],
+        "task_id": "sympy__sympy-13877"
+      }
+    ],
+    "total_calls": 2866,
+    "trajectories": 60,
+    "trajectories_with_cheap_call": 56
+  },
+  "amendment_id": "008-guarded-live-calibrated-agent-step-followup",
+  "budget": {
+    "amendment_008_exposure_usd": "74.576625660",
+    "development_cost_usd": "9.532047285",
+    "heldout_cost_usd": "65.044578375",
+    "maximum_new_exposure_usd": "150.00"
+  },
+  "full_60_task_analysis": {
+    "policies": {
+      "fixed:openai-gpt-oss-20b": {
+        "cheap_call_share": 1.0,
+        "cheap_calls": 3201,
+        "cost_per_resolved_task_usd": "0.7330007423076923076923076923",
+        "episodes": 60,
+        "mean_cost_per_task_usd": "0.1588168275",
+        "model_calls": 3201,
+        "model_caused_error_count": 0,
+        "provider_failure_count": 0,
+        "resolution_rate": 0.21666666666666667,
+        "resolved_count": 13,
+        "resolved_task_ids": [
+          "django__django-11099",
+          "django__django-12308",
+          "django__django-13028",
+          "django__django-13315",
+          "django__django-13363",
+          "django__django-14539",
+          "django__django-15467",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "scikit-learn__scikit-learn-12973"
+        ],
+        "strong_calls": 0,
+        "structurally_valid_count": 57,
+        "submitted_count": 40,
+        "switch_count": 0,
+        "total_conservative_cost_usd": "9.52900965"
+      },
+      "fixed:qwen3.6-35b": {
+        "cheap_call_share": 0.0,
+        "cheap_calls": 0,
+        "cost_per_resolved_task_usd": "1.290748413125",
+        "episodes": 60,
+        "mean_cost_per_task_usd": "0.51629936525",
+        "model_calls": 3226,
+        "model_caused_error_count": 1,
+        "provider_failure_count": 0,
+        "resolution_rate": 0.4,
+        "resolved_count": 24,
+        "resolved_task_ids": [
+          "astropy__astropy-13453",
+          "django__django-11099",
+          "django__django-11880",
+          "django__django-12713",
+          "django__django-13028",
+          "django__django-13279",
+          "django__django-13315",
+          "django__django-13363",
+          "django__django-13449",
+          "django__django-13810",
+          "django__django-14311",
+          "django__django-15467",
+          "django__django-16642",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-22719",
+          "matplotlib__matplotlib-22865",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "matplotlib__matplotlib-24970",
+          "matplotlib__matplotlib-25122",
+          "pydata__xarray-4629",
+          "scikit-learn__scikit-learn-12585"
+        ],
+        "strong_calls": 3226,
+        "structurally_valid_count": 60,
+        "submitted_count": 42,
+        "switch_count": 0,
+        "total_conservative_cost_usd": "30.977961915"
+      },
+      "router:guarded-live-calibrated-v2": {
+        "cheap_call_share": 0.1270062805303559,
+        "cheap_calls": 364,
+        "cost_per_resolved_task_usd": "0.9437541080769230769230769231",
+        "episodes": 60,
+        "mean_cost_per_task_usd": "0.4089601135",
+        "model_calls": 2866,
+        "model_caused_error_count": 0,
+        "provider_failure_count": 0,
+        "resolution_rate": 0.43333333333333335,
+        "resolved_count": 26,
+        "resolved_task_ids": [
+          "django__django-11099",
+          "django__django-11749",
+          "django__django-11880",
+          "django__django-12713",
+          "django__django-13028",
+          "django__django-13279",
+          "django__django-13363",
+          "django__django-13449",
+          "django__django-13810",
+          "django__django-14007",
+          "django__django-14311",
+          "django__django-14539",
+          "django__django-15467",
+          "django__django-16642",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-22719",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "matplotlib__matplotlib-24970",
+          "matplotlib__matplotlib-25122",
+          "pydata__xarray-2905",
+          "pydata__xarray-4629",
+          "scikit-learn__scikit-learn-12585",
+          "sympy__sympy-13551"
+        ],
+        "strong_calls": 2502,
+        "structurally_valid_count": 60,
+        "submitted_count": 44,
+        "switch_count": 400,
+        "total_conservative_cost_usd": "24.537606810"
+      }
+    },
+    "router_vs_fixed_cheap": {
+      "comparator": "fixed:openai-gpt-oss-20b",
+      "mcnemar_exact_two_sided_p": 0.004425048828125,
+      "mcnemar_router_losses": 3,
+      "mcnemar_router_wins": 16,
+      "paired_task_bootstrap": {
+        "cost_saving_fraction_95ci": [
+          -2.0612665328414552,
+          -1.1479862957595786
+        ],
+        "quality_difference_95ci": [
+          0.08333333333333333,
+          0.35
+        ],
+        "samples": 10000,
+        "seed": 20260729
+      },
+      "routed_cost_saving_fraction": -1.575042707612328,
+      "routed_cost_saving_usd": "-15.008597160",
+      "routed_minus_fixed_resolution_rate": 0.21666666666666667,
+      "routed_minus_fixed_resolved": 13,
+      "tasks": 60
+    },
+    "router_vs_fixed_strong": {
+      "comparator": "fixed:qwen3.6-35b",
+      "mcnemar_exact_two_sided_p": 0.7265625,
+      "mcnemar_router_losses": 3,
+      "mcnemar_router_wins": 5,
+      "paired_task_bootstrap": {
+        "cost_saving_fraction_95ci": [
+          0.0991341057862219,
+          0.3057411895740944
+        ],
+        "quality_difference_95ci": [
+          -0.06666666666666667,
+          0.13333333333333333
+        ],
+        "samples": 10000,
+        "seed": 20260729
+      },
+      "routed_cost_saving_fraction": 0.20790118867960394,
+      "routed_cost_saving_usd": "6.440355105",
+      "routed_minus_fixed_resolution_rate": 0.03333333333333333,
+      "routed_minus_fixed_resolved": 2,
+      "tasks": 60
+    },
+    "tasks": 60
+  },
+  "inferential_status": "prospective_result_informed_agent_step_followup",
+  "joint_success": {
+    "components": {
+      "at_least_30_routed_trajectories_with_cheap_call": true,
+      "router_cheap_call_share_at_least_0_10": true,
+      "router_cost_below_fixed_strong": true,
+      "router_resolved_at_least_fixed_strong": true
+    },
+    "criterion": "router_resolved_count >= fixed_qwen_resolved_count and router_total_cost < fixed_qwen_total_cost and router_cheap_call_share >= 0.10 and routed_trajectories_with_cheap_call >= 30",
+    "passed": true
+  },
+  "matrix_audit": {
+    "canonical_episodes": 180,
+    "official_grading_complete": true,
+    "official_unclassified_errors": [],
+    "policies": 3,
+    "provider_failures": 0,
+    "tasks": 60,
+    "terminal_records": 180
+  },
+  "non_deployable_task_oracles": {
+    "all_three_arms": {
+      "candidate_policies": [
+        "fixed:openai-gpt-oss-20b",
+        "fixed:qwen3.6-35b",
+        "router:guarded-live-calibrated-v2"
+      ],
+      "definition": "Uses terminal held-out outcomes to choose the cheapest observed successful arm for each solvable task and the cheapest observed arm when none succeeded. It is an unattainable retrospective ceiling, not a deployable policy or causal cost estimate.",
+      "resolution_rate": 0.5166666666666667,
+      "resolved_count": 31,
+      "resolved_task_ids": [
+        "astropy__astropy-13453",
+        "django__django-11099",
+        "django__django-11749",
+        "django__django-11880",
+        "django__django-12308",
+        "django__django-12713",
+        "django__django-13028",
+        "django__django-13279",
+        "django__django-13315",
+        "django__django-13363",
+        "django__django-13449",
+        "django__django-13810",
+        "django__django-14007",
+        "django__django-14311",
+        "django__django-14539",
+        "django__django-15467",
+        "django__django-16642",
+        "django__django-17029",
+        "matplotlib__matplotlib-13989",
+        "matplotlib__matplotlib-22719",
+        "matplotlib__matplotlib-22865",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-24026",
+        "matplotlib__matplotlib-24149",
+        "matplotlib__matplotlib-24970",
+        "matplotlib__matplotlib-25122",
+        "pydata__xarray-2905",
+        "pydata__xarray-4629",
+        "scikit-learn__scikit-learn-12585",
+        "scikit-learn__scikit-learn-12973",
+        "sympy__sympy-13551"
+      ],
+      "selected_policy_counts": {
+        "fixed:openai-gpt-oss-20b": 36,
+        "fixed:qwen3.6-35b": 5,
+        "router:guarded-live-calibrated-v2": 19
+      },
+      "task_rows": [
+        {
+          "cost_usd": "0.10306251",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-13236"
+        },
+        {
+          "cost_usd": "0.19971162",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-13398"
+        },
+        {
+          "cost_usd": "0.860873460",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "astropy__astropy-13453"
+        },
+        {
+          "cost_usd": "0.11161836",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-14096"
+        },
+        {
+          "cost_usd": "0.12362094",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-14182"
+        },
+        {
+          "cost_usd": "0.067393515",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-11099"
+        },
+        {
+          "cost_usd": "0.10567314",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11239"
+        },
+        {
+          "cost_usd": "0.09185310",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11400"
+        },
+        {
+          "cost_usd": "0.23077395",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11555"
+        },
+        {
+          "cost_usd": "0.268640130",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-11749"
+        },
+        {
+          "cost_usd": "0.067091550",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-11880"
+        },
+        {
+          "cost_usd": "0.16230780",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-12308"
+        },
+        {
+          "cost_usd": "0.25344810",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-12663"
+        },
+        {
+          "cost_usd": "0.066260790",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-12713"
+        },
+        {
+          "cost_usd": "0.02048877",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13023"
+        },
+        {
+          "cost_usd": "0.074708265",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-13028"
+        },
+        {
+          "cost_usd": "0.467083065",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-13279"
+        },
+        {
+          "cost_usd": "0.03138975",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13315"
+        },
+        {
+          "cost_usd": "0.05485257",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13363"
+        },
+        {
+          "cost_usd": "0.284077740",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-13449"
+        },
+        {
+          "cost_usd": "0.284860785",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-13810"
+        },
+        {
+          "cost_usd": "0.556203375",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-14007"
+        },
+        {
+          "cost_usd": "0.089992740",
+          "resolved": false,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-14140"
+        },
+        {
+          "cost_usd": "0.305085360",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-14311"
+        },
+        {
+          "cost_usd": "0.16678854",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-14539"
+        },
+        {
+          "cost_usd": "0.25274736",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15382"
+        },
+        {
+          "cost_usd": "0.02091006",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15467"
+        },
+        {
+          "cost_usd": "0.27897831",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15563"
+        },
+        {
+          "cost_usd": "0.22426569",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15957"
+        },
+        {
+          "cost_usd": "0.121849830",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "django__django-16642"
+        },
+        {
+          "cost_usd": "0.04521393",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-16877"
+        },
+        {
+          "cost_usd": "0.05410881",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-17029"
+        },
+        {
+          "cost_usd": "0.15327027",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-13989"
+        },
+        {
+          "cost_usd": "0.17219610",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-20676"
+        },
+        {
+          "cost_usd": "0.23875767",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-20826"
+        },
+        {
+          "cost_usd": "0.20046501",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-21568"
+        },
+        {
+          "cost_usd": "0.341705295",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "matplotlib__matplotlib-22719"
+        },
+        {
+          "cost_usd": "0.259082940",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-22865"
+        },
+        {
+          "cost_usd": "0.16870473",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-23299"
+        },
+        {
+          "cost_usd": "0.10832445",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-23314"
+        },
+        {
+          "cost_usd": "0.053515485",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "matplotlib__matplotlib-24026"
+        },
+        {
+          "cost_usd": "0.090356010",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-24149"
+        },
+        {
+          "cost_usd": "0.27087282",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-24177"
+        },
+        {
+          "cost_usd": "0.24222438",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-24870"
+        },
+        {
+          "cost_usd": "0.160593435",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-24970"
+        },
+        {
+          "cost_usd": "0.028250175",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "matplotlib__matplotlib-25122"
+        },
+        {
+          "cost_usd": "0.22147128",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25479"
+        },
+        {
+          "cost_usd": "0.23814765",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25775"
+        },
+        {
+          "cost_usd": "0.14007384",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25960"
+        },
+        {
+          "cost_usd": "0.07484940",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-26466"
+        },
+        {
+          "cost_usd": "0.313082505",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "pydata__xarray-2905"
+        },
+        {
+          "cost_usd": "0.044048535",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "pydata__xarray-4629"
+        },
+        {
+          "cost_usd": "0.09644850",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "pytest-dev__pytest-10051"
+        },
+        {
+          "cost_usd": "0.21745413",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "pytest-dev__pytest-5840"
+        },
+        {
+          "cost_usd": "0.063275940",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "scikit-learn__scikit-learn-12585"
+        },
+        {
+          "cost_usd": "0.13567923",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "scikit-learn__scikit-learn-12973"
+        },
+        {
+          "cost_usd": "0.28211274",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sphinx-doc__sphinx-10673"
+        },
+        {
+          "cost_usd": "0.06217110",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sphinx-doc__sphinx-9602"
+        },
+        {
+          "cost_usd": "0.246634680",
+          "resolved": true,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "sympy__sympy-13551"
+        },
+        {
+          "cost_usd": "0.166962675",
+          "resolved": false,
+          "selected_policy": "router:guarded-live-calibrated-v2",
+          "task_id": "sympy__sympy-13877"
+        }
+      ],
+      "total_observed_cost_usd": "10.836664890"
+    },
+    "fixed_models_only": {
+      "candidate_policies": [
+        "fixed:openai-gpt-oss-20b",
+        "fixed:qwen3.6-35b"
+      ],
+      "definition": "Uses terminal held-out outcomes to choose the cheapest observed successful arm for each solvable task and the cheapest observed arm when none succeeded. It is an unattainable retrospective ceiling, not a deployable policy or causal cost estimate.",
+      "resolution_rate": 0.45,
+      "resolved_count": 27,
+      "resolved_task_ids": [
+        "astropy__astropy-13453",
+        "django__django-11099",
+        "django__django-11880",
+        "django__django-12308",
+        "django__django-12713",
+        "django__django-13028",
+        "django__django-13279",
+        "django__django-13315",
+        "django__django-13363",
+        "django__django-13449",
+        "django__django-13810",
+        "django__django-14311",
+        "django__django-14539",
+        "django__django-15467",
+        "django__django-16642",
+        "django__django-17029",
+        "matplotlib__matplotlib-13989",
+        "matplotlib__matplotlib-22719",
+        "matplotlib__matplotlib-22865",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-24026",
+        "matplotlib__matplotlib-24149",
+        "matplotlib__matplotlib-24970",
+        "matplotlib__matplotlib-25122",
+        "pydata__xarray-4629",
+        "scikit-learn__scikit-learn-12585",
+        "scikit-learn__scikit-learn-12973"
+      ],
+      "selected_policy_counts": {
+        "fixed:openai-gpt-oss-20b": 45,
+        "fixed:qwen3.6-35b": 15
+      },
+      "task_rows": [
+        {
+          "cost_usd": "0.10306251",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-13236"
+        },
+        {
+          "cost_usd": "0.19971162",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-13398"
+        },
+        {
+          "cost_usd": "0.860873460",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "astropy__astropy-13453"
+        },
+        {
+          "cost_usd": "0.11161836",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-14096"
+        },
+        {
+          "cost_usd": "0.12362094",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "astropy__astropy-14182"
+        },
+        {
+          "cost_usd": "0.10331505",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11099"
+        },
+        {
+          "cost_usd": "0.10567314",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11239"
+        },
+        {
+          "cost_usd": "0.09185310",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11400"
+        },
+        {
+          "cost_usd": "0.23077395",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11555"
+        },
+        {
+          "cost_usd": "0.09682335",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-11749"
+        },
+        {
+          "cost_usd": "0.214263990",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-11880"
+        },
+        {
+          "cost_usd": "0.16230780",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-12308"
+        },
+        {
+          "cost_usd": "0.25344810",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-12663"
+        },
+        {
+          "cost_usd": "0.082435980",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-12713"
+        },
+        {
+          "cost_usd": "0.02048877",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13023"
+        },
+        {
+          "cost_usd": "0.09470826",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13028"
+        },
+        {
+          "cost_usd": "0.546339840",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-13279"
+        },
+        {
+          "cost_usd": "0.03138975",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13315"
+        },
+        {
+          "cost_usd": "0.05485257",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-13363"
+        },
+        {
+          "cost_usd": "0.739815480",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-13449"
+        },
+        {
+          "cost_usd": "0.677894895",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-13810"
+        },
+        {
+          "cost_usd": "0.09722088",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-14007"
+        },
+        {
+          "cost_usd": "0.11801403",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-14140"
+        },
+        {
+          "cost_usd": "0.404326575",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-14311"
+        },
+        {
+          "cost_usd": "0.16678854",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-14539"
+        },
+        {
+          "cost_usd": "0.25274736",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15382"
+        },
+        {
+          "cost_usd": "0.02091006",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15467"
+        },
+        {
+          "cost_usd": "0.27897831",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15563"
+        },
+        {
+          "cost_usd": "0.22426569",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-15957"
+        },
+        {
+          "cost_usd": "0.128719845",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "django__django-16642"
+        },
+        {
+          "cost_usd": "0.04521393",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-16877"
+        },
+        {
+          "cost_usd": "0.05410881",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "django__django-17029"
+        },
+        {
+          "cost_usd": "0.15327027",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-13989"
+        },
+        {
+          "cost_usd": "0.17219610",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-20676"
+        },
+        {
+          "cost_usd": "0.23875767",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-20826"
+        },
+        {
+          "cost_usd": "0.20046501",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-21568"
+        },
+        {
+          "cost_usd": "0.426849225",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-22719"
+        },
+        {
+          "cost_usd": "0.259082940",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-22865"
+        },
+        {
+          "cost_usd": "0.16870473",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-23299"
+        },
+        {
+          "cost_usd": "0.10832445",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-23314"
+        },
+        {
+          "cost_usd": "0.15846453",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-24026"
+        },
+        {
+          "cost_usd": "0.090356010",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-24149"
+        },
+        {
+          "cost_usd": "0.27087282",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-24177"
+        },
+        {
+          "cost_usd": "0.24222438",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-24870"
+        },
+        {
+          "cost_usd": "0.160593435",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-24970"
+        },
+        {
+          "cost_usd": "0.039650145",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "matplotlib__matplotlib-25122"
+        },
+        {
+          "cost_usd": "0.22147128",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25479"
+        },
+        {
+          "cost_usd": "0.23814765",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25775"
+        },
+        {
+          "cost_usd": "0.14007384",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-25960"
+        },
+        {
+          "cost_usd": "0.07484940",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "matplotlib__matplotlib-26466"
+        },
+        {
+          "cost_usd": "0.09798606",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "pydata__xarray-2905"
+        },
+        {
+          "cost_usd": "0.059906445",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "pydata__xarray-4629"
+        },
+        {
+          "cost_usd": "0.09644850",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "pytest-dev__pytest-10051"
+        },
+        {
+          "cost_usd": "0.21745413",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "pytest-dev__pytest-5840"
+        },
+        {
+          "cost_usd": "0.063275940",
+          "resolved": true,
+          "selected_policy": "fixed:qwen3.6-35b",
+          "task_id": "scikit-learn__scikit-learn-12585"
+        },
+        {
+          "cost_usd": "0.13567923",
+          "resolved": true,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "scikit-learn__scikit-learn-12973"
+        },
+        {
+          "cost_usd": "0.28211274",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sphinx-doc__sphinx-10673"
+        },
+        {
+          "cost_usd": "0.06217110",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sphinx-doc__sphinx-9602"
+        },
+        {
+          "cost_usd": "0.20320434",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sympy__sympy-13551"
+        },
+        {
+          "cost_usd": "0.23942817",
+          "resolved": false,
+          "selected_policy": "fixed:openai-gpt-oss-20b",
+          "task_id": "sympy__sympy-13877"
+        }
+      ],
+      "total_observed_cost_usd": "11.518585485"
+    }
+  },
+  "official_grading": {
+    "classified_model_caused_errors": [
+      {
+        "model": "agent_step_v2_fixed_qwen35",
+        "task_id": "django__django-11749"
+      }
+    ],
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076",
+    "grading_manifest_sha256": "49f6d23998513dd9bb0bdd992e00acf5d5c780702668a848214d515c052e6eb5",
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "models": {
+      "fixed:openai-gpt-oss-20b": {
+        "label": "agent_step_v2_fixed_gpt_oss_20b",
+        "model_caused_error_ids": [],
+        "official_terminal_count": 40,
+        "report_sha256": "47a7b30fa7a74f42445fb4f4d68e844288d58ca9445ab527106f80e25c8f7593",
+        "resolved_count": 13,
+        "resolved_ids": [
+          "django__django-11099",
+          "django__django-12308",
+          "django__django-13028",
+          "django__django-13315",
+          "django__django-13363",
+          "django__django-14539",
+          "django__django-15467",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "scikit-learn__scikit-learn-12973"
+        ],
+        "submitted_count": 40
+      },
+      "fixed:qwen3.6-35b": {
+        "label": "agent_step_v2_fixed_qwen35",
+        "model_caused_error_ids": [
+          "django__django-11749"
+        ],
+        "official_terminal_count": 42,
+        "report_sha256": "91e7bd948f4ad5a497a57ce7e94f5ef7637930c43df3e2df54cbb35b12ef20a6",
+        "resolved_count": 24,
+        "resolved_ids": [
+          "astropy__astropy-13453",
+          "django__django-11099",
+          "django__django-11880",
+          "django__django-12713",
+          "django__django-13028",
+          "django__django-13279",
+          "django__django-13315",
+          "django__django-13363",
+          "django__django-13449",
+          "django__django-13810",
+          "django__django-14311",
+          "django__django-15467",
+          "django__django-16642",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-22719",
+          "matplotlib__matplotlib-22865",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "matplotlib__matplotlib-24970",
+          "matplotlib__matplotlib-25122",
+          "pydata__xarray-4629",
+          "scikit-learn__scikit-learn-12585"
+        ],
+        "submitted_count": 42
+      },
+      "router:guarded-live-calibrated-v2": {
+        "label": "agent_step_v2_guarded_router",
+        "model_caused_error_ids": [],
+        "official_terminal_count": 44,
+        "report_sha256": "00b3c8f706ff7955338d38415fc6991abc00325c58a9f9fbfe1ab8551f3b647d",
+        "resolved_count": 26,
+        "resolved_ids": [
+          "django__django-11099",
+          "django__django-11749",
+          "django__django-11880",
+          "django__django-12713",
+          "django__django-13028",
+          "django__django-13279",
+          "django__django-13363",
+          "django__django-13449",
+          "django__django-13810",
+          "django__django-14007",
+          "django__django-14311",
+          "django__django-14539",
+          "django__django-15467",
+          "django__django-16642",
+          "django__django-17029",
+          "matplotlib__matplotlib-13989",
+          "matplotlib__matplotlib-22719",
+          "matplotlib__matplotlib-23314",
+          "matplotlib__matplotlib-24026",
+          "matplotlib__matplotlib-24149",
+          "matplotlib__matplotlib-24970",
+          "matplotlib__matplotlib-25122",
+          "pydata__xarray-2905",
+          "pydata__xarray-4629",
+          "scikit-learn__scikit-learn-12585",
+          "sympy__sympy-13551"
+        ],
+        "submitted_count": 44
+      }
+    },
+    "predictions_manifest_sha256": "de61e316a6a923aa7e889307bbe9af22baa48463db536d3d61d73a320265058f"
+  },
+  "protocol_sha256": "d30115410c67d9c25216f5e1de79c0fd78177a2581674d35d31f94b67da151f2",
+  "repository_analysis": {
+    "astropy/astropy": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 257,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 5,
+          "mean_cost_per_task_usd": "0.159759504",
+          "model_calls": 257,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 0,
+          "structurally_valid_count": 5,
+          "submitted_count": 4,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.79879752"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "3.517236165",
+          "episodes": 5,
+          "mean_cost_per_task_usd": "0.703447233",
+          "model_calls": 286,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.2,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "astropy__astropy-13453"
+          ],
+          "strong_calls": 286,
+          "structurally_valid_count": 5,
+          "submitted_count": 4,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "3.517236165"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.07662835249042145,
+          "cheap_calls": 20,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 5,
+          "mean_cost_per_task_usd": "0.643031457",
+          "model_calls": 261,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 241,
+          "structurally_valid_count": 5,
+          "submitted_count": 3,
+          "switch_count": 22,
+          "total_conservative_cost_usd": "3.215157285"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -5.107961109906974,
+            -1.5103966388821202
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -3.0249965786073045,
+        "routed_cost_saving_usd": "-2.416359765",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 5
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 1,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -0.11043921165888948,
+            0.2942665496996041
+          ],
+          "quality_difference_95ci": [
+            -0.6,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.08588529908966178,
+        "routed_cost_saving_usd": "0.302078880",
+        "routed_minus_fixed_resolution_rate": -0.2,
+        "routed_minus_fixed_resolved": -1,
+        "tasks": 5
+      },
+      "tasks": 5
+    },
+    "django/django": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 1422,
+          "cost_per_resolved_task_usd": "0.51035425875",
+          "episodes": 27,
+          "mean_cost_per_task_usd": "0.1512160766666666666666666667",
+          "model_calls": 1422,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.2962962962962963,
+          "resolved_count": 8,
+          "resolved_task_ids": [
+            "django__django-11099",
+            "django__django-12308",
+            "django__django-13028",
+            "django__django-13315",
+            "django__django-13363",
+            "django__django-14539",
+            "django__django-15467",
+            "django__django-17029"
+          ],
+          "strong_calls": 0,
+          "structurally_valid_count": 26,
+          "submitted_count": 16,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "4.08283407"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "0.9822441519230769230769230769",
+          "episodes": 27,
+          "mean_cost_per_task_usd": "0.4729323694444444444444444444",
+          "model_calls": 1421,
+          "model_caused_error_count": 1,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.48148148148148145,
+          "resolved_count": 13,
+          "resolved_task_ids": [
+            "django__django-11099",
+            "django__django-11880",
+            "django__django-12713",
+            "django__django-13028",
+            "django__django-13279",
+            "django__django-13315",
+            "django__django-13363",
+            "django__django-13449",
+            "django__django-13810",
+            "django__django-14311",
+            "django__django-15467",
+            "django__django-16642",
+            "django__django-17029"
+          ],
+          "strong_calls": 1421,
+          "structurally_valid_count": 27,
+          "submitted_count": 20,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "12.769173975"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.1254125412541254,
+          "cheap_calls": 152,
+          "cost_per_resolved_task_usd": "0.631220429",
+          "episodes": 27,
+          "mean_cost_per_task_usd": "0.3506780161111111111111111111",
+          "model_calls": 1212,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5555555555555556,
+          "resolved_count": 15,
+          "resolved_task_ids": [
+            "django__django-11099",
+            "django__django-11749",
+            "django__django-11880",
+            "django__django-12713",
+            "django__django-13028",
+            "django__django-13279",
+            "django__django-13363",
+            "django__django-13449",
+            "django__django-13810",
+            "django__django-14007",
+            "django__django-14311",
+            "django__django-14539",
+            "django__django-15467",
+            "django__django-16642",
+            "django__django-17029"
+          ],
+          "strong_calls": 1060,
+          "structurally_valid_count": 27,
+          "submitted_count": 21,
+          "switch_count": 166,
+          "total_conservative_cost_usd": "9.468306435"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 0.0654296875,
+        "mcnemar_router_losses": 2,
+        "mcnemar_router_wins": 9,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -2.0336957052852065,
+            -0.7005035825896913
+          ],
+          "quality_difference_95ci": [
+            0.037037037037037035,
+            0.48148148148148145
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.3190524700897286,
+        "routed_cost_saving_usd": "-5.385472365",
+        "routed_minus_fixed_resolution_rate": 0.25925925925925924,
+        "routed_minus_fixed_resolved": 7,
+        "tasks": 27
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 0.625,
+        "mcnemar_router_losses": 1,
+        "mcnemar_router_wins": 3,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            0.15388742002874875,
+            0.372734473754812
+          ],
+          "quality_difference_95ci": [
+            -0.07407407407407407,
+            0.2222222222222222
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.2585028245728792,
+        "routed_cost_saving_usd": "3.300867540",
+        "routed_minus_fixed_resolution_rate": 0.07407407407407407,
+        "routed_minus_fixed_resolved": 2,
+        "tasks": 27
+      },
+      "tasks": 27
+    },
+    "matplotlib/matplotlib": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 1044,
+          "cost_per_resolved_task_usd": "0.8066596725",
+          "episodes": 18,
+          "mean_cost_per_task_usd": "0.179257705",
+          "model_calls": 1044,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.2222222222222222,
+          "resolved_count": 4,
+          "resolved_task_ids": [
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149"
+          ],
+          "strong_calls": 0,
+          "structurally_valid_count": 16,
+          "submitted_count": 12,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "3.22663869"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "1.21691167875",
+          "episodes": 18,
+          "mean_cost_per_task_usd": "0.540849635",
+          "model_calls": 1002,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.4444444444444444,
+          "resolved_count": 8,
+          "resolved_task_ids": [
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-22719",
+            "matplotlib__matplotlib-22865",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149",
+            "matplotlib__matplotlib-24970",
+            "matplotlib__matplotlib-25122"
+          ],
+          "strong_calls": 1002,
+          "structurally_valid_count": 18,
+          "submitted_count": 13,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "9.735293430"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.12896174863387977,
+          "cheap_calls": 118,
+          "cost_per_resolved_task_usd": "1.132172931428571428571428571",
+          "episodes": 18,
+          "mean_cost_per_task_usd": "0.4402894733333333333333333333",
+          "model_calls": 915,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.3888888888888889,
+          "resolved_count": 7,
+          "resolved_task_ids": [
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-22719",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149",
+            "matplotlib__matplotlib-24970",
+            "matplotlib__matplotlib-25122"
+          ],
+          "strong_calls": 797,
+          "structurally_valid_count": 18,
+          "submitted_count": 13,
+          "switch_count": 130,
+          "total_conservative_cost_usd": "7.925210520"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 0.25,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 3,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -2.027444503218253,
+            -0.869158983358308
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.3333333333333333
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.4561815813347232,
+        "routed_cost_saving_usd": "-4.698571830",
+        "routed_minus_fixed_resolution_rate": 0.16666666666666666,
+        "routed_minus_fixed_resolved": 3,
+        "tasks": 18
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 1,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -0.011567660377110949,
+            0.3688942844293504
+          ],
+          "quality_difference_95ci": [
+            -0.16666666666666666,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.18592997971916292,
+        "routed_cost_saving_usd": "1.810082910",
+        "routed_minus_fixed_resolution_rate": -0.05555555555555555,
+        "routed_minus_fixed_resolved": -1,
+        "tasks": 18
+      },
+      "tasks": 18
+    },
+    "pydata/xarray": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 62,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.06548031",
+          "model_calls": 62,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 0,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.13096062"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "0.919495365",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.4597476825",
+          "model_calls": 90,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "pydata__xarray-4629"
+          ],
+          "strong_calls": 90,
+          "structurally_valid_count": 2,
+          "submitted_count": 1,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.919495365"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.037037037037037035,
+          "cheap_calls": 2,
+          "cost_per_resolved_task_usd": "0.178565520",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.178565520",
+          "model_calls": 54,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 1.0,
+          "resolved_count": 2,
+          "resolved_task_ids": [
+            "pydata__xarray-2905",
+            "pydata__xarray-4629"
+          ],
+          "strong_calls": 52,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 4,
+          "total_conservative_cost_usd": "0.357131040"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 0.5,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 2,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -2.1951739359659936,
+            -0.3358338974045445
+          ],
+          "quality_difference_95ci": [
+            1.0,
+            1.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.727010913662443,
+        "routed_cost_saving_usd": "-0.226170420",
+        "routed_minus_fixed_resolution_rate": 1.0,
+        "routed_minus_fixed_resolved": 2,
+        "tasks": 2
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 1,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            0.2647112510181501,
+            0.6357764767372758
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            1.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.6116010437964524,
+        "routed_cost_saving_usd": "0.562364325",
+        "routed_minus_fixed_resolution_rate": 0.5,
+        "routed_minus_fixed_resolved": 1,
+        "tasks": 2
+      },
+      "tasks": 2
+    },
+    "pytest-dev/pytest": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 104,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.156951315",
+          "model_calls": 104,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 0,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.31390263"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.302901345",
+          "model_calls": 90,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 90,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.605802690"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.09917355371900827,
+          "cheap_calls": 12,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.6698945775",
+          "model_calls": 121,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 109,
+          "structurally_valid_count": 2,
+          "submitted_count": 1,
+          "switch_count": 16,
+          "total_conservative_cost_usd": "1.339789155"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -7.9033236908816615,
+            -1.2123145695140396
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -3.2681679825364953,
+        "routed_cost_saving_usd": "-1.025886525",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -6.503991840540824,
+            0.0209449571399688
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.2115932747013718,
+        "routed_cost_saving_usd": "-0.733986465",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "tasks": 2
+    },
+    "scikit-learn/scikit-learn": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 74,
+          "cost_per_resolved_task_usd": "0.18895977",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.094479885",
+          "model_calls": 74,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "scikit-learn__scikit-learn-12973"
+          ],
+          "strong_calls": 0,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.18895977"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "0.249667950",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.124833975",
+          "model_calls": 46,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "scikit-learn__scikit-learn-12585"
+          ],
+          "strong_calls": 46,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.249667950"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.3448275862068966,
+          "cheap_calls": 20,
+          "cost_per_resolved_task_usd": "0.258272235",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.1291361175",
+          "model_calls": 58,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "scikit-learn__scikit-learn-12585"
+          ],
+          "strong_calls": 38,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 20,
+          "total_conservative_cost_usd": "0.258272235"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 1,
+        "mcnemar_router_wins": 1,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -2.0327752871874045,
+            0.287405080350176
+          ],
+          "quality_difference_95ci": [
+            -1.0,
+            1.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -0.366810697324621,
+        "routed_cost_saving_usd": "-0.069312465",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -1.5537021654676328,
+            0.4812850078713138
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -0.03446291364189917,
+        "routed_cost_saving_usd": "-0.008604285",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "tasks": 2
+    },
+    "sphinx-doc/sphinx": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 103,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.17214192",
+          "model_calls": 103,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 0,
+          "structurally_valid_count": 2,
+          "submitted_count": 1,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.34428384"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.881241600",
+          "model_calls": 141,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 141,
+          "structurally_valid_count": 2,
+          "submitted_count": 0,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "1.762483200"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.02666666666666667,
+          "cheap_calls": 4,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.7800713925",
+          "model_calls": 150,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 146,
+          "structurally_valid_count": 2,
+          "submitted_count": 0,
+          "switch_count": 6,
+          "total_conservative_cost_usd": "1.560142785"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -12.436569000709333,
+            -1.5691023737531316
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -3.531559729901932,
+        "routed_cost_saving_usd": "-1.215858945",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 0,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            0.05356336138989992,
+            0.17624014782740538
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.11480416664397142,
+        "routed_cost_saving_usd": "0.202340415",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 2
+      },
+      "tasks": 2
+    },
+    "sympy/sympy": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 135,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.221316255",
+          "model_calls": 135,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 0,
+          "structurally_valid_count": 2,
+          "submitted_count": 1,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "0.44263251"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": null,
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.709404570",
+          "model_calls": 150,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.0,
+          "resolved_count": 0,
+          "resolved_task_ids": [],
+          "strong_calls": 150,
+          "structurally_valid_count": 2,
+          "submitted_count": 0,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "1.418809140"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.37894736842105264,
+          "cheap_calls": 36,
+          "cost_per_resolved_task_usd": "0.413597355",
+          "episodes": 2,
+          "mean_cost_per_task_usd": "0.2067986775",
+          "model_calls": 95,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.5,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "sympy__sympy-13551"
+          ],
+          "strong_calls": 59,
+          "structurally_valid_count": 2,
+          "submitted_count": 2,
+          "switch_count": 36,
+          "total_conservative_cost_usd": "0.413597355"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 1,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -0.21372742334145012,
+            0.30266068942514157
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            1.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.06559652611146885,
+        "routed_cost_saving_usd": "0.029035155",
+        "routed_minus_fixed_resolution_rate": 0.5,
+        "routed_minus_fixed_resolved": 1,
+        "tasks": 2
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 1,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            0.6953213630613644,
+            0.7259843044991661
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            1.0
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.7084897867235335,
+        "routed_cost_saving_usd": "1.005211785",
+        "routed_minus_fixed_resolution_rate": 0.5,
+        "routed_minus_fixed_resolved": 1,
+        "tasks": 2
+      },
+      "tasks": 2
+    }
+  },
+  "repository_macro_router_vs_fixed_strong": {
+    "full": {
+      "cost_saving_fraction_95ci": [
+        -0.1429657697613549,
+        0.4480448028771298
+      ],
+      "method": "equal_repository_weight_cluster_bootstrap",
+      "point_cost_saving_fraction": 0.1899463885161965,
+      "point_quality_difference": 0.10231481481481482,
+      "quality_difference_95ci": [
+        -0.04768518518518519,
+        0.27175925925925926
+      ],
+      "repositories": [
+        "astropy/astropy",
+        "django/django",
+        "matplotlib/matplotlib",
+        "pydata/xarray",
+        "pytest-dev/pytest",
+        "scikit-learn/scikit-learn",
+        "sphinx-doc/sphinx",
+        "sympy/sympy"
+      ],
+      "repository_count": 8,
+      "samples": 10000,
+      "seed": 20260729
+    },
+    "subgroups": {
+      "familiar_repository_secondary": {
+        "cost_saving_fraction_95ci": [
+          -0.47891294613228785,
+          0.634667510654943
+        ],
+        "method": "equal_repository_weight_cluster_bootstrap",
+        "point_cost_saving_fraction": 0.2072784958912387,
+        "point_quality_difference": 0.2,
+        "quality_difference_95ci": [
+          0.0,
+          0.4
+        ],
+        "repositories": [
+          "pydata/xarray",
+          "pytest-dev/pytest",
+          "scikit-learn/scikit-learn",
+          "sphinx-doc/sphinx",
+          "sympy/sympy"
+        ],
+        "repository_count": 5,
+        "samples": 10000,
+        "seed": 20260729
+      },
+      "novel_repository_primary": {
+        "cost_saving_fraction_95ci": [
+          0.0858852990896618,
+          0.2585028245728791
+        ],
+        "method": "equal_repository_weight_cluster_bootstrap",
+        "point_cost_saving_fraction": 0.16493446816774404,
+        "point_quality_difference": -0.060493827160493834,
+        "quality_difference_95ci": [
+          -0.20000000000000004,
+          0.07407407407407407
+        ],
+        "repositories": [
+          "astropy/astropy",
+          "django/django",
+          "matplotlib/matplotlib"
+        ],
+        "repository_count": 3,
+        "samples": 10000,
+        "seed": 20260729
+      }
+    }
+  },
+  "router_artifact_hash": "aca70d306b11ce33b3d2c762fbcaf3f7d642a8b1711643b54363b7df90f3ca14",
+  "schema_version": "guarded-agent-step-followup-results-v2",
+  "shadow_identity_audit": {
+    "cheap_call_share": 0.15561066336019838,
+    "cheap_calls": 502,
+    "decision_reasons": {
+      "classifier_cheap": 502,
+      "classifier_strong": 1890,
+      "force_strong_cheap_burst": 190,
+      "force_strong_context_guard": 410,
+      "force_strong_dwell": 114,
+      "force_strong_initial_calls": 120
+    },
+    "status": "descriptive_zero_cost_prefix_replay",
+    "strong_calls": 2724,
+    "switch_count": 547,
+    "total_calls": 3226,
+    "trajectories": 60,
+    "trajectories_selecting_only_qwen": 5,
+    "trajectories_with_cheap_call": 55,
+    "trajectory_rows": [
+      {
+        "calls": 53,
+        "cheap_calls": 10,
+        "strong_calls": 43,
+        "switch_count": 10,
+        "task_id": "astropy__astropy-13236",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 62,
+        "cheap_calls": 9,
+        "strong_calls": 53,
+        "switch_count": 10,
+        "task_id": "astropy__astropy-13398",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 69,
+        "cheap_calls": 0,
+        "strong_calls": 69,
+        "switch_count": 0,
+        "task_id": "astropy__astropy-13453",
+        "would_select_only_qwen": true
+      },
+      {
+        "calls": 53,
+        "cheap_calls": 2,
+        "strong_calls": 51,
+        "switch_count": 4,
+        "task_id": "astropy__astropy-14096",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 49,
+        "cheap_calls": 4,
+        "strong_calls": 45,
+        "switch_count": 6,
+        "task_id": "astropy__astropy-14182",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 33,
+        "cheap_calls": 11,
+        "strong_calls": 22,
+        "switch_count": 11,
+        "task_id": "django__django-11099",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 47,
+        "cheap_calls": 14,
+        "strong_calls": 33,
+        "switch_count": 16,
+        "task_id": "django__django-11239",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 70,
+        "cheap_calls": 10,
+        "strong_calls": 60,
+        "switch_count": 12,
+        "task_id": "django__django-11400",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 72,
+        "cheap_calls": 10,
+        "strong_calls": 62,
+        "switch_count": 10,
+        "task_id": "django__django-11555",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 50,
+        "cheap_calls": 12,
+        "strong_calls": 38,
+        "switch_count": 14,
+        "task_id": "django__django-11749",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 44,
+        "cheap_calls": 4,
+        "strong_calls": 40,
+        "switch_count": 4,
+        "task_id": "django__django-11880",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 44,
+        "cheap_calls": 6,
+        "strong_calls": 38,
+        "switch_count": 6,
+        "task_id": "django__django-12308",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 10,
+        "strong_calls": 65,
+        "switch_count": 9,
+        "task_id": "django__django-12663",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 23,
+        "cheap_calls": 4,
+        "strong_calls": 19,
+        "switch_count": 5,
+        "task_id": "django__django-12713",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 42,
+        "cheap_calls": 7,
+        "strong_calls": 35,
+        "switch_count": 8,
+        "task_id": "django__django-13023",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 54,
+        "cheap_calls": 12,
+        "strong_calls": 42,
+        "switch_count": 15,
+        "task_id": "django__django-13028",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 51,
+        "cheap_calls": 10,
+        "strong_calls": 41,
+        "switch_count": 10,
+        "task_id": "django__django-13279",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 64,
+        "cheap_calls": 6,
+        "strong_calls": 58,
+        "switch_count": 6,
+        "task_id": "django__django-13315",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 22,
+        "cheap_calls": 2,
+        "strong_calls": 20,
+        "switch_count": 2,
+        "task_id": "django__django-13363",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 7,
+        "strong_calls": 68,
+        "switch_count": 8,
+        "task_id": "django__django-13449",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 58,
+        "cheap_calls": 8,
+        "strong_calls": 50,
+        "switch_count": 10,
+        "task_id": "django__django-13810",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 4,
+        "strong_calls": 71,
+        "switch_count": 4,
+        "task_id": "django__django-14007",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 41,
+        "cheap_calls": 8,
+        "strong_calls": 33,
+        "switch_count": 8,
+        "task_id": "django__django-14140",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 53,
+        "cheap_calls": 9,
+        "strong_calls": 44,
+        "switch_count": 10,
+        "task_id": "django__django-14311",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 69,
+        "cheap_calls": 0,
+        "strong_calls": 69,
+        "switch_count": 0,
+        "task_id": "django__django-14539",
+        "would_select_only_qwen": true
+      },
+      {
+        "calls": 73,
+        "cheap_calls": 9,
+        "strong_calls": 64,
+        "switch_count": 10,
+        "task_id": "django__django-15382",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 42,
+        "cheap_calls": 9,
+        "strong_calls": 33,
+        "switch_count": 10,
+        "task_id": "django__django-15467",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 5,
+        "strong_calls": 70,
+        "switch_count": 6,
+        "task_id": "django__django-15563",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 63,
+        "cheap_calls": 7,
+        "strong_calls": 56,
+        "switch_count": 8,
+        "task_id": "django__django-15957",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 30,
+        "cheap_calls": 2,
+        "strong_calls": 28,
+        "switch_count": 2,
+        "task_id": "django__django-16642",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 54,
+        "cheap_calls": 9,
+        "strong_calls": 45,
+        "switch_count": 10,
+        "task_id": "django__django-16877",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 22,
+        "cheap_calls": 4,
+        "strong_calls": 18,
+        "switch_count": 4,
+        "task_id": "django__django-17029",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 39,
+        "cheap_calls": 7,
+        "strong_calls": 32,
+        "switch_count": 8,
+        "task_id": "matplotlib__matplotlib-13989",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 15,
+        "strong_calls": 60,
+        "switch_count": 16,
+        "task_id": "matplotlib__matplotlib-20676",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 71,
+        "cheap_calls": 15,
+        "strong_calls": 56,
+        "switch_count": 18,
+        "task_id": "matplotlib__matplotlib-20826",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 17,
+        "strong_calls": 58,
+        "switch_count": 18,
+        "task_id": "matplotlib__matplotlib-21568",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 49,
+        "cheap_calls": 6,
+        "strong_calls": 43,
+        "switch_count": 8,
+        "task_id": "matplotlib__matplotlib-22719",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 36,
+        "cheap_calls": 6,
+        "strong_calls": 30,
+        "switch_count": 6,
+        "task_id": "matplotlib__matplotlib-22865",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 1,
+        "strong_calls": 74,
+        "switch_count": 2,
+        "task_id": "matplotlib__matplotlib-23299",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 46,
+        "cheap_calls": 4,
+        "strong_calls": 42,
+        "switch_count": 4,
+        "task_id": "matplotlib__matplotlib-23314",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 52,
+        "cheap_calls": 21,
+        "strong_calls": 31,
+        "switch_count": 21,
+        "task_id": "matplotlib__matplotlib-24026",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 25,
+        "cheap_calls": 0,
+        "strong_calls": 25,
+        "switch_count": 0,
+        "task_id": "matplotlib__matplotlib-24149",
+        "would_select_only_qwen": true
+      },
+      {
+        "calls": 63,
+        "cheap_calls": 6,
+        "strong_calls": 57,
+        "switch_count": 6,
+        "task_id": "matplotlib__matplotlib-24177",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 73,
+        "cheap_calls": 11,
+        "strong_calls": 62,
+        "switch_count": 12,
+        "task_id": "matplotlib__matplotlib-24870",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 33,
+        "cheap_calls": 0,
+        "strong_calls": 33,
+        "switch_count": 0,
+        "task_id": "matplotlib__matplotlib-24970",
+        "would_select_only_qwen": true
+      },
+      {
+        "calls": 18,
+        "cheap_calls": 2,
+        "strong_calls": 16,
+        "switch_count": 2,
+        "task_id": "matplotlib__matplotlib-25122",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 64,
+        "cheap_calls": 22,
+        "strong_calls": 42,
+        "switch_count": 22,
+        "task_id": "matplotlib__matplotlib-25479",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 1,
+        "strong_calls": 74,
+        "switch_count": 2,
+        "task_id": "matplotlib__matplotlib-25775",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 60,
+        "cheap_calls": 9,
+        "strong_calls": 51,
+        "switch_count": 12,
+        "task_id": "matplotlib__matplotlib-25960",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 73,
+        "cheap_calls": 16,
+        "strong_calls": 57,
+        "switch_count": 16,
+        "task_id": "matplotlib__matplotlib-26466",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 74,
+        "cheap_calls": 14,
+        "strong_calls": 60,
+        "switch_count": 14,
+        "task_id": "pydata__xarray-2905",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 16,
+        "cheap_calls": 0,
+        "strong_calls": 16,
+        "switch_count": 0,
+        "task_id": "pydata__xarray-4629",
+        "would_select_only_qwen": true
+      },
+      {
+        "calls": 26,
+        "cheap_calls": 3,
+        "strong_calls": 23,
+        "switch_count": 4,
+        "task_id": "pytest-dev__pytest-10051",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 64,
+        "cheap_calls": 8,
+        "strong_calls": 56,
+        "switch_count": 8,
+        "task_id": "pytest-dev__pytest-5840",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 17,
+        "cheap_calls": 2,
+        "strong_calls": 15,
+        "switch_count": 2,
+        "task_id": "scikit-learn__scikit-learn-12585",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 29,
+        "cheap_calls": 13,
+        "strong_calls": 16,
+        "switch_count": 13,
+        "task_id": "scikit-learn__scikit-learn-12973",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 10,
+        "strong_calls": 65,
+        "switch_count": 12,
+        "task_id": "sphinx-doc__sphinx-10673",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 66,
+        "cheap_calls": 4,
+        "strong_calls": 62,
+        "switch_count": 6,
+        "task_id": "sphinx-doc__sphinx-9602",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 28,
+        "strong_calls": 47,
+        "switch_count": 30,
+        "task_id": "sympy__sympy-13551",
+        "would_select_only_qwen": false
+      },
+      {
+        "calls": 75,
+        "cheap_calls": 37,
+        "strong_calls": 38,
+        "switch_count": 37,
+        "task_id": "sympy__sympy-13877",
+        "would_select_only_qwen": false
+      }
+    ],
+    "trajectory_source": "independently_sampled_fixed_qwen_arm"
+  },
+  "source_hashes": {
+    "price_snapshot": "764e8071b04754dd24224bd27f98c01c65fe8580572933d80e94154cb4cba3d5",
+    "protocol": "d30115410c67d9c25216f5e1de79c0fd78177a2581674d35d31f94b67da151f2",
+    "records": "6fe4a1ccb23e571ad8a83611d60b63afbcd7e3be2ed98e5ef08098cf2a36397d",
+    "router_artifact": "bfeec759bc1e817f1261241b0d1ef0625731ae4dff30753cabcef9660a715521",
+    "task_manifest": "32b2e2e99271d616bdb458a43fb0daabba061ebe9371f915b2335339738181d1"
+  },
+  "study_id": "open-router-study-2026-07-29-v1",
+  "subgroup_analysis": {
+    "familiar_repository_secondary": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 478,
+          "cost_per_resolved_task_usd": "1.42073937",
+          "episodes": 10,
+          "mean_cost_per_task_usd": "0.142073937",
+          "model_calls": 478,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.1,
+          "resolved_count": 1,
+          "resolved_task_ids": [
+            "scikit-learn__scikit-learn-12973"
+          ],
+          "strong_calls": 0,
+          "structurally_valid_count": 10,
+          "submitted_count": 8,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "1.42073937"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "2.4781291725",
+          "episodes": 10,
+          "mean_cost_per_task_usd": "0.4956258345",
+          "model_calls": 517,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.2,
+          "resolved_count": 2,
+          "resolved_task_ids": [
+            "pydata__xarray-4629",
+            "scikit-learn__scikit-learn-12585"
+          ],
+          "strong_calls": 517,
+          "structurally_valid_count": 10,
+          "submitted_count": 5,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "4.956258345"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.15481171548117154,
+          "cheap_calls": 74,
+          "cost_per_resolved_task_usd": "0.9822331425",
+          "episodes": 10,
+          "mean_cost_per_task_usd": "0.392893257",
+          "model_calls": 478,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.4,
+          "resolved_count": 4,
+          "resolved_task_ids": [
+            "pydata__xarray-2905",
+            "pydata__xarray-4629",
+            "scikit-learn__scikit-learn-12585",
+            "sympy__sympy-13551"
+          ],
+          "strong_calls": 404,
+          "structurally_valid_count": 10,
+          "submitted_count": 7,
+          "switch_count": 82,
+          "total_conservative_cost_usd": "3.928932570"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 0.375,
+        "mcnemar_router_losses": 1,
+        "mcnemar_router_wins": 4,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -3.916764079004834,
+            -0.529259785304915
+          ],
+          "quality_difference_95ci": [
+            -0.1,
+            0.7
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.7654140181953288,
+        "routed_cost_saving_usd": "-2.508193200",
+        "routed_minus_fixed_resolution_rate": 0.3,
+        "routed_minus_fixed_resolved": 3,
+        "tasks": 10
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 0.5,
+        "mcnemar_router_losses": 0,
+        "mcnemar_router_wins": 2,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -0.3931951455531299,
+            0.5231888124264452
+          ],
+          "quality_difference_95ci": [
+            0.0,
+            0.5
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.2072784958912387,
+        "routed_cost_saving_usd": "1.027325775",
+        "routed_minus_fixed_resolution_rate": 0.2,
+        "routed_minus_fixed_resolved": 2,
+        "tasks": 10
+      },
+      "tasks": 10
+    },
+    "novel_repository_primary": {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_call_share": 1.0,
+          "cheap_calls": 2723,
+          "cost_per_resolved_task_usd": "0.67568919",
+          "episodes": 50,
+          "mean_cost_per_task_usd": "0.1621654056",
+          "model_calls": 2723,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.24,
+          "resolved_count": 12,
+          "resolved_task_ids": [
+            "django__django-11099",
+            "django__django-12308",
+            "django__django-13028",
+            "django__django-13315",
+            "django__django-13363",
+            "django__django-14539",
+            "django__django-15467",
+            "django__django-17029",
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149"
+          ],
+          "strong_calls": 0,
+          "structurally_valid_count": 47,
+          "submitted_count": 32,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "8.10827028"
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_call_share": 0.0,
+          "cheap_calls": 0,
+          "cost_per_resolved_task_usd": "1.182804707727272727272727273",
+          "episodes": 50,
+          "mean_cost_per_task_usd": "0.5204340714",
+          "model_calls": 2709,
+          "model_caused_error_count": 1,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.44,
+          "resolved_count": 22,
+          "resolved_task_ids": [
+            "astropy__astropy-13453",
+            "django__django-11099",
+            "django__django-11880",
+            "django__django-12713",
+            "django__django-13028",
+            "django__django-13279",
+            "django__django-13315",
+            "django__django-13363",
+            "django__django-13449",
+            "django__django-13810",
+            "django__django-14311",
+            "django__django-15467",
+            "django__django-16642",
+            "django__django-17029",
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-22719",
+            "matplotlib__matplotlib-22865",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149",
+            "matplotlib__matplotlib-24970",
+            "matplotlib__matplotlib-25122"
+          ],
+          "strong_calls": 2709,
+          "structurally_valid_count": 50,
+          "submitted_count": 37,
+          "switch_count": 0,
+          "total_conservative_cost_usd": "26.021703570"
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_call_share": 0.12144053601340034,
+          "cheap_calls": 290,
+          "cost_per_resolved_task_usd": "0.936757920",
+          "episodes": 50,
+          "mean_cost_per_task_usd": "0.4121734848",
+          "model_calls": 2388,
+          "model_caused_error_count": 0,
+          "provider_failure_count": 0,
+          "resolution_rate": 0.44,
+          "resolved_count": 22,
+          "resolved_task_ids": [
+            "django__django-11099",
+            "django__django-11749",
+            "django__django-11880",
+            "django__django-12713",
+            "django__django-13028",
+            "django__django-13279",
+            "django__django-13363",
+            "django__django-13449",
+            "django__django-13810",
+            "django__django-14007",
+            "django__django-14311",
+            "django__django-14539",
+            "django__django-15467",
+            "django__django-16642",
+            "django__django-17029",
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-22719",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24026",
+            "matplotlib__matplotlib-24149",
+            "matplotlib__matplotlib-24970",
+            "matplotlib__matplotlib-25122"
+          ],
+          "strong_calls": 2098,
+          "structurally_valid_count": 50,
+          "submitted_count": 37,
+          "switch_count": 318,
+          "total_conservative_cost_usd": "20.608674240"
+        }
+      },
+      "router_vs_fixed_cheap": {
+        "comparator": "fixed:openai-gpt-oss-20b",
+        "mcnemar_exact_two_sided_p": 0.012939453125,
+        "mcnemar_router_losses": 2,
+        "mcnemar_router_wins": 12,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            -2.018931800460139,
+            -1.0969087705051144
+          ],
+          "quality_difference_95ci": [
+            0.06,
+            0.34
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": -1.5416856528369205,
+        "routed_cost_saving_usd": "-12.500403960",
+        "routed_minus_fixed_resolution_rate": 0.2,
+        "routed_minus_fixed_resolved": 10,
+        "tasks": 50
+      },
+      "router_vs_fixed_strong": {
+        "comparator": "fixed:qwen3.6-35b",
+        "mcnemar_exact_two_sided_p": 1.0,
+        "mcnemar_router_losses": 3,
+        "mcnemar_router_wins": 3,
+        "paired_task_bootstrap": {
+          "cost_saving_fraction_95ci": [
+            0.11343747270221975,
+            0.301269070241194
+          ],
+          "quality_difference_95ci": [
+            -0.1,
+            0.1
+          ],
+          "samples": 10000,
+          "seed": 20260729
+        },
+        "routed_cost_saving_fraction": 0.20801979068889992,
+        "routed_cost_saving_usd": "5.413029330",
+        "routed_minus_fixed_resolution_rate": 0.0,
+        "routed_minus_fixed_resolved": 0,
+        "tasks": 50
+      },
+      "tasks": 50
+    }
+  },
+  "task_manifest_hash": "b213b768a3e00a1cf286a77819da044d267544c75ee75823b0859dc9856f439a",
+  "task_results": [
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 41,
+          "cost_usd": "0.10306251",
+          "model_calls": 41,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.345283650",
+          "model_calls": 53,
+          "resolved": false,
+          "strong_calls": 53,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.196933170",
+          "model_calls": 37,
+          "resolved": false,
+          "strong_calls": 33,
+          "submitted": true
+        }
+      },
+      "repository": "astropy/astropy",
+      "subgroup": "novel_repository_primary",
+      "task_id": "astropy__astropy-13236"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 54,
+          "cost_usd": "0.19971162",
+          "model_calls": 54,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.852501405",
+          "model_calls": 62,
+          "resolved": false,
+          "strong_calls": 62,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.879121590",
+          "model_calls": 61,
+          "resolved": false,
+          "strong_calls": 59,
+          "submitted": false
+        }
+      },
+      "repository": "astropy/astropy",
+      "subgroup": "novel_repository_primary",
+      "task_id": "astropy__astropy-13398"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.26078409",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.860873460",
+          "model_calls": 69,
+          "resolved": true,
+          "strong_calls": 69,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.531915420",
+          "model_calls": 52,
+          "resolved": false,
+          "strong_calls": 50,
+          "submitted": true
+        }
+      },
+      "repository": "astropy/astropy",
+      "subgroup": "novel_repository_primary",
+      "task_id": "astropy__astropy-13453"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 40,
+          "cost_usd": "0.11161836",
+          "model_calls": 40,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.881399340",
+          "model_calls": 53,
+          "resolved": false,
+          "strong_calls": 53,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 3,
+          "cost_usd": "0.866786655",
+          "model_calls": 48,
+          "resolved": false,
+          "strong_calls": 45,
+          "submitted": false
+        }
+      },
+      "repository": "astropy/astropy",
+      "subgroup": "novel_repository_primary",
+      "task_id": "astropy__astropy-14096"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 47,
+          "cost_usd": "0.12362094",
+          "model_calls": 47,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.577178310",
+          "model_calls": 49,
+          "resolved": false,
+          "strong_calls": 49,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 9,
+          "cost_usd": "0.740400450",
+          "model_calls": 63,
+          "resolved": false,
+          "strong_calls": 54,
+          "submitted": true
+        }
+      },
+      "repository": "astropy/astropy",
+      "subgroup": "novel_repository_primary",
+      "task_id": "astropy__astropy-14182"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 36,
+          "cost_usd": "0.10331505",
+          "model_calls": 36,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.210786150",
+          "model_calls": 33,
+          "resolved": true,
+          "strong_calls": 33,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.067393515",
+          "model_calls": 23,
+          "resolved": true,
+          "strong_calls": 15,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11099"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 40,
+          "cost_usd": "0.10567314",
+          "model_calls": 40,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.333276660",
+          "model_calls": 47,
+          "resolved": false,
+          "strong_calls": 47,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 9,
+          "cost_usd": "0.350902185",
+          "model_calls": 47,
+          "resolved": false,
+          "strong_calls": 38,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11239"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 40,
+          "cost_usd": "0.09185310",
+          "model_calls": 40,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.583267785",
+          "model_calls": 70,
+          "resolved": false,
+          "strong_calls": 70,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 6,
+          "cost_usd": "0.219069135",
+          "model_calls": 38,
+          "resolved": false,
+          "strong_calls": 32,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11400"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23077395",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.875318385",
+          "model_calls": 72,
+          "resolved": false,
+          "strong_calls": 72,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.712012335",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 67,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11555"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 37,
+          "cost_usd": "0.09682335",
+          "model_calls": 37,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.365879160",
+          "model_calls": 50,
+          "resolved": false,
+          "strong_calls": 50,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.268640130",
+          "model_calls": 43,
+          "resolved": true,
+          "strong_calls": 39,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11749"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.17189019",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.214263990",
+          "model_calls": 44,
+          "resolved": true,
+          "strong_calls": 44,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.067091550",
+          "model_calls": 21,
+          "resolved": true,
+          "strong_calls": 19,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-11880"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 53,
+          "cost_usd": "0.16230780",
+          "model_calls": 53,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.314379945",
+          "model_calls": 44,
+          "resolved": false,
+          "strong_calls": 44,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.234123450",
+          "model_calls": 40,
+          "resolved": false,
+          "strong_calls": 36,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-12308"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 72,
+          "cost_usd": "0.25344810",
+          "model_calls": 72,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.569809020",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 11,
+          "cost_usd": "0.736208115",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 64,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-12663"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.27559710",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.082435980",
+          "model_calls": 23,
+          "resolved": true,
+          "strong_calls": 23,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 0,
+          "cost_usd": "0.066260790",
+          "model_calls": 21,
+          "resolved": true,
+          "strong_calls": 21,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-12713"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 20,
+          "cost_usd": "0.02048877",
+          "model_calls": 20,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.196693770",
+          "model_calls": 42,
+          "resolved": false,
+          "strong_calls": 42,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.088194705",
+          "model_calls": 28,
+          "resolved": false,
+          "strong_calls": 26,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13023"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 37,
+          "cost_usd": "0.09470826",
+          "model_calls": 37,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.470391840",
+          "model_calls": 54,
+          "resolved": true,
+          "strong_calls": 54,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.074708265",
+          "model_calls": 24,
+          "resolved": true,
+          "strong_calls": 20,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13028"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 45,
+          "cost_usd": "0.14961204",
+          "model_calls": 45,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.546339840",
+          "model_calls": 51,
+          "resolved": true,
+          "strong_calls": 51,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 7,
+          "cost_usd": "0.467083065",
+          "model_calls": 49,
+          "resolved": true,
+          "strong_calls": 42,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13279"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 21,
+          "cost_usd": "0.03138975",
+          "model_calls": 21,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.827061855",
+          "model_calls": 64,
+          "resolved": true,
+          "strong_calls": 64,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 10,
+          "cost_usd": "0.756626010",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 65,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13315"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 36,
+          "cost_usd": "0.05485257",
+          "model_calls": 36,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.094919730",
+          "model_calls": 22,
+          "resolved": true,
+          "strong_calls": 22,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 3,
+          "cost_usd": "0.155135985",
+          "model_calls": 26,
+          "resolved": true,
+          "strong_calls": 23,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13363"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.26806104",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.739815480",
+          "model_calls": 75,
+          "resolved": true,
+          "strong_calls": 75,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.284077740",
+          "model_calls": 47,
+          "resolved": true,
+          "strong_calls": 39,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13449"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.28221030",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.677894895",
+          "model_calls": 58,
+          "resolved": true,
+          "strong_calls": 58,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 10,
+          "cost_usd": "0.284860785",
+          "model_calls": 41,
+          "resolved": true,
+          "strong_calls": 31,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-13810"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.09722088",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.777241725",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 6,
+          "cost_usd": "0.556203375",
+          "model_calls": 67,
+          "resolved": true,
+          "strong_calls": 61,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-14007"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 41,
+          "cost_usd": "0.11801403",
+          "model_calls": 41,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.210260085",
+          "model_calls": 41,
+          "resolved": false,
+          "strong_calls": 41,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 6,
+          "cost_usd": "0.089992740",
+          "model_calls": 29,
+          "resolved": false,
+          "strong_calls": 23,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-14140"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.27206883",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.404326575",
+          "model_calls": 53,
+          "resolved": true,
+          "strong_calls": 53,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 9,
+          "cost_usd": "0.305085360",
+          "model_calls": 50,
+          "resolved": true,
+          "strong_calls": 41,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-14311"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 62,
+          "cost_usd": "0.16678854",
+          "model_calls": 62,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.875845830",
+          "model_calls": 69,
+          "resolved": false,
+          "strong_calls": 69,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 3,
+          "cost_usd": "0.670886700",
+          "model_calls": 61,
+          "resolved": true,
+          "strong_calls": 58,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-14539"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.25274736",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.871890105",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 11,
+          "cost_usd": "0.782975460",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 64,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-15382"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 18,
+          "cost_usd": "0.02091006",
+          "model_calls": 18,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.250972140",
+          "model_calls": 42,
+          "resolved": true,
+          "strong_calls": 42,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.105660375",
+          "model_calls": 32,
+          "resolved": true,
+          "strong_calls": 28,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-15467"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.27897831",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.862041345",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.887357145",
+          "model_calls": 51,
+          "resolved": false,
+          "strong_calls": 49,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-15563"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.22426569",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.870704325",
+          "model_calls": 63,
+          "resolved": false,
+          "strong_calls": 63,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 3,
+          "cost_usd": "0.771181770",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 72,
+          "submitted": false
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-15957"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 52,
+          "cost_usd": "0.15951312",
+          "model_calls": 52,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.128719845",
+          "model_calls": 30,
+          "resolved": true,
+          "strong_calls": 30,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 3,
+          "cost_usd": "0.121849830",
+          "model_calls": 27,
+          "resolved": true,
+          "strong_calls": 24,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-16642"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 28,
+          "cost_usd": "0.04521393",
+          "model_calls": 28,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.333952335",
+          "model_calls": 54,
+          "resolved": false,
+          "strong_calls": 54,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 7,
+          "cost_usd": "0.228004635",
+          "model_calls": 48,
+          "resolved": false,
+          "strong_calls": 41,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-16877"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 34,
+          "cost_usd": "0.05410881",
+          "model_calls": 34,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.080685180",
+          "model_calls": 22,
+          "resolved": true,
+          "strong_calls": 22,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.116721285",
+          "model_calls": 24,
+          "resolved": true,
+          "strong_calls": 22,
+          "submitted": true
+        }
+      },
+      "repository": "django/django",
+      "subgroup": "novel_repository_primary",
+      "task_id": "django__django-17029"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 54,
+          "cost_usd": "0.15327027",
+          "model_calls": 54,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.260335440",
+          "model_calls": 39,
+          "resolved": true,
+          "strong_calls": 39,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 7,
+          "cost_usd": "0.153646200",
+          "model_calls": 34,
+          "resolved": true,
+          "strong_calls": 27,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-13989"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 57,
+          "cost_usd": "0.17219610",
+          "model_calls": 57,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.867750195",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 15,
+          "cost_usd": "0.303794385",
+          "model_calls": 56,
+          "resolved": false,
+          "strong_calls": 41,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-20676"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23875767",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.864295920",
+          "model_calls": 71,
+          "resolved": false,
+          "strong_calls": 71,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 5,
+          "cost_usd": "0.867203040",
+          "model_calls": 65,
+          "resolved": false,
+          "strong_calls": 60,
+          "submitted": false
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-20826"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 68,
+          "cost_usd": "0.20046501",
+          "model_calls": 68,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.807533835",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 6,
+          "cost_usd": "0.875608530",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 67,
+          "submitted": false
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-21568"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23673969",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.426849225",
+          "model_calls": 49,
+          "resolved": true,
+          "strong_calls": 49,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 6,
+          "cost_usd": "0.341705295",
+          "model_calls": 47,
+          "resolved": true,
+          "strong_calls": 41,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-22719"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.26955423",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.259082940",
+          "model_calls": 36,
+          "resolved": true,
+          "strong_calls": 36,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.625768575",
+          "model_calls": 57,
+          "resolved": false,
+          "strong_calls": 49,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-22865"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 52,
+          "cost_usd": "0.16870473",
+          "model_calls": 52,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.676517910",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 0,
+          "cost_usd": "0.866380920",
+          "model_calls": 71,
+          "resolved": false,
+          "strong_calls": 71,
+          "submitted": false
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-23299"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 44,
+          "cost_usd": "0.10832445",
+          "model_calls": 44,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.237188715",
+          "model_calls": 46,
+          "resolved": true,
+          "strong_calls": 46,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.230749350",
+          "model_calls": 44,
+          "resolved": true,
+          "strong_calls": 40,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-23314"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 49,
+          "cost_usd": "0.15846453",
+          "model_calls": 49,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.346497180",
+          "model_calls": 52,
+          "resolved": true,
+          "strong_calls": 52,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 7,
+          "cost_usd": "0.053515485",
+          "model_calls": 15,
+          "resolved": true,
+          "strong_calls": 8,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-24026"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 51,
+          "cost_usd": "0.16240473",
+          "model_calls": 51,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.090356010",
+          "model_calls": 25,
+          "resolved": true,
+          "strong_calls": 25,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.190117425",
+          "model_calls": 39,
+          "resolved": true,
+          "strong_calls": 37,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-24149"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.27087282",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.879679170",
+          "model_calls": 63,
+          "resolved": false,
+          "strong_calls": 63,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 5,
+          "cost_usd": "0.859875405",
+          "model_calls": 62,
+          "resolved": false,
+          "strong_calls": 57,
+          "submitted": false
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-24177"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 74,
+          "cost_usd": "0.24222438",
+          "model_calls": 74,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.832591980",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.781303725",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 67,
+          "submitted": false
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-24870"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 45,
+          "cost_usd": "0.11133171",
+          "model_calls": 45,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.160593435",
+          "model_calls": 33,
+          "resolved": true,
+          "strong_calls": 33,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 8,
+          "cost_usd": "0.235164420",
+          "model_calls": 46,
+          "resolved": true,
+          "strong_calls": 38,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-24970"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 24,
+          "cost_usd": "0.05878620",
+          "model_calls": 24,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.039650145",
+          "model_calls": 18,
+          "resolved": true,
+          "strong_calls": 18,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 0,
+          "cost_usd": "0.028250175",
+          "model_calls": 15,
+          "resolved": true,
+          "strong_calls": 15,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-25122"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 70,
+          "cost_usd": "0.22147128",
+          "model_calls": 70,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.785186085",
+          "model_calls": 64,
+          "resolved": false,
+          "strong_calls": 64,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 18,
+          "cost_usd": "0.246763170",
+          "model_calls": 37,
+          "resolved": false,
+          "strong_calls": 19,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-25479"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23814765",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.862395780",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 5,
+          "cost_usd": "0.509596545",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 70,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-25775"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 46,
+          "cost_usd": "0.14007384",
+          "model_calls": 46,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.645274800",
+          "model_calls": 60,
+          "resolved": false,
+          "strong_calls": 60,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.468129555",
+          "model_calls": 58,
+          "resolved": false,
+          "strong_calls": 54,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-25960"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 35,
+          "cost_usd": "0.07484940",
+          "model_calls": 35,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.693514665",
+          "model_calls": 73,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 10,
+          "cost_usd": "0.287638320",
+          "model_calls": 46,
+          "resolved": false,
+          "strong_calls": 36,
+          "submitted": true
+        }
+      },
+      "repository": "matplotlib/matplotlib",
+      "subgroup": "novel_repository_primary",
+      "task_id": "matplotlib__matplotlib-26466"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 42,
+          "cost_usd": "0.09798606",
+          "model_calls": 42,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.859588920",
+          "model_calls": 74,
+          "resolved": false,
+          "strong_calls": 74,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.313082505",
+          "model_calls": 40,
+          "resolved": true,
+          "strong_calls": 38,
+          "submitted": true
+        }
+      },
+      "repository": "pydata/xarray",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "pydata__xarray-2905"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 20,
+          "cost_usd": "0.03297456",
+          "model_calls": 20,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.059906445",
+          "model_calls": 16,
+          "resolved": true,
+          "strong_calls": 16,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 0,
+          "cost_usd": "0.044048535",
+          "model_calls": 14,
+          "resolved": true,
+          "strong_calls": 14,
+          "submitted": true
+        }
+      },
+      "repository": "pydata/xarray",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "pydata__xarray-4629"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 40,
+          "cost_usd": "0.09644850",
+          "model_calls": 40,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.114434055",
+          "model_calls": 26,
+          "resolved": false,
+          "strong_calls": 26,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 5,
+          "cost_usd": "0.858712215",
+          "model_calls": 58,
+          "resolved": false,
+          "strong_calls": 53,
+          "submitted": false
+        }
+      },
+      "repository": "pytest-dev/pytest",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "pytest-dev__pytest-10051"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 64,
+          "cost_usd": "0.21745413",
+          "model_calls": 64,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.491368635",
+          "model_calls": 64,
+          "resolved": false,
+          "strong_calls": 64,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 7,
+          "cost_usd": "0.481076940",
+          "model_calls": 63,
+          "resolved": false,
+          "strong_calls": 56,
+          "submitted": true
+        }
+      },
+      "repository": "pytest-dev/pytest",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "pytest-dev__pytest-5840"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 28,
+          "cost_usd": "0.05328054",
+          "model_calls": 28,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.063275940",
+          "model_calls": 17,
+          "resolved": true,
+          "strong_calls": 17,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 4,
+          "cost_usd": "0.161587905",
+          "model_calls": 25,
+          "resolved": true,
+          "strong_calls": 21,
+          "submitted": true
+        }
+      },
+      "repository": "scikit-learn/scikit-learn",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "scikit-learn__scikit-learn-12585"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 46,
+          "cost_usd": "0.13567923",
+          "model_calls": 46,
+          "resolved": true,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.186392010",
+          "model_calls": 29,
+          "resolved": false,
+          "strong_calls": 29,
+          "submitted": true
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 16,
+          "cost_usd": "0.096684330",
+          "model_calls": 33,
+          "resolved": false,
+          "strong_calls": 17,
+          "submitted": true
+        }
+      },
+      "repository": "scikit-learn/scikit-learn",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "scikit-learn__scikit-learn-12973"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.28211274",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.879839565",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.724776510",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": false
+        }
+      },
+      "repository": "sphinx-doc/sphinx",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "sphinx-doc__sphinx-10673"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 28,
+          "cost_usd": "0.06217110",
+          "model_calls": 28,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.882643635",
+          "model_calls": 66,
+          "resolved": false,
+          "strong_calls": 66,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 2,
+          "cost_usd": "0.835366275",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 73,
+          "submitted": false
+        }
+      },
+      "repository": "sphinx-doc/sphinx",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "sphinx-doc__sphinx-9602"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 60,
+          "cost_usd": "0.20320434",
+          "model_calls": 60,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": true
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.809491215",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 15,
+          "cost_usd": "0.246634680",
+          "model_calls": 52,
+          "resolved": true,
+          "strong_calls": 37,
+          "submitted": true
+        }
+      },
+      "repository": "sympy/sympy",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "sympy__sympy-13551"
+    },
+    {
+      "policies": {
+        "fixed:openai-gpt-oss-20b": {
+          "cheap_calls": 75,
+          "cost_usd": "0.23942817",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 0,
+          "submitted": false
+        },
+        "fixed:qwen3.6-35b": {
+          "cheap_calls": 0,
+          "cost_usd": "0.609317925",
+          "model_calls": 75,
+          "resolved": false,
+          "strong_calls": 75,
+          "submitted": false
+        },
+        "router:guarded-live-calibrated-v2": {
+          "cheap_calls": 21,
+          "cost_usd": "0.166962675",
+          "model_calls": 43,
+          "resolved": false,
+          "strong_calls": 22,
+          "submitted": true
+        }
+      },
+      "repository": "sympy/sympy",
+      "subgroup": "familiar_repository_secondary",
+      "task_id": "sympy__sympy-13877"
+    }
+  ]
+}

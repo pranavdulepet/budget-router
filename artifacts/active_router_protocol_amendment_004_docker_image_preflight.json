@@ -1,0 +1,63 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "open-router-study-2026-07-29-amendment-004",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "status": "normative_infrastructure_repair",
+  "effective_date": "2026-07-29",
+  "reason": "Two treatments failed before inference when concurrent workers encountered a missing official task image; the first manual pull also found Docker VM storage exhaustion.",
+  "scope_unchanged": [
+    "research_question",
+    "tasks",
+    "models",
+    "prompts",
+    "seeds",
+    "episode_caps",
+    "selection_rules",
+    "heldout_design",
+    "incremental_usd_ceiling"
+  ],
+  "repair": {
+    "resolve_official_image_for_every_pending_task": true,
+    "pull_missing_images_sequentially": true,
+    "complete_before_tinker_adapter_creation": true,
+    "fail_locally_on_pull_or_registration_error": true
+  },
+  "invalidated_episode_keys": [
+    {
+      "study_stage": "cheap_medium_screen",
+      "task_id": "matplotlib__matplotlib-26291",
+      "model": "openai/gpt-oss-20b",
+      "protocol_sha256": "08b22fc59a2b0b3e246c09fa0c9e6b9758e8c852a7e04c3b5819a5e90b2e1e2a",
+      "cost_still_counted": true,
+      "excluded_from_quality_and_structural_metrics": true
+    },
+    {
+      "study_stage": "cheap_medium_screen",
+      "task_id": "matplotlib__matplotlib-26291",
+      "model": "openai/gpt-oss-120b",
+      "protocol_sha256": "08b22fc59a2b0b3e246c09fa0c9e6b9758e8c852a7e04c3b5819a5e90b2e1e2a",
+      "cost_still_counted": true,
+      "excluded_from_quality_and_structural_metrics": true
+    }
+  ],
+  "removed_out_of_protocol_task_images": [
+    "pylint-dev__pylint-4551",
+    "matplotlib__matplotlib-26113",
+    "matplotlib__matplotlib-25287",
+    "matplotlib__matplotlib-24637",
+    "matplotlib__matplotlib-23412",
+    "matplotlib__matplotlib-20859",
+    "django__django-16662",
+    "django__django-14404",
+    "django__django-13568",
+    "django__django-13012",
+    "astropy__astropy-8707",
+    "astropy__astropy-13033"
+  ],
+  "interrupted_exposure_artifact": "outputs/active_router_v1/interrupted_exposure.json",
+  "recollection": {
+    "same_task_seed_prompt_cap_and_treatment": true,
+    "interrupted_episodes_have_no_quality_outcome": true,
+    "all_interrupted_reservations_count": true
+  }
+}

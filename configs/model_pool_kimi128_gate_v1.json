@@ -1,0 +1,25 @@
+{
+  "pool_version": "tinker-kimi128-strong-gate-2026-07-30-v1",
+  "price_snapshot": "tinker-2026-07-30-kimi128-gate-v1",
+  "max_output_tokens": 8000,
+  "max_turns": 75,
+  "prompt_version": "mini-swe-budget-router-v1",
+  "harness_version": "mini-swe-tinker-v4-safe-opaque-redaction",
+  "seed_policy": "signed-int32-modulo-v1",
+  "renderer_policy": "tinker-kimi-k2.6-recommended-2026-07-30",
+  "treatments": [
+    {
+      "role": "strong_candidate",
+      "model": "moonshotai/Kimi-K2.6:peft:131072",
+      "family": "moonshot_kimi",
+      "tinker_size": "Large",
+      "renderer": "kimi_k26",
+      "reasoning": "full",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": -1,
+      "context_tokens": 131072,
+      "episode_hard_cap_usd": "8.00"
+    }
+  ]
+}

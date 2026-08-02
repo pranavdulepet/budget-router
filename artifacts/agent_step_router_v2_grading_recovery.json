@@ -1,0 +1,48 @@
+{
+  "schema_version": "agent-step-v2-official-grading-recovery-v1",
+  "study_id": "open-router-study-2026-07-29-v1",
+  "amendment_id": "008-guarded-live-calibrated-agent-step-followup",
+  "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+  "run_id": "active-router-heldout-agent_step_v2_guarded_router-v1",
+  "initial_report": {
+    "sha256": "844569ca075b1775f876d1d533346b42bbd843ee8fe2e9d576e714d9572b1f81",
+    "resolved_count": 25,
+    "error_ids": [
+      "django__django-14539",
+      "django__django-16877"
+    ]
+  },
+  "failure_classification": {
+    "kind": "transient_infrastructure",
+    "stage": "docker_instance_image_pull_before_patch_application",
+    "observed_error": "Docker Hub request timed out while awaiting authentication or registry headers",
+    "model_outcome_counted_from_initial_attempt": false
+  },
+  "resume": {
+    "predictions_changed": false,
+    "harness_changed": false,
+    "run_id_changed": false,
+    "completed_reports_skipped": 42,
+    "retried_task_ids": [
+      "django__django-14539",
+      "django__django-16877"
+    ],
+    "outcomes": {
+      "django__django-14539": "resolved",
+      "django__django-16877": "completed_unresolved"
+    }
+  },
+  "final_router_report": {
+    "sha256": "00b3c8f706ff7955338d38415fc6991abc00325c58a9f9fbfe1ab8551f3b647d",
+    "resolved_count": 26,
+    "error_ids": []
+  },
+  "fixed_qwen_model_error_confirmation": {
+    "task_id": "django__django-11749",
+    "kind": "model_caused_patch_apply_failure",
+    "reason": "submitted diff used absolute /testbed and backup-file headers",
+    "repeat_produced_same_failure": true,
+    "initial_and_final_report_sha256": "91e7bd948f4ad5a497a57ce7e94f5ef7637930c43df3e2df54cbb35b12ef20a6"
+  },
+  "final_grading_manifest_sha256": "49f6d23998513dd9bb0bdd992e00acf5d5c780702668a848214d515c052e6eb5"
+}

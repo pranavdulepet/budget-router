@@ -1,0 +1,48 @@
+{
+  "schema_version": "active-router-protocol-amendment-v1",
+  "amendment_id": "open-router-study-2026-07-29-amendment-002",
+  "parent_study_id": "open-router-study-2026-07-29-v1",
+  "status": "normative_infrastructure_repair",
+  "effective_date": "2026-07-29",
+  "reason": "Nemotron Nano visibly emitted bash calls in documented XML or JSON variants, but the recommended renderer returned zero structured tool calls across all 75 turns.",
+  "scope_unchanged": [
+    "research_question",
+    "tasks",
+    "models",
+    "prompts",
+    "seeds",
+    "episode_caps",
+    "selection_rules",
+    "heldout_design",
+    "incremental_usd_ceiling"
+  ],
+  "repair": {
+    "renderer_prefix": "nemotron3",
+    "only_when_no_structured_call": true,
+    "maximum_recovered_calls_per_response": 1,
+    "tool_name": "bash",
+    "accepted_formats": [
+      "single function XML body missing its outer opening tool_call tag",
+      "exact bare JSON bash-call object",
+      "observed Makes a tool call JSON wrapper"
+    ],
+    "reject_ambiguous_or_extra_content": true,
+    "record_provider_metadata": true
+  },
+  "invalidated_episode_keys": [
+    {
+      "study_stage": "cheap_medium_screen",
+      "task_id": "astropy__astropy-7166",
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "protocol_sha256": "e96bbeccfbdd24b5abdbeedf892e67f9a2ef49a804bcc90716bc302aa0cb69cc",
+      "cost_still_counted": true,
+      "excluded_from_quality_and_structural_metrics": true
+    }
+  ],
+  "recollection": {
+    "same_task_seed_prompt_cap_and_treatment": true,
+    "only_post_repair_episode_counts_for_invalidated_pair": true,
+    "both_costs_count": true
+  },
+  "stop_rule": "If the repaired episode still cannot execute structured tools or exposes another systematic protocol defect, exclude Nemotron Nano without running its remaining screen tasks."
+}

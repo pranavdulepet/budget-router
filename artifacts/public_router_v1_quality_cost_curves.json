@@ -1,0 +1,246 @@
+{
+  "controls": {
+    "cheapest_fixed": {
+      "cost_usd": 1.18226947,
+      "model": "deepseek-v3-0324",
+      "score": 0.5116977784342975
+    },
+    "confirmatory_primary": {
+      "cost_usd": 28.4452784725,
+      "lambda": 0.2,
+      "method": "text_knn",
+      "score": 0.6592734278770765
+    },
+    "gpt_5": {
+      "cost_usd": 56.5168825,
+      "score": 0.7351880329407077
+    },
+    "hindsight_oracle": {
+      "cost_usd": 8.960562427500001,
+      "score": 0.8769506376328247
+    },
+    "published_balanced_artifact": {
+      "cost_usd": 38.30850869,
+      "lambda": 0.1,
+      "method": "shared_task_model_hashed_classifier",
+      "score": 0.736350592766877
+    },
+    "training_dataset_lookup": {
+      "cost_usd": 52.5833021,
+      "score": 0.7295590761556813
+    }
+  },
+  "curves": {
+    "calibrated_gradient_boosting": [
+      {
+        "cost_usd": 70.10230553000001,
+        "lambda": 0.0,
+        "score": 0.6905609231077315
+      },
+      {
+        "cost_usd": 65.78201191,
+        "lambda": 0.01,
+        "score": 0.6899658254758524
+      },
+      {
+        "cost_usd": 63.305398270000005,
+        "lambda": 0.02,
+        "score": 0.6921249711775059
+      },
+      {
+        "cost_usd": 54.09428680999999,
+        "lambda": 0.05,
+        "score": 0.7164679572243058
+      },
+      {
+        "cost_usd": 38.6128546575,
+        "lambda": 0.1,
+        "score": 0.7231705171938819
+      },
+      {
+        "cost_usd": 26.47327996,
+        "lambda": 0.2,
+        "score": 0.679121733079011
+      },
+      {
+        "cost_usd": 8.61473019,
+        "lambda": 0.4,
+        "score": 0.6263069728820257
+      },
+      {
+        "cost_usd": 1.8042329500000003,
+        "lambda": 0.8,
+        "score": 0.6108510515644132
+      },
+      {
+        "cost_usd": 1.56050479,
+        "lambda": 1.6,
+        "score": 0.6138109454987849
+      },
+      {
+        "cost_usd": 1.55429574,
+        "lambda": 3.2,
+        "score": 0.6146605753739369
+      }
+    ],
+    "independent_hashed_logistic": [
+      {
+        "cost_usd": 51.472502045000006,
+        "lambda": 0.0,
+        "score": 0.7274324835090508
+      },
+      {
+        "cost_usd": 49.136624337499995,
+        "lambda": 0.01,
+        "score": 0.7296996586623088
+      },
+      {
+        "cost_usd": 48.4378313275,
+        "lambda": 0.02,
+        "score": 0.7274468562181521
+      },
+      {
+        "cost_usd": 43.266344205,
+        "lambda": 0.05,
+        "score": 0.7220218928341949
+      },
+      {
+        "cost_usd": 37.813693539999996,
+        "lambda": 0.1,
+        "score": 0.7128301564733217
+      },
+      {
+        "cost_usd": 27.642055449999997,
+        "lambda": 0.2,
+        "score": 0.6756952904493365
+      },
+      {
+        "cost_usd": 14.335560659999999,
+        "lambda": 0.4,
+        "score": 0.649388768294049
+      },
+      {
+        "cost_usd": 3.7634416450000003,
+        "lambda": 0.8,
+        "score": 0.6227557266471859
+      },
+      {
+        "cost_usd": 2.060453825,
+        "lambda": 1.6,
+        "score": 0.6097016447171991
+      },
+      {
+        "cost_usd": 1.6332159100000003,
+        "lambda": 3.2,
+        "score": 0.6183814857739682
+      }
+    ],
+    "shared_task_model_hashed_classifier": [
+      {
+        "cost_usd": 61.340579579999996,
+        "lambda": 0.0,
+        "score": 0.7374550517780645
+      },
+      {
+        "cost_usd": 56.76460625,
+        "lambda": 0.01,
+        "score": 0.7481704870475682
+      },
+      {
+        "cost_usd": 53.40277218,
+        "lambda": 0.02,
+        "score": 0.7436992026175911
+      },
+      {
+        "cost_usd": 48.51177708,
+        "lambda": 0.05,
+        "score": 0.7347608489447729
+      },
+      {
+        "cost_usd": 38.30850869,
+        "lambda": 0.1,
+        "score": 0.736350592766877
+      },
+      {
+        "cost_usd": 27.02935826,
+        "lambda": 0.2,
+        "score": 0.71480722703573
+      },
+      {
+        "cost_usd": 8.93141099,
+        "lambda": 0.4,
+        "score": 0.6638040632255008
+      },
+      {
+        "cost_usd": 2.25893021,
+        "lambda": 0.8,
+        "score": 0.6328920721438942
+      },
+      {
+        "cost_usd": 1.6619938599999997,
+        "lambda": 1.6,
+        "score": 0.6327845743994119
+      },
+      {
+        "cost_usd": 1.64091891,
+        "lambda": 3.2,
+        "score": 0.6324531193115764
+      }
+    ],
+    "text_knn": [
+      {
+        "cost_usd": 52.144921485,
+        "lambda": 0.0,
+        "score": 0.6970643067454256
+      },
+      {
+        "cost_usd": 50.544543525,
+        "lambda": 0.01,
+        "score": 0.6968285106177664
+      },
+      {
+        "cost_usd": 48.990276605000005,
+        "lambda": 0.02,
+        "score": 0.6975847806431779
+      },
+      {
+        "cost_usd": 44.943599605,
+        "lambda": 0.05,
+        "score": 0.6955420785743511
+      },
+      {
+        "cost_usd": 38.177073105,
+        "lambda": 0.1,
+        "score": 0.6816112000523215
+      },
+      {
+        "cost_usd": 28.4452784725,
+        "lambda": 0.2,
+        "score": 0.6592734278770765
+      },
+      {
+        "cost_usd": 12.662620607500001,
+        "lambda": 0.4,
+        "score": 0.6313645107085443
+      },
+      {
+        "cost_usd": 5.0615424325,
+        "lambda": 0.8,
+        "score": 0.6238796419561056
+      },
+      {
+        "cost_usd": 2.5548831775,
+        "lambda": 1.6,
+        "score": 0.6127613419429389
+      },
+      {
+        "cost_usd": 1.6701613075,
+        "lambda": 3.2,
+        "score": 0.6031513510544201
+      }
+    ]
+  },
+  "prompt_count": 2184,
+  "schema_version": "public-router-quality-cost-curves-v1",
+  "source": "outputs/public_router_v1/study/results.json"
+}

@@ -1,0 +1,67 @@
+{
+  "pool_version": "tinker-coding-agent-pool-2026-07-25-v2",
+  "price_snapshot": "tinker-2026-07-25-coding-v2",
+  "context_tokens": 65536,
+  "max_output_tokens": 8000,
+  "max_turns": 75,
+  "prompt_version": "mini-swe-budget-router-v1",
+  "environment": {
+    "python": "3.12",
+    "tinker": "0.23.1",
+    "tinker-cookbook": "0.5.2",
+    "tml-renderers": "0.1.0",
+    "mini-swe-agent": "2.3.0"
+  },
+  "treatments": [
+    {
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "renderer": "nemotron3",
+      "reasoning": "full",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": -1,
+      "context_tokens": 65536
+    },
+    {
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "renderer": "qwen3_5",
+      "reasoning": "enabled",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "context_tokens": 65536
+    },
+    {
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "renderer": "nemotron3",
+      "reasoning": "full",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": -1,
+      "context_tokens": 65536
+    },
+    {
+      "model": "thinkingmachines/Inkling",
+      "renderer": "tml_v0",
+      "reasoning": "effort=0.9",
+      "temperature": 0.7,
+      "top_p": 1.0,
+      "top_k": -1,
+      "context_tokens": 65536
+    },
+    {
+      "model": "moonshotai/Kimi-K2.6",
+      "renderer": "kimi_k26",
+      "reasoning": "full",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": -1,
+      "context_tokens": 32768
+    }
+  ],
+  "replacement_order": [
+    "Qwen/Qwen3.5-4B",
+    "openai/gpt-oss-120b:peft:131072",
+    "Qwen/Qwen3.5-397B-A17B"
+  ]
+}

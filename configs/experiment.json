@@ -1,0 +1,59 @@
+{
+  "protocol_version": "budget-router-paper-v1",
+  "benchmark": "SWE-bench Verified",
+  "benchmark_tasks": 500,
+  "split": {
+    "unit": "repository",
+    "targets": {"train": 0.6, "calibration": 0.2, "test": 0.2},
+    "seed": 20260725,
+    "locked_test": true
+  },
+  "fixed_matrix": {
+    "models": 5,
+    "seeds": [0, 1, 2],
+    "runs": 7500,
+    "auto_reduce": false
+  },
+  "pilot": {
+    "split": "train",
+    "tasks": 12,
+    "minimum_structurally_valid_per_model": 10,
+    "credit_approval_required": true
+  },
+  "budgets": {
+    "source": "training-only successful trajectory costs",
+    "quantiles": [0.1, 0.25, 0.5, 0.75, 0.9],
+    "round_up": "USD cents"
+  },
+  "counterfactuals": {
+    "task_split": "train only",
+    "post_matrix_credit_share": 0.5,
+    "model_forks": 0.5,
+    "operation_handoff_forks": 0.3,
+    "parallel_branches": 0.2
+  },
+  "router_training_credit_share": 0.1,
+  "on_policy_validation_test_credit_share": 0.4,
+  "transfer_formats": [
+    "full_visible_transcript",
+    "structured_checkpoint",
+    "goal_workspace_artifacts"
+  ],
+  "offline_policy_minimum_effective_sample_size": 500,
+  "tournament": {
+    "exclude_hard_cap_violations": true,
+    "calibration_wrapper": "isotonic-pava-v1",
+    "feasibility_threshold": 0.8,
+    "maximum_false_feasible_rate": 0.2,
+    "require_brier_better_than_budget_only": true,
+    "primary": "normalized held-out success-versus-budget AUC",
+    "tie_break": "repository bootstrap overlap then complexity, latency, cost",
+    "fixed_model_fallback": true
+  },
+  "drift": {
+    "price_shock_multiplier": 2.0,
+    "remove_one_model": true,
+    "introduce_held_out_fifth_after_probe_set": true,
+    "prompt_paraphrase": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "snapshot_id": "tinker-2026-07-25-coding-v2",
+  "as_of": "2026-07-25",
+  "source_url": "https://tinker-docs.thinkingmachines.ai/tinker/models/",
+  "currency": "USD",
+  "notes": "Coding-agent pilot v2. Conservative caps use uncached list prices.",
+  "models": {
+    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16": {"input_per_million_usd": "0.195", "cached_input_per_million_usd": "0.039", "output_per_million_usd": "0.495", "training_per_million_usd": "0.44", "context_tokens": 65536},
+    "Qwen/Qwen3.6-35B-A3B": {"input_per_million_usd": "0.54", "cached_input_per_million_usd": "0.108", "output_per_million_usd": "1.335", "training_per_million_usd": "1.177", "context_tokens": 65536},
+    "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16": {"input_per_million_usd": "0.57", "cached_input_per_million_usd": "0.114", "output_per_million_usd": "1.44", "training_per_million_usd": "1.276", "context_tokens": 65536},
+    "thinkingmachines/Inkling": {"input_per_million_usd": "1.87", "cached_input_per_million_usd": "0.374", "output_per_million_usd": "4.68", "training_per_million_usd": "5.61", "context_tokens": 65536},
+    "moonshotai/Kimi-K2.6": {"input_per_million_usd": "2.205", "cached_input_per_million_usd": "0.441", "output_per_million_usd": "5.49", "training_per_million_usd": "4.84", "context_tokens": 32768},
+    "Qwen/Qwen3.5-4B": {"input_per_million_usd": "0.33", "cached_input_per_million_usd": "0.066", "output_per_million_usd": "1.005", "training_per_million_usd": "0.737", "context_tokens": 65536},
+    "openai/gpt-oss-120b:peft:131072": {"input_per_million_usd": "0.78", "cached_input_per_million_usd": "0.156", "output_per_million_usd": "1.94", "training_per_million_usd": "2.33", "context_tokens": 131072},
+    "Qwen/Qwen3.5-397B-A17B": {"input_per_million_usd": "3.00", "cached_input_per_million_usd": "0.60", "output_per_million_usd": "7.50", "training_per_million_usd": "6.60", "context_tokens": 65536}
+  }
+}
