@@ -1,478 +1,260 @@
-# What I learned building a model router for coding agents
+# Building a model router that knows when to spend
 
-*A technical guide to model selection, quality-cost curves, calibration, and
-per-call agent routing—backed by an open-source implementation and held-out
-SWE-bench evaluation.*
+*A practical deep dive into model selection, calibration, quality-cost curves,
+and per-call routing inside coding agents.*
 
 *Pranav Dulepet*
 
-I wanted to answer a practical question: can a system choose the right model
-before every inference, use cheaper models where they are sufficient, and
-preserve the quality of a strong fixed model?
+Model routing is usually reduced to one sentence: send easy requests to a
+cheap model and hard requests to a strong one.
 
-The usual description is simple. Classify a request as easy or hard. Send easy
-requests to a cheap model and hard requests to a strong model.
+That sentence is useful until you try to build the router.
 
-That description leaves out most of the problem. Difficulty is not an
-intrinsic label. A geometry problem, an API migration, and a UI edit may each
-be easy for a different model. Classifier scores need calibration before they
-can be compared. The selected model must satisfy context, tool, privacy, and
-budget constraints. Inputs outside the training distribution need a fallback.
-Inside an agent, every model call changes the state that the next decision
-will see.
+A request is not simply easy or hard. It may be easy for one model and hard
+for another. A cheap model is not useful merely because it is cheap. A
+classifier score is not automatically a probability. A model with the best
+predicted score may lack the required context window or tools. Inside an
+agent, one route changes the state seen by every route that follows.
 
-I built and open-sourced a router around those constraints. I first evaluated
-one-shot routing over 13 models and 11,658 prompts. I then adapted the design
-to route individual calls inside a coding agent.
+I built an open-source router to understand those problems directly. I began
+with one-shot selection across 13 models and 11,658 prompts. I then moved the
+decision inside a coding agent, where the router selected a model before each
+inference.
 
-On the predeclared 50-task SWE-bench subgroup drawn from repository families
-excluded from fitting, the agent router and fixed Qwen3.6 35B each resolved
-22 tasks. Conservative cost was $20.61 for the router and $26.02 for Qwen.
-“Conservative” prices every input token at the uncached list rate for both
-policies.
+The useful result came from the agent.
 
-Across all 60 tasks, the router resolved 26 and fixed Qwen resolved 24, at
-$24.54 and $30.98. The router used GPT-OSS 20B on 12.70% of its model calls.
-Across those 60 tasks, the paired quality interval spans −6.67 to +13.33
-percentage points. The experiment supports lower cost at the observed pass
-rate, not a claim that the router is intrinsically more accurate.
+On 50 held-out SWE-bench tasks from repository families excluded from fitting,
+the routed agent and a fixed Qwen3.6 35B agent each resolved 22 tasks. The
+router cost $20.61. Fixed Qwen cost $26.02.
 
-That distinction shaped the implementation:
+Across all 60 held-out tasks, the router resolved 26 and fixed Qwen resolved
+24, at $24.54 and $30.98. The router sent 12.70% of its calls to GPT-OSS 20B.
+Its paired quality interval still included both losses and gains, so the claim
+is narrow: the router reduced cost at the observed pass rate. It did not prove
+that routing is inherently more accurate.
 
-> A classifier estimates model fitness. A router turns those estimates into a
-> constrained, calibrated, measurable policy.
+Getting to that result changed my definition of a router:
 
-## The problem is allocation, not difficulty
+> A classifier estimates which models fit a request. A router turns those
+> estimates into a constrained, calibrated, and measurable decision.
 
-Suppose a model pool contains candidates \(m\in\mathcal M\), and \(x\) is the
-request visible when the route is chosen. The quantity I care about is
+## The router is allocating work
+
+Let \(x\) be the information visible when a decision is made and
+\(m\in\mathcal M\) a candidate model. The quantity I want is
 
 \[
 p_m(x)=P(\text{acceptable outcome}\mid x,m).
 \]
 
-This is a surface over requests and models, not a single difficulty score.
-For the same request, two models can have different probabilities. For the
-same model, two requests can have different probabilities.
+This is not one difficulty score. It is a surface over requests and models.
+For the same request, different models can have different probabilities. For
+the same model, different requests can have different probabilities.
 
-Routing has value only if the pool contains useful variation:
+Routing only has value when four conditions hold:
 
-- models occupy different quality-cost points;
-- models disagree on which examples they solve;
-- cheaper models are sufficient on a meaningful fraction of traffic; and
-- some observable feature predicts that sufficiency.
+1. The models occupy meaningfully different quality-cost points.
+2. They disagree on some of the requests they solve.
+3. Cheaper models are sufficient often enough to matter.
+4. Something visible before inference predicts that sufficiency.
 
-The hindsight oracle measures the first three conditions. It selects the
-highest observed outcome score after seeing every terminal result and breaks
-ties by lower cost. The oracle is not deployable. It is an upper bound on the
-opportunity available to a perfect router.
+The first three can be measured with a hindsight oracle. Evaluate every model
+on every request, then choose the cheapest successful model after seeing the
+outcome. The oracle cannot be deployed, but it measures the opportunity in the
+pool.
 
-The oracle analysis changed how I framed the project. On my 13-model prompt
-matrix, the oracle scored 87.70% at $8.96. Fixed GPT-5
-scored 73.52% at $56.52. That gap says the model pool contains substantial
-complementarity. It does not say a classifier can identify the right model
-before inference.
+On the public 13-model prompt matrix I used, the oracle scored 87.70% at
+$8.96. Fixed GPT-5 scored 73.52% at $56.52. There was substantial room for a
+router.
 
-This distinction appears throughout the literature. Early work by
-[Shnitzer et al.](https://arxiv.org/abs/2309.15789) reframed benchmark results
-as supervision for per-model correctness prediction. The newer
-[LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/) confirms
-strong complementarity but finds a persistent gap between learned routers and
-the oracle. A common error is model recall: only one or two candidates solve a
-request, and the router fails to identify them.
+The gap between the oracle and a learned router measures a different problem:
+model recall. If only one candidate solves a request, can the router identify
+it in advance? [LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/)
+shows that this remains difficult even when model complementarity is strong.
+Adding candidates can enlarge the oracle while making the routing problem
+harder.
 
-The model pool and the router must therefore be designed together. Adding
-more models can increase the oracle while making the prediction problem
-harder. LLMRouterBench finds diminishing returns from larger pools and more
-value in careful model curation than in adding candidates indiscriminately.
+Model-pool design therefore comes before classifier design. I look at fixed
+quality and cost, pairwise disagreements, unique solves, union-of-solves
+coverage, and the marginal oracle gain from each candidate. Two models with
+nearly identical costs and solve sets add little to a cost router.
 
-## A map of the routing space
+## Four systems share the same name
 
-Several systems are called routers even though they make different decisions.
+Several products are called routers even though they act at different points.
 
-| System | Evidence available at decision time | Action | Main tradeoff |
-|---|---|---|---|
-| Predictive model router | Request, context, model metadata | Call one selected model | Cheap decision; limited evidence |
-| Cascade | Request plus one or more generated answers | Accept or escalate | Better evidence; pays latency and tokens for discarded answers |
-| Agent-step router | Current trajectory, tools, errors, budget | Select the next model | Can adapt; changes future state |
-| Provider router | Selected model, endpoint health, cache, region | Select an endpoint or service tier | Reliability, latency, and infrastructure cost |
+| Router | Evidence available | Decision |
+|---|---|---|
+| Predictive model router | Request, context, model metadata | Select one model before generation |
+| Cascade | Request and one or more generated answers | Accept an answer or escalate |
+| Agent-step router | Current trajectory, tool results, errors, budget | Select the model for the next call |
+| Provider router | Chosen model, endpoint health, region, cache | Select where and how to serve it |
 
-A predictive router decides before generation.
-[RouteLLM](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5503a7c69d48a2f86fc00b3dc09de686-Abstract-Conference.html)
-is the canonical binary example: estimate whether a strong model will beat a
-weak model, then sweep a threshold to vary the fraction of strong-model calls.
+A predictive router makes the cheapest decision and receives the least
+evidence. [RouteLLM](https://proceedings.iclr.cc/paper_files/paper/2025/hash/5503a7c69d48a2f86fc00b3dc09de686-Abstract-Conference.html)
+is the familiar binary form: predict when a strong model is worth using, then
+sweep the threshold to trace a quality-cost curve.
 
-A cascade gets more information by generating first.
-[FrugalGPT](https://arxiv.org/abs/2305.05176) sends a request through a
-sequence of models and stops when a response is judged reliable. This can be
-powerful, but an escalation pays for both the rejected response and the
-stronger response. Predictive routing makes a harder decision with less
-evidence, but normally invokes only one model.
+A cascade buys more evidence. [FrugalGPT](https://arxiv.org/abs/2305.05176)
+generates with one model, evaluates the answer, and escalates when confidence
+is low. It can make a better-informed decision, but escalation pays for both
+the rejected output and its replacement.
 
-Agent routing is a sequential control problem. It can select once for the
-whole task, select a stage, or select before every model call. Per-call routing
-has the finest control but also the strongest feedback loop: the chosen model
-changes the next command, tool result, context length, and stopping time.
+An agent-step router decides repeatedly. It can react to tool failures,
+context growth, or a task that has become easier after a plan is established.
+The price of that control is a feedback loop: each selected model changes what
+the router will observe next.
 
-Provider routing begins after semantic selection. It handles endpoint
-availability, rate limits, deadlines, regions, retries, and cache locality.
-Combining semantic and provider routing into one opaque score makes both
+A provider router starts after semantic model selection. It handles endpoint
+availability, rate limits, regions, retries, deadlines, and cache locality.
+Combining semantic fitness and provider health in one opaque score makes both
 layers harder to train and debug.
 
-External model routing is sometimes described as a mixture of experts. The
-gating analogy is useful, but the mechanisms differ.
+My project focuses on predictive and agent-step routing. Provider execution
+stays separate.
 
-| Sparse mixture of experts | External model router |
-|---|---|
-| Usually routes tokens inside one network | Usually routes a request or agent step |
-| Experts are jointly trained modules | Models are independently trained systems |
-| Training balances expert capacity and compute | Deployment balances quality, price, latency, and policy |
-| Several experts may contribute to one token | Predictive routing normally calls one model |
-| Router and experts share a training loop | Models can change without the router architecture changing |
+## The architecture I ended up with
 
-An external router is a decision layer over a changing catalog of complete
-systems.
+The implementation has an offline path and an online path.
 
-## Five parts of a serious router
+![Two-stage architecture: offline artifact training, online model selection, and separate provider execution.](assets/router-architecture.svg)
 
-Implementing the first router forced me to separate five design problems.
+Offline training produces an immutable artifact:
 
-| Part | Question |
-|---|---|
-| Model pool | Which candidates provide real quality, cost, latency, or capability diversity? |
-| Outcome data | What does success mean, and where do representative labels come from? |
-| Estimator | How do I predict each model’s outcome from the visible state? |
-| Policy | How do predictions, costs, constraints, and fallback become a decision? |
-| Evaluation and control plane | How do I prove the policy activates, preserves quality, and survives model or traffic changes? |
+- model cards describe prices, capabilities, and context limits;
+- a complete outcome matrix supplies supervised labels;
+- an estimator predicts model-relative success;
+- calibration maps its scores to empirical probabilities;
+- policy evaluation chooses allowed operating points; and
+- the artifact stores the fallback, gates, hashes, and fitted parameters.
 
-The classifier is one row in this table.
+Online routing is deliberately smaller:
 
-### Model pool
+1. Remove models that violate hard constraints.
+2. Estimate success for the remaining candidates.
+3. Check whether the input and policy are supported.
+4. Apply the chosen quality-cost rule.
+5. Return a model ID and an auditable reason.
 
-A cheap model is useful only if it sometimes succeeds. A strong model is
-useful only if it adds coverage. Two similarly priced models with the same
-solve set contribute little to a cost router.
+Calling a provider is a separate operation. This keeps credentials, retry
+logic, and endpoint policy out of the learned artifact.
 
-Before fitting anything, I look at:
+The separation matters because these parts fail differently. A classifier can
+be miscalibrated. A policy can choose an unsafe operating point. A provider
+can be unavailable. A request can fall outside the training distribution.
+One score should not hide all four.
 
-- each fixed model’s success and cost;
-- pairwise disagreements;
-- unique solves;
-- the union-of-solves oracle;
-- marginal oracle gain from adding each model; and
-- whether the price difference is large enough to matter after routing
-  overhead and cache effects.
+## Learning model-relative success
 
-These are properties of the model–harness treatment, not the model name
-alone. A coding model that cannot follow the tool protocol or preserve an
-applicable patch is not a strong arm for that agent.
-
-### Outcome data
-
-The first data decision followed from a bias problem: if different models see
-different requests, I cannot tell model ability from sampling policy. I made
-the supervised object a complete request × model matrix:
+The training data is a complete request × model matrix:
 
 \[
 D=\{(x_i,m_j,y_{ij},c_{ij})\},
 \qquad y_{ij}\in\{0,1\}.
 \]
 
-Every candidate is evaluated on every request. \(y_{ij}\) records whether
-model \(m_j\) produced an acceptable outcome for request \(x_i\), and
-\(c_{ij}\) records cost.
+Every candidate sees every request. \(y_{ij}\) records whether model \(m_j\)
+produced an acceptable result for request \(x_i\); \(c_{ij}\) records cost.
 
-A complete matrix makes comparisons paired. It also lets me replay many
-policies against the same terminal outcomes. [RouterBench](https://arxiv.org/abs/2403.12031)
-made this evaluation pattern explicit at scale.
+This removes a common source of bias. If expensive models are evaluated only
+on hard requests, or new models only on recent traffic, the learner can
+confuse the sampling policy with model ability. The open-source trainer
+rejects incomplete matrices instead of silently filling the gaps.
 
-Missing cells are not harmless. If expensive models are evaluated only on
-hard cases or new models only on recent traffic, the learner can confuse
-sampling policy with model ability. My open-source trainer rejects incomplete
-matrices instead of silently imputing them.
+All outcomes for one request stay in the same data split. For agent data, the
+group should usually be a trajectory, repository, user, or account. A random
+row split can put near-duplicate states on both sides of the evaluation.
 
-The split unit must match the unit that can leak. I keep all outcomes for one
-prompt together. For agents, I group by trajectory or repository. For
-personalized products, the correct unit may be user or account. A random
-row-level split can place nearly identical states on both sides of the
-evaluation.
+I tested independent model heads, text nearest neighbors, calibrated gradient
+boosting, and a shared classifier. The shared model was the most useful
+general curve.
 
-### Estimator
+It uses hashed unigram and bigram features \(h(x)\), common request weights,
+one bias per model, and one interaction block per model:
 
-Once the data contract was fixed, the estimator became a replaceable
-component. Several router families fit the same interface.
+\[
+z_m(x)=
+b+w_{\text{shared}}^\top h(x)+b_m+w_m^\top h(x).
+\]
 
-| Method | Supervision | Strength | Main limitation |
-|---|---|---|---|
-| Rules or task taxonomy | Human categories | Inspectable and cheap | Categories age quickly and miss model-specific variation |
-| Similarity or k-nearest neighbors | Nearby evaluated requests | Minimal training; easy to audit | Weak when surface form and model fitness diverge |
-| Independent success heads | Correctness per model | Direct \(P(\text{success}\mid x,m)\) | Does not share data across models |
-| Shared request-model classifier | Complete outcome matrix | Learns common difficulty and model-specific strengths | Needs representative labels for every candidate |
-| Pairwise preference router | Strong-vs-weak comparisons | Natural for quality-cost curves | Binary relation may not extend cleanly to a large pool |
-| Cascade confidence model | Generated answer plus evaluator | Uses post-generation evidence | Adds calls, latency, and evaluator error |
-| Contextual bandit | Online reward | Tracks changing traffic | Requires safe exploration and reliable delayed feedback |
+The shared weights learn patterns that make a request broadly easy or hard.
+The model bias learns each candidate's base rate. The interaction block learns
+model-specific strengths. This is richer than a global easy/medium/hard label,
+but it shares more statistical strength than unrelated classifiers.
 
-RouteLLM tested similarity-weighted ranking, matrix factorization, BERT, and a
-causal-LM classifier. Its most useful contribution is not that one model
-class always wins. It treats the router as a curve: vary the decision
-threshold, measure the fraction of strong-model calls, and report how much of
-the strong model’s quality advantage is recovered.
+The raw score is still not a probability. I fit a separate isotonic calibrator
+for each model on a calibration split. If a model has degenerate calibration
+labels or scores, the trainer falls back to a global calibrator rather than
+inventing a per-model curve.
 
-The evaluation object is therefore a family of operating points.
-
-### Policy
-
-Cross-model scoring created the next problem. The estimator produces scores;
-the policy must turn them into one decision.
-
-For a feasible model set \(\mathcal M(x)\), a general quality-cost-latency
-policy is
+The policy can then compare quality and cost in the same decision:
 
 \[
 m^*(x)=\arg\max_{m\in\mathcal M(x)}
 \left[
 \hat p_m(x)
 -\lambda \tilde c_m(x)
--\mu \tilde \ell_m(x)
 \right].
 \]
 
-\(\lambda\) prices cost, \(\mu\) prices latency, and the tildes denote
-normalized quantities. Sweeping the weights produces a Pareto curve.
+Sweeping \(\lambda\) produces operating points instead of one universal
+router. A quality-sensitive application can remain near the strong baseline.
+A cost-sensitive application can move farther left.
 
-Another useful policy is constrained:
+Calibration does not make every operating point acceptable. The trainer tests
+each candidate policy against the best fixed model on calibration data. A
+policy that misses its quality gate cannot route by default. An unknown
+weight, an unsupported input, or a close decision falls back to the fixed
+model. If hard constraints also exclude the fallback, the router fails closed.
 
-\[
-m^*(x)=\arg\min_m c_m(x)
-\quad\text{subject to}\quad
-\hat p_m(x)\ge \max_j \hat p_j(x)-\epsilon.
-\]
+That last action—abstaining—is as important as choosing among models.
 
-This selects the cheapest model within a predicted-quality margin of the
-best. The objective is legible, but only if the probabilities are calibrated.
+## What prompt routing showed me
 
-A classifier score of 0.8 does not automatically mean an 80% success
-probability. Calibration maps raw scores to empirical outcome rates on a
-separate split. Cross-model comparison makes this especially important:
-otherwise one overconfident head can dominate every route.
+I first tested this structure on a pinned public LLMRouterBench release:
+151,554 outcomes from 11,658 prompts and 13 models spanning GPT, Claude,
+Gemini, DeepSeek, Qwen, Kimi, GLM, and Intern families.
 
-Selective classification adds the missing action: abstain. In a router,
-abstention usually means use a fixed strong fallback. I want fallback when:
-
-- the requested policy did not pass its calibration gate;
-- estimated support for the input is low; or
-- the top candidates are too close to distinguish reliably.
-
-Hard capability and policy constraints run before optimization. A high score
-cannot compensate for a missing tool interface, an insufficient context
-window, a denied provider, or a request that exceeds its cost ceiling.
-If no model—including the fallback—satisfies those constraints, the router
-fails closed.
-
-### Evaluation and control plane
-
-Moving from prompt replay to agents made offline routing accuracy insufficient.
-I also need:
-
-- fixed-model baselines on the same cases;
-- a hindsight oracle to measure complementarity;
-- a quality-cost curve, not only a chosen point;
-- paired uncertainty for quality and cost;
-- route shares and fallback rates;
-- activation on actual trajectories;
-- support and drift checks;
-- model-switch and cache costs; and
-- end-to-end outcomes from the real harness.
-
-A router that sends every request to the strong model may preserve quality,
-but it has not demonstrated economic routing. A router that sends everything
-cheap may save money, but it has not demonstrated a quality-preserving policy.
-Activation and coverage belong beside quality and cost.
-
-The comparisons should stay paired. For binary task outcomes, McNemar’s test
-uses the cases on which two policies disagree. Paired bootstrap intervals
-resample the same task-level quality and cost differences. Independent
-confidence intervals discard that covariance. When tasks cluster by customer,
-repository, or dataset, report both request-micro and group-macro results.
-
-## What production systems reveal
-
-The most useful public descriptions agree on the separation above, even
-though their internal learners are proprietary.
-
-| System | Publicly documented design | What I took from it |
-|---|---|---|
-| [Cursor Router](https://cursor.com/blog/router) | A classifier trained on 600,000+ live requests; query, context, complexity, domain, model behavior, cache-aware evaluation, and online tests over millions of requests | Product outcomes and cache effects matter more than an isolated benchmark score |
-| [OpenRouter Auto Beta](https://openrouter.ai/docs/guides/routing/routers/auto-router) | A lightweight task classifier, roughly 30 task types, aggregate usage rankings, allowed-model filters, cost-quality control, fallbacks, and session stickiness | Semantic ranking and provider execution are separate policies |
-| [Not Diamond](https://docs.notdiamond.ai/docs/routing-between-custom-models) | Custom routers trained from application evaluation data; arbitrary models or agent endpoints with price, latency, and context metadata | Representative application outcomes are the reusable interface |
-| [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing) | EWMA provider-failure estimates, a posterior over log latency, Thompson sampling, deadline risk, relative cost, and fallback | Runtime reliability needs online learning distinct from semantic task fitness |
-| [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) | Domain, complexity, tool, privacy, and safety classification integrated with a serving stack | Signals, policy, and infrastructure bindings should remain inspectable |
-
-Cursor exposes Intelligence, Balance, and Cost modes and reports online
-measurements rather than relying only on offline evaluations. It also accounts
-for cache misses caused by switching models inside a conversation.
-
-OpenRouter makes an especially useful distinction. Its current Auto Beta
-classifies the task and ranks models.
-[Provider selection](https://openrouter.ai/blog/insights/model-routing/)
-separately handles which endpoint serves the chosen model. Its deprecated Not
-Diamond-powered Auto route and current in-house task-ranking system should
-not be treated as the same algorithm.
-
-Ramp’s published Thompson-sampling system addresses a narrower runtime
-question. It starts from a caller’s acceptable model and service-tier list,
-estimates failure and deadline risk, and reorders the choices online. Ramp
-reports 26.3% cost savings and a −0.09 percentage-point error-rate change in
-that experiment. This is operational routing, not evidence that semantic
-quality can be inferred from latency.
-
-These systems do not publish enough detail to reproduce their classifiers.
-Their public designs still identify the same components: representative
-feedback, a tunable quality-cost objective, fallbacks, online measurement, and
-a separate provider layer.
-
-That lineage shaped the implementation. RouteLLM supplied curve-based
-evaluation. Cursor highlighted cache-aware online measurement. OpenRouter and
-Ramp clarified the boundary between semantic selection and runtime routing. I
-did not reproduce their private systems; I built a provider-neutral calibrated
-artifact, then evaluated a per-call agent policy prospectively and audited its
-actual activation.
-
-## Implementation: a calibrated, provider-neutral artifact
-
-I made the public interface a local training and decision library. The router
-accepts opaque model IDs, model cards, and evaluation outcomes. Training and
-selection are local. Calling a provider is optional and separate.
-
-![Two-stage architecture: offline artifact training, online model selection, and separate provider execution.](assets/router-architecture.svg)
-
-### The shared classifier
-
-For the reusable semantic router, I used lowercased unigram and bigram hashed
-features \(h(x)\). The shared logistic model has:
-
-- common request weights;
-- one bias per model; and
-- one request-feature interaction block per model.
-
-Its raw logit is
-
-\[
-z_m(x)
-=b+w_{\text{shared}}^\top h(x)+b_m+w_m^\top h(x).
-\]
-
-The common weights learn patterns that make requests broadly easy or hard.
-The model bias learns each candidate’s base rate. The interaction term learns
-model-specific strengths. This is more expressive than a global
-easy/medium/hard classifier and shares more statistical strength than
-unrelated per-model heads.
-
-The public 13-model artifact uses 65,536 hashed dimensions, balanced averaged
-SGD logistic regression with L2 regularization, and a frozen random seed. It
-was trained on 6,542 prompts—85,046 request-model outcomes—and calibrated on
-2,182 prompts.
-
-I fit isotonic calibration separately for each model. When a model’s
-calibration labels or scores are degenerate, the trainer uses a global
-calibrator rather than fabricating a per-model curve.
-
-The balanced policy is
-
-\[
-m^*(x)=\arg\max_m\left[
-\hat p_m(x)-\lambda
-\frac{\mathbb E[C_m]}{\max_j \mathbb E[C_j]}
-\right].
-\]
-
-The public artifact evaluated
-\(\lambda\in\{0,.01,.02,.05,.10,.20,.40,.80,1.60,3.20\}\) on calibration
-data. Each method–weight pair was compared with the best fixed calibration
-model. Its non-inferiority gate required the one-sided 95% lower bound on the
-paired quality difference to stay within 0.5 percentage points. Among passing
-policies, training selected the lowest expected cost, then higher success.
-The reusable trainer exposes the margin and defaults to one percentage point.
-
-The package lets only an exact, gate-passing method–weight pair route by
-default. An unevaluated weight or a policy that missed the gate falls back to
-the best fixed calibration model. If a request’s hard constraints also
-exclude that fallback, the router fails closed.
-
-The artifact stores the model cards, fitted weights, calibrators, cost curve,
-fallback, candidate gates, backend, seed, input hashes, and its own content
-hash. Loading verifies the hash before a decision is made.
-
-## Experiment 1: routing one-shot prompts
-
-Prompt-study costs use the benchmark's frozen cost field. They are comparable
-within this matrix, not to the later agent-cost totals.
-
-I began with the pinned public LLMRouterBench release. After enforcing a
-complete matrix, the data contained 151,554 outcomes: 11,658 prompts evaluated
-by 13 models from GPT, Claude, Gemini, DeepSeek, Qwen, Kimi, GLM, and Intern
-families.
-
-Seven datasets formed deterministic grouped train, calibration, and
-in-distribution test splits:
-
-| Split | Prompts | Purpose |
-|---|---:|---|
-| Train | 6,542 | Fit request-model estimators |
-| Calibration | 2,182 | Calibrate probabilities and select policy |
-| In-distribution test | 2,184 | Untouched comparison with fixed baselines |
-| ArenaHard transfer | 750 | Separate distribution-shift evaluation |
-
-All 13 outcomes for one prompt stayed in the same split. The primary metric
-was the equal-dataset macro score, so the largest dataset could not dominate
-the result.
-
-I compared every fixed model, random and frequency-matched routing,
-training-dataset lookup, independent hashed heads, the shared classifier,
-text k-nearest neighbors, calibrated gradient boosting, and the hindsight
-oracle.
+The grouped split used 6,542 prompts for fitting, 2,182 for calibration, and
+2,184 for an untouched in-distribution comparison. A separate 750-prompt
+ArenaHard set tested transfer. All 13 model outcomes for one prompt remained
+together.
 
 ![Discrete quality-cost operating points on 2,184 held-out prompts; the oracle is non-deployable.](assets/public-quality-cost.svg)
 
-The shared classifier produced the strongest reusable curve. At
-\(\lambda=0.10\), it scored 73.64% at $38.31. Fixed GPT-5 scored 73.52% at
-$56.52. The paired quality interval was −1.54 to +2.02 percentage points; the
-cost-saving interval was 28.64% to 35.92%.
+The shared classifier's most useful observed point scored 73.64% at $38.31.
+Fixed GPT-5 scored 73.52% at $56.52. Its paired quality interval was -1.54 to
++2.02 percentage points; the cost-saving interval was 28.64% to 35.92%.
 
-This point is secondary evidence because I selected it from the frozen curve
-after test scoring. The prespecified text-kNN primary scored 65.93%, below
-fixed GPT-5 at 73.52%, so I do not present the prompt result as a
-confirmatory win.
+That point was selected from the frozen curve after test scoring. It was not
+the prespecified primary configuration. The prespecified text-nearest-neighbor
+router scored 65.93%. I treat the shared-classifier point as a useful observed
+operating point, not proof that it will reproduce on arbitrary traffic.
 
-The curve taught me more than the single point:
+The curve exposed three things.
 
-1. Shared request-model structure was useful. It captured common task signals
-   without erasing model-specific behavior.
-2. Simple methods remained competitive enough that architecture alone did not
-   explain the result.
-3. The oracle gap was much larger than the differences among learned methods.
-   Better labels, model curation, and recall remain more valuable than a
-   slightly larger classifier.
+First, shared request-model structure helped. The router could learn common
+task signals without erasing model-specific behavior.
 
-On ArenaHard, the frozen shared artifact scored 69.33% versus GPT-5’s 69.66%,
-at 40.0% lower benchmark cost. GPT-5 was not the post-hoc best fixed model on
-that transfer set, so this is a comparison with the calibration-selected
-baseline, not best-model parity.
+Second, the oracle gap was much larger than the differences among learned
+methods. Better labels, pool curation, and model recall matter more than a
+slightly larger classifier.
 
-I also tested the same artifact on 400 ARC-AGI cases. Grid reasoning was absent
-from the training distribution. The router chose one low-cost Qwen model on
-399 cases and scored 25.25%, compared with GPT-5 at 52.00%.
+Third, probability calibration and distribution support are separate. On
+ArenaHard, the frozen shared artifact stayed close to the fixed GPT-5
+comparison at 40% lower benchmark cost. On 400 ARC-AGI grid tasks—absent from
+training—it collapsed onto one cheap model and lost substantial quality.
 
-That result defines a support boundary. Ordinary probability calibration is
-conditional on the calibration distribution. It does not detect every new
-task family. A production router needs a separate support estimate and an
-abstention path to the fixed strong model.
+The calibrator was answering, "How often is this score correct on represented
+data?" It was not answering, "Does this input resemble represented data?"
+A deployable router needs both questions and a strong fallback.
 
-## From prompt routing to agent routing
+## Coding agents change the decision
 
 A prompt router observes \(x\), chooses \(m\), and receives an outcome.
 
-A coding agent produces a trajectory:
+A coding agent creates a trajectory. At step \(t\), the router sees the issue,
+messages, tool results, recent errors, context use, and remaining budget:
 
 \[
 s_t=
@@ -486,8 +268,8 @@ x,
 \right).
 \]
 
-The router chooses model \(m_t\) from state \(s_t\). The model produces an
-action, the environment changes, and the router observes \(s_{t+1}\).
+It selects \(m_t\), the model produces action \(a_t\), and the environment
+returns a new state:
 
 \[
 m_t=\pi(s_t),\qquad
@@ -496,201 +278,182 @@ s_{t+1}=T(s_t,m_t,a_t).
 
 ![Per-call agent routing changes the state observed at the next decision.](assets/agent-state-loop.svg)
 
-This changes the evaluation. A fixed-Qwen trajectory is not a clean replay of
-what the routed policy would have seen. Different models issue different
-commands, consume different tokens, trigger different errors, and stop at
-different times. The terminal repository result must therefore be evaluated
-on-policy.
+This is why an agent router cannot be evaluated by replaying fixed-model
+transcripts. Different models issue different commands, consume different
+tokens, trigger different errors, and stop at different times. The routed and
+fixed policies must each run their own trajectory to a terminal repository
+state.
 
-It also changes the training input. The original issue text is no longer
-enough. The router needs the visible prefix: messages, tool calls, return
-codes, recent errors, context use, and step position. It must not use gold
-patches, grader tests, hidden reasoning, future messages, or terminal
-outcomes.
+It also changes the classifier input. The original issue is no longer enough.
+The router needs the visible prefix, but not gold patches, grader tests, future
+messages, or terminal outcomes.
 
-## The guarded per-call router
+## The policy I put inside the agent
 
-For the agent study, the eligible pair was GPT-OSS 20B as the cheap arm and
-Qwen3.6 35B-A3B as the strong arm. They had roughly a threefold list-price
-separation and both passed the same coding-agent harness checks.
+I used GPT-OSS 20B as the cheap arm and Qwen3.6 35B-A3B as the strong arm.
+They had roughly a threefold list-price separation and both passed the same
+tool and patch-submission checks.
 
-The binary classifier estimates
+The classifier estimates
 
 \[
 P(\text{needs strong model}\mid s_t).
 \]
 
-Its supervision came from the pinned
-[TwinRouterBench](https://github.com/CommonstackAI/TwinRouterBench) public
-question bank, not paired GPT-OSS/Qwen outcomes. TwinRouterBench assigns a
-target tier to each visible prefix. I mapped `target_tier_id == 0` to cheap and
-every higher tier to `needs strong`. This proxy asks whether a call needs more
-than the released low tier; it does not equate TwinRouterBench’s vendor pool
-with my two models. I used it because the labels attach to the same decision
-unit—one visible agent prefix—and left model-pair transfer to the development
-gate and held-out experiment.
+Its text representation includes the issue, recent messages, tool calls,
+return-code indicators, recent errors, step counts, approximate context
+length, and coarse code signals. A signed unigram/bigram hashing layer feeds a
+calibrated logistic classifier.
 
-It uses 16,384 signed hashed unigram and bigram features over a bounded text
-rendering of the visible state. The rendering includes:
+I trained the estimator on public TwinRouterBench prefixes. Its labels
+describe a target model tier, not paired GPT-OSS/Qwen outcomes, so I treated
+them as a proxy for whether a visible state needed more than the lowest tier.
+Repository-grouped fitting and calibration kept the held-out repository
+families separate.
 
-- the issue and recent message content;
-- tool calls, results, and return-code indicators;
-- step, message, tool-call, and tool-result counts;
-- approximate context length; and
-- coarse code and question signals.
+Repeated classification alone was too brittle. I wrapped it in four
+conservative trajectory guards:
 
-Training used grouped cross-validation so prefixes from one instance could not
-cross folds. The final logistic classifier was fit on 459 public rows and
-Platt-calibrated on 112 rows after excluding the held-out repository families.
+1. Start with two strong-model calls.
+2. Use the strong model above 24,000 visible context tokens.
+3. Stay strong for at least two calls after escalation.
+4. Allow at most two consecutive cheap-model calls.
 
-I selected the cheap threshold from 1,129 previously visible development
-prefixes without using their terminal task outcomes. The rule targeted
-meaningful cheap use and trajectory coverage. Four stateful guards covered
-risks absent from the training labels:
+The classifier could propose a cheap call. The guards could only override
+toward Qwen.
 
-1. Start every trajectory with two Qwen calls.
-2. Use Qwen when visible context exceeds 24,000 tokens.
-3. After escalating, keep Qwen for at least two calls.
-4. Allow at most two consecutive GPT-OSS calls.
+These rules encode risks that the public labels did not capture. The first
+calls establish a plan. Long contexts need the larger arm. A dwell period
+prevents oscillation. The burst limit stops a sequence of locally cheap
+decisions from controlling too much of the trajectory.
 
-On each eligible call, calibrated
-\(P(\text{needs strong}\mid s_t)\le 0.4737565\) proposes GPT-OSS; a higher
-value proposes Qwen. The guards can override only in the conservative
-direction, from GPT-OSS to Qwen.
+I froze the classifier, threshold, and guards after a 20-task development
+gate. The policy then moved to an untouched 60-task evaluation.
 
-These guards turn repeated classification into a policy with memory. The
-first calls establish a strong plan. The context guard protects long states.
-The dwell rule prevents rapid oscillation after escalation. The burst limit
-prevents a locally cheap decision from controlling too much of a trajectory.
+## The held-out agent result
 
-The 20-task development gate required official resolutions, nonzero cheap
-use, broad trajectory activation, structurally valid episodes, and no
-infrastructure failures. The frozen policy resolved 11/20, sent 11.19% of
-calls to GPT-OSS, used GPT-OSS on 16/20 trajectories, and passed every gate.
-No parameter changed after that run.
+Every task received three independent treatments under the same agent
+scaffold, tools, and 75-call limit:
 
-## Experiment 2: held-out coding-agent evaluation
+- fixed GPT-OSS 20B;
+- fixed Qwen3.6 35B; and
+- the guarded per-call router.
 
-I froze 60 previously unexecuted SWE-bench tasks. Every task received three
-separately executed, matched treatments:
+All 180 trajectories finished before official grades were opened.
 
-1. fixed GPT-OSS 20B;
-2. fixed Qwen3.6 35B; and
-3. the guarded per-call router.
-
-All treatments used the same mini-SWE-agent scaffold, tool interface, task
-ordinal, and 75-call limit. Treatment order was deterministically blocked by
-task. I completed all 180 episodes before opening official grades.
-
-Fifty tasks came from Astropy, Django, and Matplotlib. Those repository
-families were excluded from classifier fitting, calibration, and threshold
-selection. The other ten tasks covered five familiar repository families.
-
-Agent cost has two layers. Same-token repricing isolates the price saved on
-calls directly moved to GPT-OSS. The matched policy comparison also captures
-the commands, tokens, call counts, and stopping behavior caused by earlier
-model choices. I report both below.
+| Policy | Officially resolved | Conservative cost |
+|---|---:|---:|
+| Fixed GPT-OSS 20B | 13/60 | $9.53 |
+| Fixed Qwen3.6 35B | 24/60 | $30.98 |
+| Guarded router | 26/60 | $24.54 |
 
 ![Official resolutions versus conservative cost for three frozen policies on 60 matched tasks.](assets/agent-quality-cost.svg)
 
-| Policy | Submitted | Officially resolved | Conservative cost |
-|---|---:|---:|---:|
-| Fixed GPT-OSS 20B | 40/60 | 13/60 | $9.5290 |
-| Fixed Qwen3.6 35B | 42/60 | 24/60 | $30.9780 |
-| Guarded per-call router | 44/60 | 26/60 | $24.5376 |
+The router saved $6.44, or 20.79%, relative to fixed Qwen. Five tasks were
+router-only successes and three were Qwen-only. The paired cost-saving
+interval was 9.91% to 30.57%. The paired quality interval was -6.67 to +13.33
+percentage points.
 
-Against fixed Qwen, the router resolved two more tasks and saved $6.44, or
-20.79%. Five tasks were router-only successes and three were Qwen-only. The
-exact McNemar \(p\)-value was 0.7266, and the paired quality interval was
-−6.67 to +13.33 percentage points. The paired cost-saving interval was 9.91%
-to 30.57%.
+The observed quality difference is therefore not the main result. The cleaner
+comparison is the 50-task subgroup drawn from Astropy, Django, and Matplotlib,
+whose repository families were excluded from fitting. Both policies resolved
+22 tasks. The router saved 20.80%, with a paired cost-saving interval of
+11.34% to 30.13%.
 
-On the predeclared 50-task novel-repository subgroup, both policies resolved
-22. The router saved 20.80%, with a paired cost-saving interval of 11.34% to
-30.13%. Its quality interval was −10 to +10 points.
+Those 50 tasks still come from only three repositories. Equal-weighting the
+three repository results produces a weaker quality estimate with wide
+uncertainty. More task rows do not substitute for more repository diversity.
 
-The task-micro result weights each issue equally. Equal-weighting Astropy,
-Django, and Matplotlib gives a −6.05-point macro quality estimate, with only
-three repository clusters and a wide interval. Repository diversity matters;
-50 tasks from three projects do not represent coding work in general.
-
-### Activation audit
+The routing audit confirms that the policy did not save money by quietly
+falling back to one model.
 
 ![Mutually exclusive decision reasons for all 2,866 routed calls.](assets/agent-decision-audit.svg)
 
-The audit recorded 364 cheap calls across 56 trajectories, so the $6.44
-difference came from an active mixed-model policy.
+GPT-OSS handled 364 of 2,866 calls across 56 of 60 trajectories. Every
+trajectory satisfied all four guards.
 
-### Two meanings of cost saving
+## Why the savings are larger than cheap-call repricing
 
 The 364 GPT-OSS calls consumed 5.14 million input tokens and 112,429 output
-tokens. They cost $0.98. Pricing those exact tokens at Qwen’s rates gives
-$2.93, so direct substitution saved $1.95.
+tokens. They cost $0.98. Pricing those exact tokens at Qwen's rates gives
+$2.93. Direct substitution therefore saved $1.95.
 
-The full policy saved $6.44. The remaining difference came from changed
-commands, token counts, call counts, and stopping behavior. The router made
-2,866 calls; fixed Qwen made 3,226.
+The full routed policy saved $6.44.
 
-These answer different questions:
+The difference came from behavior. Earlier model choices changed commands,
+token counts, call counts, and stopping times. The router made 2,866 calls;
+fixed Qwen made 3,226.
 
-- **Same-token repricing:** how much did the cheaper model save on the calls
-  it directly replaced?
-- **Policy-level comparison:** how much did the entire routed trajectory cost
-  relative to an independently executed fixed policy?
+These are two distinct measurements:
 
-For agents, the second is the real product outcome. The first isolates the
-mechanical price effect.
+- **Same-token repricing** isolates the mechanical saving on calls moved to
+  the cheap model.
+- **Policy-level comparison** measures the total cost of independently
+  executed routed and fixed trajectories.
 
-## Three lessons from the experiments
+The second number is the product outcome. The first explains one of its
+mechanisms.
 
-### 1. Complementarity comes before classification
+This distinction matters whenever routing changes future work. It also
+explains why model switching cannot be evaluated only from list prices. Cache
+misses, longer prompts, retries, and changed stopping behavior belong in the
+policy comparison.
 
-The oracle measures the opportunity in the model pool. Fixed baselines measure
-its endpoints. The classifier can exploit only the structure between them.
-The useful target is model-relative success, and representative labels plus a
-well-curated pool can matter more than a more complex learner.
+## What public routers get right
 
-### 2. Calibration does not detect distribution support
+The most useful production descriptions do not reveal every classifier
+weight. They do reveal how the decision is divided.
 
-Calibration makes cross-model probabilities and quality-cost arithmetic
-meaningful on represented data. The ARC-AGI transfer showed the separate
-problem: high calibrated confidence can still occur on an unsupported task
-family. A production router needs both probability calibration and input
-support detection, with a fixed strong fallback.
+| System | Public design | The useful idea |
+|---|---|---|
+| [Cursor](https://cursor.com/blog/router) | Request and context features, task and model behavior, cache-aware evaluation, large online tests | Measure the product outcome, including cache effects |
+| [OpenRouter](https://openrouter.ai/docs/guides/routing/routers/auto-router) | Task classification, model ranking, allowlists, cost-quality control, fallbacks, session stickiness | Keep model choice separate from provider choice |
+| [Not Diamond](https://docs.notdiamond.ai/docs/routing-between-custom-models) | Routers trained from application outcomes across custom models or agents | Treat representative evaluation data as the interface |
+| [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing) | Online estimates of failure, latency, deadline risk, and relative cost | Learn runtime reliability separately from task fitness |
+| [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) | Domain, complexity, tool, privacy, and safety signals in a serving stack | Keep policy signals inspectable |
 
-### 3. Agent routing must be evaluated as an active policy
+Cursor reports online measurements and exposes user-facing modes such as
+Intelligence, Balance, and Cost. That is a quality-cost curve expressed as a
+product control. Its cache-aware evaluation is especially important for
+multi-call conversations.
 
-Changing one model call changes future state. Offline prefix replay can select
-a threshold, but it cannot replace on-policy terminal evaluation. Route
-counts, switches, guard reasons, same-token repricing, and complete trajectory
-cost are part of the result.
+OpenRouter's Auto route classifies the task and ranks models. Provider routing
+then chooses an endpoint for the selected model. This boundary prevents a
+temporary provider outage from changing the semantic definition of the task.
 
-## Use it: the open-source router
+Ramp solves a narrower operational problem. Given an acceptable list of
+models and service tiers, it updates failure and deadline estimates online and
+reorders the choices. That is not a semantic quality classifier. It is a
+runtime policy over already-approved options.
 
-The repository packages the reusable part of this work as an MIT-licensed,
-provider-neutral Python library.
+The designs converge on the same structure: representative feedback, a
+tunable objective, hard filters, fallbacks, online measurement, and a separate
+provider layer.
 
-A user supplies:
+## The open-source router
 
-- model cards with opaque IDs, providers, capabilities, context limits, and
-  prices;
+I packaged the reusable part as an MIT-licensed, provider-neutral Python
+library.
+
+The user supplies:
+
+- model cards with opaque IDs, capabilities, context limits, and prices;
 - a complete train/calibration outcome matrix;
 - an untouched evaluation matrix; and
-- the desired quality, cost, and fallback settings.
+- quality, cost, eligibility, and fallback settings.
 
-The package provides:
+The library provides:
 
-- independent and shared classifiers with per-model calibration;
-- quality, balanced, and cost policies with hard eligibility filters;
-- a one-sided non-inferiority gate, fixed fallback, and fail-closed behavior;
+- independent and shared estimators with per-model calibration;
+- quality, balanced, and cost policies;
+- hard capability filters and a one-sided quality gate;
+- abstention, fixed fallback, and fail-closed behavior;
 - content-hashed artifacts and auditable decisions;
-- prompt and visible-agent-state adapters plus a held-out evaluator; and
+- prompt and visible-agent-state adapters;
+- a held-out evaluator; and
 - an optional OpenAI-compatible proxy.
 
-The generic `SemanticAgentRouter` can route an arbitrary model pool from
-visible messages. The repository also retains the exact two-tier
-`GuardedAgentStepRouter` used in the SWE-bench study. The former is the public
-interface; the latter is a reproducible experimental policy.
+Training and routing happen locally:
 
 ```bash
 pip install -e ".[ml,proxy]"
@@ -704,67 +467,66 @@ budget-router semantic-route \
   --artifact outputs/semantic_router.json \
   --text "Debug a concurrent state-machine race" \
   --mode balanced
-
-budget-router semantic-evaluate \
-  --artifact outputs/semantic_router.json \
-  --outcomes examples/heldout.example.jsonl \
-  --output outputs/semantic_evaluation.json
 ```
 
-Routing is local and returns a model ID without importing a provider SDK. The
-proxy maps that ID to arbitrary OpenAI-compatible upstreams. Credential values
-remain in environment variables and are never stored in the artifact.
+The route command returns a model ID without importing a provider SDK. The
+proxy maps that ID to any OpenAI-compatible upstream. Credentials remain in
+environment variables and never enter the artifact.
 
-The package deliberately excludes zero-data model selection. A model without
-representative outcomes is not eligible until the artifact is retrained. New
-models, prices, prompts, tools, evaluators, or traffic distributions require a
-new artifact and a new held-out test.
+The generic `SemanticAgentRouter` handles arbitrary model pools from visible
+messages. The repository also contains the exact guarded two-model policy used
+for the held-out agent evaluation. One is the public framework; the other is a
+frozen example of an evaluated policy.
 
-## What I would test next
+The package does not guess about models with no data. A new candidate becomes
+eligible only after representative outcomes are added and a new artifact
+passes evaluation. New prices, tools, evaluators, or traffic distributions
+also deserve a new artifact.
 
-I would keep the completed cohorts sealed. Reusing their official labels for
-threshold tuning would turn the holdout into training data.
+## What I would build next
 
-The next study should evaluate a hierarchical agent policy:
+The next version should route at two timescales.
 
-1. Freeze a newer benchmark or time-disjoint repository cohort.
-2. Run cheap, medium, and strong fixed models with repeated trajectory seeds.
-3. Train a task-level prior over the model pool.
-4. Update that choice at each call from visible trajectory state.
-5. Add explicit support detection and a fixed fallback.
-6. Measure quality, cost, latency, cache loss, activation, and calibration.
-7. Open terminal grades only after every treatment finishes.
+A task-level router would choose an initial model from the issue, repository,
+tools, and expected work. A step-level router would revise that choice as the
+trajectory reveals errors, context growth, and progress.
 
-That design would answer the original question at two levels: choose an
-initial model for the task, then revise that choice as the agent learns more.
+I would evaluate that design on a newer or time-disjoint coding cohort with:
 
-The current result establishes the smaller claim cleanly. On one frozen
-coding-agent workload, calibrated per-call routing used the cheaper model on
-12.70% of calls and reduced conservative cost by 20.8%, with the same observed
-pass rate on the predeclared novel-repository subgroup.
+1. cheap, medium, and strong fixed baselines;
+2. repeated trajectory seeds;
+3. repository-level grouping;
+4. explicit input-support detection;
+5. quality, cost, latency, cache, and activation measurements; and
+6. terminal grading only after every policy finishes.
 
-## Reproducibility
+The central lesson is not that cheap models should handle easy work. It is
+that routing is a complete decision system. The model pool defines the
+opportunity. Outcome data teaches relative fitness. Calibration makes scores
+comparable. The policy prices tradeoffs. Constraints and abstention protect
+the boundary. On-policy evaluation determines whether the system actually
+worked.
 
-The [README](../README.md) contains the complete public API and quickstart.
-The [production guide](open_source_router.md) covers data preparation,
-deployment checks, and the proxy. The
-[active protocol](active_router_protocol.md) records the frozen study and
-amendments.
+On this workload, that system moved 12.70% of agent calls to a cheaper model
+and reduced conservative cost by about one fifth while matching the fixed
+strong model's observed result on the held-out repository-family subgroup.
+That is the result I wanted from a router: not a cheaper model in isolation,
+but a disciplined way to decide when to use it.
 
-Sanitized aggregate results are in
+## Code, data, and further reading
+
+The [README](../README.md) contains the API and quickstart. The
+[production guide](open_source_router.md) covers data preparation, deployment,
+and the proxy. The complete agent evidence remains in the
+[held-out evaluation report](agent_step_router_v2_final_report.md).
+
+Sanitized results are published in
 [`public_router_v1_results.json`](../artifacts/public_router_v1_results.json)
 and
 [`agent_step_router_v2_results.json`](../artifacts/agent_step_router_v2_results.json).
-The complete agent report is
-[`agent_step_router_v2_final_report.md`](agent_step_router_v2_final_report.md).
-Figure data and generation are published in
-[`public_router_v1_quality_cost_curves.json`](../artifacts/public_router_v1_quality_cost_curves.json)
-and
-[`generate_blog_figures.py`](../scripts/generate_blog_figures.py).
-The print-ready version is generated by
-[`render_technical_blog.sh`](../scripts/render_technical_blog.sh).
-
-## References
+The figures are generated from committed artifacts by
+[`generate_blog_figures.py`](../scripts/generate_blog_figures.py). The PDF is
+built with [`render_technical_blog.sh`](../scripts/render_technical_blog.sh).
 
 Research:
 [Shnitzer et al.](https://arxiv.org/abs/2309.15789);
@@ -774,10 +536,8 @@ Research:
 and [LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/).
 
 Production and agent routing:
-[Cursor Router](https://cursor.com/blog/router);
-[OpenRouter Auto Beta](https://openrouter.ai/docs/guides/routing/routers/auto-router)
-and its
-[model-versus-provider distinction](https://openrouter.ai/blog/insights/model-routing/);
+[Cursor](https://cursor.com/blog/router);
+[OpenRouter](https://openrouter.ai/docs/guides/routing/routers/auto-router);
 [Ramp](https://builders.ramp.com/post/thompson-sampling-model-routing);
 [Not Diamond](https://docs.notdiamond.ai/docs/routing-between-custom-models);
 [vLLM Semantic Router](https://github.com/vllm-project/semantic-router);

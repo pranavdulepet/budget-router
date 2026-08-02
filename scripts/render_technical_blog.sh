@@ -10,19 +10,18 @@ mkdir -p "$(dirname -- "$output_file")"
 # Fix human-readable PDF dates; XeLaTeX may still vary the internal trailer ID.
 export SOURCE_DATE_EPOCH=1785643200
 
-sed '1,8d' "$source_file" |
+awk '
+  found_byline { print }
+  /^\*Pranav Dulepet\*$/ { found_byline = 1; next }
+' "$source_file" |
   pandoc \
-    --from=markdown+tex_math_single_backslash \
+    --from=markdown-implicit_figures+tex_math_single_backslash \
     --to=pdf \
     --pdf-engine=xelatex \
     --resource-path="$repository_root/docs" \
-    --metadata title="What I learned building a model router for coding agents" \
-    --metadata subtitle="A technical guide to model selection, quality-cost curves, calibration, and per-call agent routing—backed by an open-source implementation and held-out SWE-bench evaluation" \
+    --metadata title="Building a model router that knows when to spend" \
+    --metadata subtitle="A practical deep dive into model selection, calibration, quality-cost curves, and per-call routing inside coding agents" \
     --metadata author="Pranav Dulepet" \
-    --toc \
-    --toc-depth=2 \
-    --number-sections \
-    --shift-heading-level-by=-1 \
     -V papersize=letter \
     -V geometry:margin=0.78in \
     -V fontsize=10pt \
@@ -30,7 +29,7 @@ sed '1,8d' "$source_file" |
     -V linkcolor=blue \
     -V urlcolor=blue \
     -V toccolor=black \
-    -V linestretch=1.08 \
+    -V linestretch=1.04 \
     -o "$output_file"
 
 printf '%s\n' "$output_file"
