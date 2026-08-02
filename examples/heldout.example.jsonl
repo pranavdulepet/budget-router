@@ -1,0 +1,4 @@
+{"request_id":"test-1","text":"Summarize these release notes in three bullets.","model":"local/cheap-model","acceptable":true,"cost_usd":0.001,"group":"summarization","input_tokens":120,"output_tokens":60}
+{"request_id":"test-1","text":"Summarize these release notes in three bullets.","model":"cloud/strong-model","acceptable":true,"cost_usd":0.03,"group":"summarization","input_tokens":120,"output_tokens":60}
+{"request_id":"test-2","text":"Find and repair a concurrency bug in this state machine.","model":"local/cheap-model","acceptable":false,"cost_usd":0.003,"group":"coding","input_tokens":800,"output_tokens":300}
+{"request_id":"test-2","text":"Find and repair a concurrency bug in this state machine.","model":"cloud/strong-model","acceptable":true,"cost_usd":0.08,"group":"coding","input_tokens":800,"output_tokens":300}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "budget-router-results-v1",
+  "benchmark": "SWE-bench Verified",
+  "grader": {
+    "harness_commit": "f7bbbb2ccdf479001d6467c9e34af59e44a840f9",
+    "dataset_sha256": "e0afd44653d31d3da6adc5b04bb3af38800cd9aec13af6c21bd93d012d008076"
+  },
+  "source_record_sha256": {
+    "agent_step_router_v2_results.json": "98bb74461aff9061a256d5a6c34cc8e7c4562a6ab8d41a3a616994b342579879"
+  },
+  "models": {
+    "cheap": "openai-gpt-oss-20b",
+    "strong": "Qwen3.6-35B-A3B"
+  },
+  "novel_repository_primary": {
+    "tasks": 50,
+    "router_resolved": 22,
+    "fixed_strong_resolved": 22,
+    "router_cost_usd": 20.60867424,
+    "fixed_strong_cost_usd": 26.02170357,
+    "cost_saving_fraction": 0.20801979068889992,
+    "quality_difference_95ci": [-0.1, 0.1],
+    "cost_saving_fraction_95ci": [
+      0.11343747270221975,
+      0.301269070241194
+    ]
+  },
+  "full_operational_set": {
+    "tasks": 60,
+    "router_resolved": 26,
+    "fixed_strong_resolved": 24,
+    "router_cost_usd": 24.53760681,
+    "fixed_strong_cost_usd": 30.977961915,
+    "cost_saving_fraction": 0.20790118867960394,
+    "quality_difference_95ci": [
+      -0.06666666666666667,
+      0.13333333333333333
+    ],
+    "cost_saving_fraction_95ci": [
+      0.0991341057862219,
+      0.3057411895740944
+    ],
+    "router_calls": 2866,
+    "cheap_calls": 364,
+    "trajectories_with_cheap_call": 56
+  },
+  "scope": "One frozen coding-agent workload; not a universal quality or leaderboard claim."
+}

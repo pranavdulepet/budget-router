@@ -1,0 +1,8 @@
+{"request_id":"train-1","text":"Summarize this short paragraph.","model":"local/cheap-model","acceptable":true,"split":"train","cost_usd":0.001,"group":"summarization"}
+{"request_id":"train-1","text":"Summarize this short paragraph.","model":"cloud/strong-model","acceptable":true,"split":"train","cost_usd":0.03,"group":"summarization"}
+{"request_id":"train-2","text":"Prove the stated combinatorics identity.","model":"local/cheap-model","acceptable":false,"split":"train","cost_usd":0.002,"group":"reasoning"}
+{"request_id":"train-2","text":"Prove the stated combinatorics identity.","model":"cloud/strong-model","acceptable":true,"split":"train","cost_usd":0.06,"group":"reasoning"}
+{"request_id":"cal-1","text":"Extract three fields as JSON.","model":"local/cheap-model","acceptable":true,"split":"calibration","cost_usd":0.001,"group":"extraction"}
+{"request_id":"cal-1","text":"Extract three fields as JSON.","model":"cloud/strong-model","acceptable":true,"split":"calibration","cost_usd":0.03,"group":"extraction"}
+{"request_id":"cal-2","text":"Debug a subtle concurrent state-machine race.","model":"local/cheap-model","acceptable":false,"split":"calibration","cost_usd":0.003,"group":"coding"}
+{"request_id":"cal-2","text":"Debug a subtle concurrent state-machine race.","model":"cloud/strong-model","acceptable":true,"split":"calibration","cost_usd":0.08,"group":"coding"}

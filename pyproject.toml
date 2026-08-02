@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "budget-router"
+version = "0.1.0"
+description = "Train and serve calibrated, provider-neutral model routers"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "Pranav Dulepet" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "typer>=0.12,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/pranavdulepet/budget-router"
+Repository = "https://github.com/pranavdulepet/budget-router"
+Documentation = "https://github.com/pranavdulepet/budget-router#readme"
+Issues = "https://github.com/pranavdulepet/budget-router/issues"
+Changelog = "https://github.com/pranavdulepet/budget-router/releases"
+
+[project.optional-dependencies]
+ml = ["scikit-learn>=1.9,<2"]
+proxy = ["fastapi>=0.116,<1", "httpx>=0.28,<1", "uvicorn>=0.35,<1"]
+test = [
+  "build>=1.2",
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "pytest>=8",
+  "ruff>=0.12,<1",
+  "scikit-learn>=1.9,<2",
+]
+all = [
+  "scikit-learn>=1.9,<2",
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "uvicorn>=0.35,<1",
+]
+
+[project.scripts]
+budget-router = "budget_router.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/budget_router"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/.github",
+  "/examples",
+  "/results",
+  "/src",
+  "/tests",
+  "/LICENSE",
+  "/README.md",
+  "/pyproject.toml",
+]
+exclude = [
+  "/.venv",
+  "/dist",
+  "/outputs",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

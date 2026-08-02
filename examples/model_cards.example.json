@@ -1,0 +1,28 @@
+{
+  "models": [
+    {
+      "name": "local/cheap-model",
+      "provider": "local",
+      "expected_cost_usd": 0.002,
+      "input_cost_per_million_usd": 0.05,
+      "output_cost_per_million_usd": 0.15,
+      "context_tokens": 32768,
+      "capabilities": ["text", "json"],
+      "metadata": {
+        "tier": "cheap"
+      }
+    },
+    {
+      "name": "cloud/strong-model",
+      "provider": "cloud",
+      "expected_cost_usd": 0.05,
+      "input_cost_per_million_usd": 2.0,
+      "output_cost_per_million_usd": 8.0,
+      "context_tokens": 131072,
+      "capabilities": ["text", "json", "tools"],
+      "metadata": {
+        "tier": "frontier"
+      }
+    }
+  ]
+}
