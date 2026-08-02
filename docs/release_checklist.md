@@ -15,8 +15,8 @@
   agent-step v2, three-tier compatibility, and Kimi qualification studies.
 - Article, four deterministic SVG figures, Medium-ready PNG exports,
   aggregate figure data, README, and production guide.
-- CI jobs for the full suite, documented quickstart, package build, archive
-  privacy check, and clean wheel import.
+- CI jobs for the 201-test fresh-clone suite, documented quickstart, package
+  build, archive privacy check, and clean wheel import.
 - Local full suite: 211 tests passed.
 - Local wheel and source archive rebuilt from current source.
 - Source archive excludes top-level `data/`, `logs/`, and `outputs/`, plus raw

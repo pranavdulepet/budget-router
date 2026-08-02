@@ -2,10 +2,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from scripts.export_active_router_predictions import export_predictions
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.local_research
 
 
 def test_canonical_cheap_screen_export_is_complete(tmp_path: Path) -> None:

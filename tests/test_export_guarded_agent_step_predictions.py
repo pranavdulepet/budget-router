@@ -14,6 +14,7 @@ from scripts.run_guarded_agent_step_followup import ROUTED
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.local_research
 
 
 def test_development_export_requires_every_canonical_episode(

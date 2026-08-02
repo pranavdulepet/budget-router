@@ -3,12 +3,15 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from budget_router.agent_step import FrozenAgentStepArtifact
 from budget_router.serialization import stable_json
 from scripts.export_agent_step_predictions import LABELS, export_predictions
 from scripts.run_agent_step_study import HELDOUT_POLICIES
 
 ROOT = Path(__file__).parents[1]
+pytestmark = pytest.mark.local_research
 
 
 def test_export_requires_and_materializes_complete_policy_matrix(

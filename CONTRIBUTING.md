@@ -16,6 +16,11 @@ python -m pytest
 budget-router --help
 ```
 
+`python -m pytest -m "not local_research"` reproduces the fresh-clone CI
+suite. Tests marked `local_research` require ignored benchmark inputs, frozen
+run outputs, or the optional agent runner; they must never be made portable by
+committing private run state.
+
 Provider and coding-runner dependencies are optional:
 
 ```bash

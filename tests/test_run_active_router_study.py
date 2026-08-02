@@ -113,6 +113,7 @@ def test_amendment_invalidates_only_the_pre_repair_nano_episode() -> None:
     assert plan["stage_exposure_usd"] == Decimal("0.286")
 
 
+@pytest.mark.local_research
 def test_screen_exclusion_removes_nano_from_future_plan() -> None:
     protocol = _json("artifacts/active_router_protocol.json")
     manifest = _json("artifacts/active_router_task_manifest.json")
@@ -142,6 +143,7 @@ def test_screen_exclusion_removes_nano_from_future_plan() -> None:
     assert plan["maximum_pending_cost_usd"] == Decimal("1.10")
 
 
+@pytest.mark.local_research
 def test_interrupted_reservations_are_conservatively_counted() -> None:
     path = ROOT / "outputs/active_router_v1/interrupted_exposure.json"
     assert _interrupted_exposure(path) == Decimal("4.80")

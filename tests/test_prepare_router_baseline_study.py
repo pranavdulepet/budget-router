@@ -4,7 +4,11 @@ from collections import Counter
 from decimal import Decimal
 from pathlib import Path
 
+import pytest
+
 from scripts.prepare_router_baseline_study import prepare_study
+
+pytestmark = pytest.mark.local_research
 
 
 def test_frozen_router_study_has_disjoint_balanced_cohorts() -> None:

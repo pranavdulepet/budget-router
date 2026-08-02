@@ -1,9 +1,12 @@
 from pathlib import Path
 
+import pytest
+
 from scripts.publish_public_router_results import publish
 
 
 ROOT = Path(__file__).parents[1]
+pytestmark = pytest.mark.local_research
 
 
 def test_publish_public_router_results_is_sanitized_and_consistent(

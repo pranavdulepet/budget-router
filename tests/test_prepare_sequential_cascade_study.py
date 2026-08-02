@@ -3,8 +3,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from budget_router.serialization import read_jsonl, stable_hash
 from scripts.prepare_sequential_cascade_study import build_protocol
+
+pytestmark = pytest.mark.local_research
 
 
 def test_cascade_protocol_fits_the_frozen_budget_and_pins_inputs() -> None:

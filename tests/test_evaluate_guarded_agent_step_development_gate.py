@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from budget_router.guarded_agent_step import GuardedAgentStepArtifact
 from scripts.evaluate_guarded_agent_step_development_gate import (
     evaluate_development_gate,
@@ -12,6 +14,7 @@ from scripts.run_guarded_agent_step_followup import ROUTED
 
 
 ROOT = Path(__file__).resolve().parents[1]
+pytestmark = pytest.mark.local_research
 
 
 def test_development_gate_requires_activation_quality_and_grader_health() -> None:

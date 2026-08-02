@@ -343,10 +343,16 @@ artifacts under `artifacts/` are the public record.
 ```bash
 pip install -e ".[test]"
 python -m pytest
+python -m pytest -m "not local_research"
 python -m budget_router --help
 python scripts/generate_blog_figures.py
 python -m build
 ```
+
+The complete local suite contains 211 tests. Ten tests carry the
+`local_research` marker because they validate ignored benchmark data, frozen
+run outputs, or other private study state. Hosted CI runs the remaining 201
+fresh-clone tests, then exercises the quickstart and clean wheel separately.
 
 Build and inspect the distributions:
 
@@ -355,9 +361,9 @@ python -m build
 tar -tzf dist/budget_router-0.1.0.tar.gz
 ```
 
-CI runs the complete test suite, the self-contained quickstart, a clean wheel
-import, and a source-archive check that rejects raw logs, patches, test output,
-and local run directories.
+CI runs the fresh-clone test suite, the self-contained quickstart, a clean
+wheel import, and a source-archive check that rejects raw logs, patches, test
+output, and local run directories.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the
 [release checklist](docs/release_checklist.md).

@@ -4,6 +4,8 @@ import json
 from decimal import Decimal
 from pathlib import Path
 
+import pytest
+
 from scripts.run_sequential_cascade_study import (
     cascade_exposure,
     load_protocol,
@@ -29,6 +31,7 @@ def _paths(root: Path) -> dict[str, Path]:
     }
 
 
+@pytest.mark.local_research
 def test_full_cascade_plan_reserves_all_twenty_paired_episodes() -> None:
     root = Path(__file__).parents[1]
     protocol = load_protocol(
