@@ -21,7 +21,7 @@ sent almost every unfamiliar ARC-AGI request to the cheapest model and lost
 26.75 quality points. Our first router inside a coding agent sent all 1,129
 calls to the stronger model. It protected quality but did not route.
 
-The failed runs exposed different bugs:
+The five experiments separated working policies from mechanism failures:
 
 | Experiment | Evidence status | Quality result | Cost result | Mechanism |
 |---|---|---:|---:|---|

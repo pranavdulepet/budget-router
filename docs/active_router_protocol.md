@@ -1,6 +1,6 @@
 # Active protocol: classifier-centered open model router
 
-Status: **normative; completed through Amendment 012; further Tinker
+Status: **normative; completed through Amendment 013; further Tinker
 strong-candidate search stopped**
 
 Study ID: `open-router-study-2026-07-29-v1`

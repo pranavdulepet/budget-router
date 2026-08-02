@@ -10,7 +10,7 @@ redistribution terms.
 
 - `active_router_protocol.json` and `.sha256`: machine-readable lock and hash.
 - `active_router_protocol_amendment_001_*.json` through
-  `active_router_protocol_amendment_012_*.json`: ordered changes and gates.
+  `active_router_protocol_amendment_013_*.json`: ordered changes and gates.
 - `active_router_task_manifest.json`,
   `agent_step_followup_v2_task_manifest.json`, and
   `quality_cost_v1_task_manifest.json`: frozen task identities without gold
