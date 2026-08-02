@@ -17,7 +17,6 @@ from budget_router.serialization import read_jsonl
 try:
     from scripts.export_agent_step_predictions import LABELS
     from scripts.run_agent_step_study import (
-        FIXED_CHEAP,
         FIXED_STRONG,
         HELDOUT_POLICIES,
         ROUTED,
@@ -25,7 +24,6 @@ try:
 except ModuleNotFoundError:
     from export_agent_step_predictions import LABELS  # type: ignore[no-redef]
     from run_agent_step_study import (  # type: ignore[no-redef]
-        FIXED_CHEAP,
         FIXED_STRONG,
         HELDOUT_POLICIES,
         ROUTED,

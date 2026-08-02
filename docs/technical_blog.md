@@ -21,7 +21,7 @@ sent almost every unfamiliar ARC-AGI request to the cheapest model and lost
 26.75 quality points. Our first router inside a coding agent sent all 1,129
 calls to the stronger model. It protected quality but did not route.
 
-Those failures define the design:
+The failed runs exposed different bugs:
 
 | Experiment | Evidence status | Quality result | Cost result | Mechanism |
 |---|---|---:|---:|---|
@@ -56,8 +56,8 @@ separate policy.*
 
 ## What production routers reveal
 
-The public descriptions differ in implementation but repeatedly separate
-semantic model choice from runtime constraints.
+Their implementations differ. Their public descriptions share one boundary:
+model selection is separate from execution.
 
 | System | Semantic decision | Runtime decision | Public lesson |
 |---|---|---|---|
@@ -75,18 +75,17 @@ error-rate change in its production experiment.
 OpenRouter’s current Auto Beta is also distinct from its deprecated
 Not Diamond-powered auto router. The current system classifies requests into
 roughly 30 task types, considers recent model usage, and exposes a
-cost-quality control. The repeated structure has three layers: semantic
-signals, an explicit selection policy, and a separate execution runtime.
+cost-quality control.
 
 Our implementation follows that separation. It provides calibrated semantic
 selection, hard constraints, inspectable artifacts, agent-prefix rendering,
 and an OpenAI-compatible proxy. It does not replace provider-health routing
 or online drift detection.
 
-The classifier paradigm is not new. The contribution is a provider-neutral
-implementation and a study that follows routing from one-shot prompts into
-individual agent calls, including cases where the apparent result and the
-actual routing mechanism disagreed.
+The classifier paradigm is not new. This project contributes a
+provider-neutral implementation and traces the idea from one-shot prompts to
+individual agent calls. It also audits whether the intended mechanism
+actually activated.
 
 [Shnitzer et al.](https://arxiv.org/abs/2309.15789) formulate multi-model
 routing as binary prediction, while
@@ -164,10 +163,10 @@ confirmatory result.
 terminal outcomes and is not deployable.*
 
 The oracle reached 87.70%, 14.18 points above fixed GPT-5, at $8.96 rather
-than $56.52. The learned routers recovered only part of that gap. This agrees
-with [LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/):
-simple baselines remain strong, model recall is difficult, and larger pools
-do not automatically produce better routing.
+than $56.52. The learned routers recovered only part of that gap.
+[LLMRouterBench](https://aclanthology.org/2026.findings-acl.1881/) reports the
+same broad problem: simple baselines remain strong, model recall is difficult,
+and larger pools do not automatically produce better routing.
 
 Distribution shift exposed the more serious limit.
 
@@ -246,13 +245,12 @@ learned to choose between tiers from a public question bank with
 execution-verified labels. It was not trained on the 60 held-out SWE-bench
 outcomes. The guards encoded risks that the training data did not represent.
 
-An active 20-task development gate then required official resolution,
-nonzero cheap use, sufficient trajectory coverage, and no infrastructure
-failures. The unchanged artifact passed. We froze 60 previously unexecuted
-tasks and completed fixed GPT-OSS, fixed Qwen, and router treatments before
-opening any official grades. Fifty tasks came from Astropy, Django, and
-Matplotlib, repository families excluded from fitting and threshold
-selection.
+A 20-task development gate required official resolution, nonzero cheap use,
+sufficient trajectory coverage, and no infrastructure failures. The unchanged
+artifact passed. We then froze 60 unexecuted tasks and completed all three
+treatments before opening official grades. Fifty tasks came from Astropy,
+Django, and Matplotlib, repository families excluded from fitting and
+threshold selection.
 
 ![Official resolutions versus conservative cost for fixed GPT-OSS, fixed Qwen, and the guarded agent router.](assets/agent-quality-cost.svg)
 

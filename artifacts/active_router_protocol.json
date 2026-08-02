@@ -1,7 +1,7 @@
 {
   "schema_version": "active-router-protocol-v1",
   "study_id": "open-router-study-2026-07-29-v1",
-  "status": "normative_completed_amendment_012_tinker_strong_search_stopped",
+  "status": "normative_completed_amendment_013_tinker_strong_search_stopped",
   "effective_date": "2026-07-30",
   "human_protocol": "docs/active_router_protocol.md",
   "active_amendments": [
@@ -16,7 +16,8 @@
     "artifacts/active_router_protocol_amendment_009_three_tier_quality_cost.json",
     "artifacts/active_router_protocol_amendment_010_task_block_image_lifecycle.json",
     "artifacts/active_router_protocol_amendment_011_kimi128_strong_qualification.json",
-    "artifacts/active_router_protocol_amendment_012_terminal_workspace_capture.json"
+    "artifacts/active_router_protocol_amendment_012_terminal_workspace_capture.json",
+    "artifacts/active_router_protocol_amendment_013_mit_license.json"
   ],
   "objective": {
     "blog": "Explain production router designs and report reproducible static and temporal router experiments.",
@@ -62,6 +63,14 @@
     "tracked_diff_command": "git diff --binary --no-ext-diff HEAD --",
     "persist_separately_from_explicit_submission": true,
     "historical_primary_outcomes_changed": false,
+    "paid_inference_authorized": false
+  },
+  "repository_license": {
+    "amendment": "artifacts/active_router_protocol_amendment_013_mit_license.json",
+    "license": "MIT",
+    "applies_to": "original_project_code_documentation_and_original_artifacts",
+    "third_party_terms_unchanged": true,
+    "scientific_design_changed": false,
     "paid_inference_authorized": false
   },
   "candidate_groups": {

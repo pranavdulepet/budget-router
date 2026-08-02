@@ -5,7 +5,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from .pricing import PriceSnapshot
-from .trace import RouterTrace, TraceWriter
+from .trace import TraceWriter
 from .types import TokenUsage
 
 
@@ -65,4 +65,3 @@ def replay(
         snapshot_id=prices.snapshot_id,
         deterministic=deterministic and violations == 0,
     )
-

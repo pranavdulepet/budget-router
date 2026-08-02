@@ -163,8 +163,8 @@ selection.
 Keep test rows in a separate file. `semantic-evaluate` uses the same schema
 without `split`. Add `input_tokens` and `output_tokens` to each request when
 model cards use token prices, or supply global estimates on the command line.
-The evaluation type is deliberately distinct from the training type so
-held-out labels cannot be passed to the trainer accidentally.
+Training and evaluation use different input types, preventing held-out labels
+from entering the trainer accidentally.
 
 ## Python API
 
@@ -332,7 +332,8 @@ Key records:
 - [agent-step v1 results](artifacts/agent_step_router_v1_results.json);
 - [guarded agent-step v2 results](artifacts/agent_step_router_v2_results.json);
 - [agent-step v2 report](docs/agent_step_router_v2_final_report.md);
-- [open-source production guide](docs/open_source_router.md).
+- [production guide](docs/open_source_router.md);
+- [documentation index](docs/README.md).
 
 The `outputs/`, `logs/`, and benchmark `data/` directories are local research
 state and are excluded from source distributions. Sanitized aggregate
@@ -349,9 +350,9 @@ python scripts/generate_blog_figures.py
 python -m build
 ```
 
-The complete local suite contains 211 tests. Ten tests carry the
+The complete local suite contains 212 tests. Ten tests carry the
 `local_research` marker because they validate ignored benchmark data, frozen
-run outputs, or other private study state. Hosted CI runs the remaining 201
+run outputs, or other private study state. Hosted CI runs the remaining 202
 fresh-clone tests, then exercises the quickstart and clean wheel separately.
 
 Build and inspect the distributions:
@@ -370,4 +371,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

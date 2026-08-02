@@ -551,7 +551,7 @@ except ImportError:  # pragma: no cover - used in dependency-free source checkou
 if typer is not None:
     app = typer.Typer(
         name="budget-router",
-        help="Budget-aware model routing for coding agents.",
+        help="Train, evaluate, and serve provider-neutral model routers.",
         no_args_is_help=True,
     )
 
